@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 5: Staff Handoff & Clinic Alert | Buildicy AI Receptionist Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            medGreen: '#0B7A4B',
+            waGreen: '#25D366',
+            waDarkGreen: '#075E54',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+  <div id="loom-navbar-container"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8 flex flex-col items-center justify-center">
+
+    <div class="mb-5 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold bg-white text-slate-700 px-3.5 py-1.5 rounded-full border border-slate-200 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Screen 5 of 6: Zero-Effort Front Desk Handoff & Real-time Staff Alert</span>
+      </span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="w-full space-y-6">
+
+      <!-- Top Staff Notification Banner (Simulated Front Desk WhatsApp / Telegram Alert) -->
+      <div class="card-luxury p-5 rounded-2xl bg-white border border-emerald-200 shadow-md">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md shrink-0">
+              <i data-lucide="bell-ring" class="w-5 h-5 animate-bounce"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-darkNavy uppercase tracking-wider">Front Desk Instant Alert</span>
+                <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">WhatsApp Internal Group</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-700 font-semibold mt-0.5" id="staffAlertText">
+                🚨 New appointment booked: Cleaning, Tomorrow 3 PM, Customer: Priya, Phone: 98XXXXXX21
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 self-start sm:self-center">
+            <span class="text-[11px] text-slate-500 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Logged 10 sec ago</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clinic Appointments Queue Table -->
+      <div class="card-luxury rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm">
+        
+        <div class="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h2 class="text-base font-bold font-heading text-darkNavy flex items-center gap-2">
+              <i data-lucide="calendar" class="w-4 h-4 text-emerald-600"></i>
+              <span>Clinic Appointments Queue — Today & Tomorrow</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Real-time appointments captured automatically by Buildicy AI Receptionist.</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-lg font-semibold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>100% Calendar Synced</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-700">
+            <thead class="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">Patient</th>
+                <th class="py-3 px-4">Service</th>
+                <th class="py-3 px-4">Scheduled Slot</th>
+                <th class="py-3 px-4">Practitioner</th>
+                <th class="py-3 px-4">Contact Phone</th>
+                <th class="py-3 px-4">Intake Source</th>
+                <th class="py-3 px-4 text-right">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              
+              <!-- Highlighted New Appointment (From Screen 1-4) -->
+              <tr class="bg-emerald-50/50 hover:bg-emerald-50 transition">
+                <td class="py-3.5 px-4 font-bold text-darkNavy flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] font-bold">P</div>
+                  <span id="rowPatientName">Priya Sharma</span>
+                  <span class="text-[9px] bg-emerald-600 text-white px-1.5 py-0.5 rounded font-bold">NEW</span>
+                </td>
+                <td class="py-3.5 px-4 font-semibold text-emerald-800" id="rowService">Dental Cleaning & Polish</td>
+                <td class="py-3.5 px-4 font-bold text-darkNavy" id="rowSlot">Tomorrow, 3:00 PM</td>
+                <td class="py-3.5 px-4 text-slate-600" id="rowDoctor">Dr. Aravind Swaminathan</td>
+                <td class="py-3.5 px-4 font-mono text-slate-500" id="rowPhone">9876543221</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-flex items-center gap-1 text-[11px] text-emerald-700 bg-white border border-emerald-200 px-2 py-0.5 rounded-full font-semibold">
+                    <i data-lucide="bot" class="w-3 h-3"></i> AI WhatsApp
+                  </span>
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">
+                    <i data-lucide="check-circle" class="w-3 h-3"></i> Confirmed
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Additional sample appointments -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3.5 px-4 font-bold text-darkNavy flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-[10px] font-bold">K</div>
+                  <span>Karthik Raman</span>
+                </td>
+                <td class="py-3.5 px-4 text-slate-600">Root Canal Consultation</td>
+                <td class="py-3.5 px-4 text-slate-700">Tomorrow, 11:30 AM</td>
+                <td class="py-3.5 px-4 text-slate-600" id="rowDoctor2">Dr. Aravind Swaminathan</td>
+                <td class="py-3.5 px-4 font-mono text-slate-500">9840112233</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-flex items-center gap-1 text-[11px] text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-full font-semibold">
+                    <i data-lucide="phone-incoming" class="w-3 h-3"></i> AI Voice Call
+                  </span>
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">
+                    <i data-lucide="check-circle" class="w-3 h-3"></i> Confirmed
+                  </span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3.5 px-4 font-bold text-darkNavy flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-[10px] font-bold">M</div>
+                  <span>Meera Nambiar</span>
+                </td>
+                <td class="py-3.5 px-4 text-slate-600">Braces & Aligners Scoping</td>
+                <td class="py-3.5 px-4 text-slate-700">Today, 5:15 PM</td>
+                <td class="py-3.5 px-4 text-slate-600" id="rowDoctor3">Dr. Aravind Swaminathan</td>
+                <td class="py-3.5 px-4 font-mono text-slate-500">9884567890</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-flex items-center gap-1 text-[11px] text-emerald-700 bg-white border border-emerald-200 px-2 py-0.5 rounded-full font-semibold">
+                    <i data-lucide="bot" class="w-3 h-3"></i> AI WhatsApp
+                  </span>
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">
+                    <i data-lucide="check-circle" class="w-3 h-3"></i> Confirmed
+                  </span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- Bottom Next Navigation -->
+      <div class="flex items-center justify-between pt-2">
+        <a href="screen4.html" class="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-semibold flex items-center gap-1.5 transition">
+          <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+          <span>Back to Confirmation</span>
+        </a>
+
+        <a href="screen6.html" onclick="playClickSound()" class="px-6 py-3 rounded-xl bg-darkNavy hover:bg-navySurface text-white text-xs font-bold flex items-center gap-2 shadow-lg shadow-darkNavy/20 transition group">
+          <span>Continue to Screen 6: Receptionist Dashboard</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderLoomNavbar(5);
+
+      const cfg = window.DEMO_CONFIG || {};
+      const patient = (typeof getPatientData === 'function') ? getPatientData() : getDefaultPatient();
+
+      const docName = cfg.dentistName || "Dr. Aravind Swaminathan";
+      const pName = patient.name || "Priya Sharma";
+      const pPhone = patient.phone || "9876543221";
+      const maskedPhone = pPhone.length > 5 ? pPhone.substring(0, 2) + "XXXXXX" + pPhone.substring(pPhone.length - 2) : pPhone;
+      const sInterest = patient.serviceInterest || "Dental Cleaning";
+      const slot = patient.selectedSlot || "Tomorrow, 3:00 PM";
+
+      // Interpolate alert
+      document.getElementById('staffAlertText').innerHTML = `
+        🚨 <strong>New appointment booked:</strong> ${sInterest}, ${slot}, Customer: <strong>${pName.split(' ')[0]}</strong>, Phone: <strong>${maskedPhone}</strong>
+      `;
+
+      document.getElementById('rowPatientName').textContent = pName;
+      document.getElementById('rowService').textContent = sInterest;
+      document.getElementById('rowSlot').textContent = slot;
+      document.getElementById('rowPhone').textContent = maskedPhone;
+      document.getElementById('rowDoctor').textContent = docName;
+      document.getElementById('rowDoctor2').textContent = docName;
+      document.getElementById('rowDoctor3').textContent = docName;
+
+      playNotificationChime();
+
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

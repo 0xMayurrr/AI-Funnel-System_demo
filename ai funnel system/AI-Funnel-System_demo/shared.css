@@ -1,0 +1,206 @@
+/* shared.css - Ultra-Premium Design System for Buildicy AI Funnel Simulation */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --wa-green: #25D366;
+  --wa-green-hover: #1EBE5D;
+  --wa-teal: #008069;
+  --wa-dark-teal: #075E54;
+  --wa-light-green: #D9FDD3;
+  --wa-chat-bg: #EFEAE2;
+  --dark-navy: #0B1F3A;
+  --navy-surface: #102A4E;
+  --slate-body: #F8FAFC;
+  --card-border: #E2E8F0;
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #F8FAFC;
+  color: #0F172A;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Subtle luxury dot mesh canvas background */
+.ambient-canvas {
+  background-color: #F8FAFC;
+  background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphism panels */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+/* Luxury card shadow */
+.card-luxury {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 20px 40px -15px rgba(11, 31, 58, 0.07);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-luxury:hover {
+  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.08), 0 25px 45px -15px rgba(11, 31, 58, 0.1);
+}
+
+/* iPhone 16 Pro Titanium Mockup Frame */
+.iphone-frame {
+  width: 375px;
+  height: 740px;
+  background: #1E293B;
+  border-radius: 50px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 
+    0 0 0 1.5px #475569,
+    0 25px 60px -12px rgba(11, 31, 58, 0.35),
+    0 10px 25px -5px rgba(0, 0, 0, 0.2),
+    0 0 40px -10px rgba(37, 211, 102, 0.2);
+  margin: 0 auto;
+}
+
+/* Dynamic Island */
+.dynamic-island {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 105px;
+  height: 26px;
+  background: #000000;
+  border-radius: 20px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 9px;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.dynamic-island .camera-lens {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #111827;
+  border: 1px solid #374151;
+}
+
+/* Screen bezel inside phone */
+.iphone-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 42px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-col: column;
+  background: var(--wa-chat-bg);
+}
+
+/* WhatsApp Wallpaper */
+.wa-wallpaper {
+  background-color: #EFEAE2;
+  background-image: radial-gradient(#d3cbbd 0.75px, transparent 0.75px), radial-gradient(#d3cbbd 0.75px, #EFEAE2 0.75px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Message Bubble Animation */
+.bubble-in {
+  animation: bubblePop 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes bubblePop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Primary Button Glow */
+.btn-primary-glow {
+  background: linear-gradient(135deg, #25D366 0%, #10B981 100%);
+  color: #0B1F3A;
+  font-weight: 700;
+  box-shadow: 0 6px 20px -4px rgba(37, 211, 102, 0.45);
+  transition: all 0.2s ease;
+}
+
+.btn-primary-glow:hover {
+  background: linear-gradient(135deg, #1EBE5D 0%, #059669 100%);
+  transform: translateY(-1.5px);
+  box-shadow: 0 10px 25px -4px rgba(37, 211, 102, 0.55);
+}
+
+.btn-primary-glow:active {
+  transform: translateY(0);
+}
+
+/* Custom luxury scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Loom presenter banner */
+.loom-banner {
+  background: linear-gradient(90deg, #0B1F3A 0%, #16355F 100%);
+  color: #FFFFFF;
+}
+
+/* Step navigation badge states */
+.step-nav-item {
+  transition: all 0.2s ease;
+}
+
+.step-nav-item.active {
+  background: #0B1F3A;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(11, 31, 58, 0.15);
+}
+
+.step-nav-item.active .badge-num {
+  background: #25D366;
+  color: #0B1F3A;
+}
+
+.step-nav-item.completed .badge-num {
+  background: #10B981;
+  color: #FFFFFF;
+}
+

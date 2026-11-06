@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buildicy Interactive Demos — Client Showcase Hub</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            waGreen: '#25D366',
+            waDarkGreen: '#075E54',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    .ambient-canvas {
+      background-color: #F8FAFC;
+      background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
+    }
+    .card-luxury {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 20px 40px -15px rgba(11, 31, 58, 0.07);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-luxury:hover {
+      box-shadow: 0 18px 40px -5px rgba(15, 23, 42, 0.08), 0 25px 50px -15px rgba(11, 31, 58, 0.12);
+      transform: translateY(-3px);
+    }
+    .btn-glow {
+      background: #25D366;
+      transition: all 0.2s ease;
+    }
+    .btn-glow:hover {
+      background: #1EBE5D;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+    }
+  </style>
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/90 shadow-sm bg-white/95 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-darkNavy to-navySurface p-2 flex items-center justify-center shadow-sm">
+          <i data-lucide="sparkles" class="w-5 h-5 text-waGreen"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-heading font-bold text-lg text-darkNavy tracking-tight">Buildicy</span>
+            <span class="text-[10px] bg-emerald-50 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full border border-emerald-200">Interactive Demos</span>
+          </div>
+          <p class="text-[11px] text-slate-500">Production-Ready Client Pitch Showcase Hub</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 text-xs">
+        <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-semibold border border-slate-200 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>3 Standalone Prototypes Live</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SHOWCASE HERO -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-8 sm:py-12 space-y-10">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-800 text-xs font-bold border border-blue-200">
+        <i data-lucide="zap" class="w-3.5 h-3.5 text-blue-600"></i>
+        <span>High-Converting Frontend Prototypes</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-darkNavy tracking-tight leading-tight">
+        Buildicy AI Solutions Showcase
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Select a standalone interactive demo below to experience the end-to-end user flow. Each prototype includes realistic simulations, automated guided workflows, and a dedicated <strong>Admin Control Panel</strong> to customize business categories for client presentations.
+      </p>
+    </div>
+
+    <!-- 3 INTERACTIVE DEMO CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+
+      <!-- CARD 1: AI FUNNEL SYSTEM -->
+      <div class="card-luxury rounded-3xl p-6 flex flex-col justify-between border-t-4 border-t-blue-600">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+              Demo 1 • Inbound Growth
+            </span>
+            <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center">
+              <i data-lucide="filter" class="w-5 h-5"></i>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold font-heading text-darkNavy">AI Funnel System</h2>
+            <p class="text-xs font-semibold text-blue-700 mt-0.5">“Turn visitors into qualified booked calls 24/7.”</p>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              Automated high-ticket qualification engine: website intake assessment, instant WhatsApp qualification, calendar sync, counsellor/director push alert, and CRM telemetry.
+            </p>
+          </div>
+
+          <!-- 6-Screen Stepper Preview -->
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-1.5 text-[11px] text-slate-600">
+            <div class="font-bold text-darkNavy uppercase text-[10px] tracking-wider mb-1">6-Screen Client Journey:</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[9px] font-bold">1</span> Free Assessment Intake Form</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[9px] font-bold">2</span> WhatsApp 2-Second AI Welcome</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[9px] font-bold">3</span> Real-Time AI Qualification Layer</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[9px] font-bold">4</span> 1-on-1 Strategy Session Booking</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[9px] font-bold">5</span> Director Push Alert & CRM Registry</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[9px] font-bold">6</span> Executive Analytics Dashboard</div>
+          </div>
+        </div>
+
+        <div class="pt-5 border-t border-slate-100 space-y-2 mt-5">
+          <a href="ai funnel system/AI-Funnel-System_demo/screen1.html" class="w-full py-3 px-4 btn-glow text-darkNavy font-bold font-heading rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm">
+            <span>Launch AI Funnel Demo</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <div class="text-center text-[11px] text-slate-400 pt-1">
+            <span>Interactive Client Prototype • 6-Step Inbound Flow</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: AI RECEPTIONIST -->
+      <div class="card-luxury rounded-3xl p-6 flex flex-col justify-between border-t-4 border-t-emerald-600">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+              Demo 2 • Voice & Chat Front Desk
+            </span>
+            <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center">
+              <i data-lucide="phone-call" class="w-5 h-5"></i>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold font-heading text-darkNavy">AI Receptionist</h2>
+            <p class="text-xs font-semibold text-emerald-700 mt-0.5">“Never miss a call or WhatsApp enquiry again.”</p>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              24/7 intelligent front-desk receptionist: handles incoming customer calls & WhatsApp messages, schedules appointments, routes human handoffs, and eliminates after-hours drop-off.
+            </p>
+          </div>
+
+          <!-- 6-Screen Stepper Preview -->
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-1.5 text-[11px] text-slate-600">
+            <div class="font-bold text-darkNavy uppercase text-[10px] tracking-wider mb-1">6-Screen Reception Flow:</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px] font-bold">1</span> Incoming Call & WhatsApp Ping</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px] font-bold">2</span> AI Receptionist Greet & Triage</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px] font-bold">3</span> Live Slot Availability Matching</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px] font-bold">4</span> Patient Booking Confirmation</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px] font-bold">5</span> Clinic Staff Alert & Active Queue</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px] font-bold">6</span> Receptionist Operational Dashboard</div>
+          </div>
+        </div>
+
+        <div class="pt-5 border-t border-slate-100 space-y-2 mt-5">
+          <a href="ai-receptionist-demo/screen1.html" class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold font-heading rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition">
+            <span>Launch AI Receptionist Demo</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <div class="text-center text-[11px] text-slate-400 pt-1">
+            <span>Interactive Client Prototype • 24/7 Front-Desk Intake</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: AI AUTOMATION -->
+      <div class="card-luxury rounded-3xl p-6 flex flex-col justify-between border-t-4 border-t-indigo-600">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">
+              Demo 3 • Back-Office Automation
+            </span>
+            <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-bold font-heading text-darkNavy">AI Automation</h2>
+            <p class="text-xs font-semibold text-indigo-700 mt-0.5">“Automate repetitive work and save hours every week.”</p>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              Turnkey workflow engine: triggers on documents or webhooks, extracts and validates structured data with AI, updates ERP/databases, and notifies team channels in seconds.
+            </p>
+          </div>
+
+          <!-- 6-Screen Stepper Preview -->
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-1.5 text-[11px] text-slate-600">
+            <div class="font-bold text-darkNavy uppercase text-[10px] tracking-wider mb-1">6-Screen Automation Workflow:</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[9px] font-bold">1</span> Invoice Webhook Trigger Event</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[9px] font-bold">2</span> Multi-Step AI OCR & Validation</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[9px] font-bold">3</span> 15m vs 20s Before/After Comparison</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[9px] font-bold">4</span> Slack & Team Approval Notification</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[9px] font-bold">5</span> Real-Time Operational Audit Log</div>
+            <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[9px] font-bold">6</span> Executive Operations Dashboard</div>
+          </div>
+        </div>
+
+        <div class="pt-5 border-t border-slate-100 space-y-2 mt-5">
+          <a href="ai-automation-demo/screen1.html" class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold font-heading rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition">
+            <span>Launch AI Automation Demo</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <div class="text-center text-[11px] text-slate-400 pt-1">
+            <span>Interactive Client Prototype • Turnkey Back-Office Pipelines</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VALUE PROPOSITION CALLOUT -->
+    <div class="card-luxury p-6 rounded-3xl bg-white border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-darkNavy text-base font-heading">Frontend Interactive Simulations</h3>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Zero third-party API dependencies or live webhooks required. Runs completely locally on modern browser state with simulated audio, typing indicators, and local persistence.
+          </p>
+        </div>
+      </div>
+      <div class="text-xs text-slate-400 font-semibold shrink-0">
+        Built by <strong class="text-darkNavy">Buildicy — AI Growth Systems Studio</strong>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
+    <p>© 2026 Buildicy — AI Growth Systems Studio. All rights reserved. Interactive Client Demos.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

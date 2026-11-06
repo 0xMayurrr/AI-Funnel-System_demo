@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 6: Automation Executive Dashboard | Buildicy AI Automation Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            corpBlue: '#1E3A8A',
+            corpBlueLight: '#2563EB',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+  <div id="loom-navbar-container"></div>
+
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-8 space-y-6">
+
+    <!-- Top Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-900 text-xs font-bold border border-blue-200 mb-1.5">
+          <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 text-blue-600"></i>
+          <span>Operations Automation Intelligence</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold font-heading text-darkNavy tracking-tight">
+          <span id="dashBusinessTitle">Nexa Logistics</span> — Executive Workflow Dashboard
+        </h1>
+        <p class="text-slate-600 text-xs sm:text-sm">Consolidated efficiency telemetry across autonomous document parsing, routing, and ERP sync.</p>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <span class="text-xs bg-emerald-100 text-emerald-900 border border-emerald-200 px-3 py-1.5 rounded-xl font-bold flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>8 Workers Online</span>
+        </span>
+        <a href="admin.html" class="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200 flex items-center gap-1.5 transition">
+          <i data-lucide="settings" class="w-3.5 h-3.5"></i>
+          <span>Admin Settings</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 Core Required Metrics Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      
+      <!-- Metric 1: Tasks Automated -->
+      <div class="card-luxury p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider">Tasks Automated</span>
+          <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center">
+            <i data-lucide="check-check" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-3xl font-black font-heading text-darkNavy" id="metricTasks">1,420</div>
+        <div class="text-[10px] text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+          <span>&uarr; 32% this month</span>
+        </div>
+      </div>
+
+      <!-- Metric 2: Hours Saved -->
+      <div class="card-luxury p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider">Hours Saved</span>
+          <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center">
+            <i data-lucide="clock" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-3xl font-black font-heading text-emerald-950" id="metricHours">184 hrs</div>
+        <div class="text-[10px] text-slate-500 font-semibold mt-1 flex items-center gap-1">
+          <span>Equivalent to 1.2 FTEs</span>
+        </div>
+      </div>
+
+      <!-- Metric 3: Errors Reduced -->
+      <div class="card-luxury p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider">Errors Reduced</span>
+          <div class="w-8 h-8 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-3xl font-black font-heading text-darkNavy" id="metricErrors">99.4%</div>
+        <div class="text-[10px] text-purple-700 font-semibold mt-1 flex items-center gap-1">
+          <span>Zero manual retyping</span>
+        </div>
+      </div>
+
+      <!-- Metric 4: Active Workflows -->
+      <div class="card-luxury p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider">Active Workflows</span>
+          <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-3xl font-black font-heading text-darkNavy" id="metricWorkflows">8</div>
+        <div class="text-[10px] text-amber-700 font-semibold mt-1 flex items-center gap-1">
+          <span>100% cloud running</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Active Workflows List & ROI Comparison -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Left Column: Required Workflow List -->
+      <div class="lg:col-span-7">
+        <div class="card-luxury rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden h-full flex flex-col">
+          
+          <div class="p-5 border-b border-slate-200 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4 text-blue-600"></i>
+              <h2 class="text-sm font-bold font-heading text-darkNavy">Active Back-Office Workflows</h2>
+            </div>
+            <span class="text-[11px] text-slate-500">Live Health: Normal</span>
+          </div>
+
+          <div class="p-4 space-y-3 flex-1 overflow-y-auto">
+            
+            <!-- Workflow 1: Invoice Processing (Required) -->
+            <div class="p-3.5 rounded-2xl bg-blue-50/60 border border-blue-200/80 flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                  <i data-lucide="file-text" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-darkNavy text-xs">Invoice Processing</h3>
+                  <p class="text-[11px] text-slate-500">Inbound email OCR, 3-way PO match, SAP ledger post</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-mono font-bold text-emerald-700">20s avg</span>
+                <span class="block text-[10px] text-slate-400">148 runs today</span>
+              </div>
+            </div>
+
+            <!-- Workflow 2: Lead Assignment (Required) -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">
+                  <i data-lucide="user-plus" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-darkNavy text-xs">Lead Assignment</h3>
+                  <p class="text-[11px] text-slate-500">Web form capture, deal sizing, round-robin CRM assignment</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-mono font-bold text-emerald-700">4s avg</span>
+                <span class="block text-[10px] text-slate-400">86 runs today</span>
+              </div>
+            </div>
+
+            <!-- Workflow 3: Report Generation (Required) -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs">
+                  <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-darkNavy text-xs">Report Generation</h3>
+                  <p class="text-[11px] text-slate-500">Nightly telematics query, variance audit, executive PDF email</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-mono font-bold text-emerald-700">45s avg</span>
+                <span class="block text-[10px] text-slate-400">1 run daily</span>
+              </div>
+            </div>
+
+            <!-- Workflow 4: Follow-up Emails (Required) -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xs">
+                  <i data-lucide="mail-check" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-darkNavy text-xs">Follow-up Emails</h3>
+                  <p class="text-[11px] text-slate-500">Missing doc reminders, payment advice notes, client check-ins</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-mono font-bold text-emerald-700">3s avg</span>
+                <span class="block text-[10px] text-slate-400">34 runs today</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+            <span class="text-xs text-slate-500">Restart demonstration flow?</span>
+            <button onclick="handleResetDemo()" class="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-bold text-xs flex items-center gap-1.5 transition">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              <span>Reset & Replay</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Cost Savings & Industry Preset Switcher -->
+      <div class="lg:col-span-5 space-y-4">
+        
+        <!-- ROI Card -->
+        <div class="card-luxury p-6 rounded-3xl bg-gradient-to-br from-slate-900 via-blue-950 to-darkNavy text-white shadow-xl relative overflow-hidden">
+          <div class="absolute -right-12 -bottom-12 w-48 h-48 rounded-full bg-blue-500/10 blur-2xl"></div>
+
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-300 flex items-center gap-1.5 mb-2">
+            <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i>
+            <span>Monthly Impact Realized</span>
+          </span>
+
+          <div class="text-3xl font-extrabold font-heading text-white mb-2">
+            ₹2,45,000 Saved / Mo
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed mb-4">
+            By shifting high-frequency data entry, OCR validation, and reconciliation from manual labor to Buildicy AI, clients achieve a 12x ROI within the first 30 days.
+          </p>
+
+          <div class="space-y-2 text-xs">
+            <div class="flex items-center justify-between p-2 rounded-xl bg-white/10 border border-white/10">
+              <span class="text-slate-300">Throughput Increase:</span>
+              <span class="font-bold text-emerald-300">450% higher volume</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-xl bg-white/10 border border-white/10">
+              <span class="text-slate-300">Vendor Dispute Rate:</span>
+              <span class="font-bold text-white">Dropped from 6% to 0.1%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preset Switcher Card -->
+        <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200 text-xs space-y-3">
+          <div class="font-bold text-darkNavy flex items-center gap-1.5">
+            <i data-lucide="sliders" class="w-4 h-4 text-blue-600"></i>
+            <span>Test with Other Enterprise Workflows</span>
+          </div>
+          <p class="text-slate-500 text-[11px]">Click any preset to re-render all 6 screens for that workflow:</p>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="selectAutomationPreset('logistics')" class="p-2 rounded-xl border border-blue-500 bg-blue-50 text-blue-950 font-bold text-left text-[11px]">
+              <span>🚛 Freight Logistics</span>
+            </button>
+            <button onclick="selectAutomationPreset('invoicing')" class="p-2 rounded-xl border border-slate-200 hover:border-blue-500 text-slate-700 font-semibold text-left text-[11px]">
+              <span>💳 Accounts Payable</span>
+            </button>
+            <button onclick="selectAutomationPreset('ecommerce')" class="p-2 rounded-xl border border-slate-200 hover:border-blue-500 text-slate-700 font-semibold text-left text-[11px]">
+              <span>📦 E-Com Returns</span>
+            </button>
+            <button onclick="selectAutomationPreset('hronboarding')" class="p-2 rounded-xl border border-slate-200 hover:border-blue-500 text-slate-700 font-semibold text-left text-[11px]">
+              <span>👥 HR Onboarding</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Core Promise Required Footer Callout -->
+    <div class="p-8 rounded-3xl bg-blue-950 text-white text-center space-y-3 shadow-xl relative overflow-hidden">
+      <div class="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 mx-auto flex items-center justify-center">
+        <i data-lucide="cpu" class="w-5 h-5 text-blue-300"></i>
+      </div>
+      <h2 class="text-2xl font-black font-heading text-white">
+        Turn repetitive work into automated workflows.
+      </h2>
+      <p class="text-blue-100/90 text-xs sm:text-sm max-w-xl mx-auto">
+        Buildicy AI Automation gives fast-growing companies autonomous pipelines for invoicing, lead qualification, and reporting, unlocking thousands of hours for high-value strategic work.
+      </p>
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+        <a href="../index.html" class="px-5 py-2.5 rounded-xl bg-white text-blue-950 font-bold text-xs hover:bg-blue-50 transition shadow-md">
+          Explore All 3 Interactive Demos
+        </a>
+        <button onclick="openAutomationCategoryModal()" class="px-5 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-xs border border-blue-700 transition">
+          Switch Workflow Category
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderLoomNavbar(6);
+
+      const cfg = window.DEMO_CONFIG || {};
+      const bName = cfg.businessName || "Nexa Logistics";
+
+      document.getElementById('dashBusinessTitle').textContent = bName;
+
+      if (cfg.dashboardMetrics) {
+        if (cfg.dashboardMetrics.tasksAutomated) document.getElementById('metricTasks').textContent = cfg.dashboardMetrics.tasksAutomated;
+        if (cfg.dashboardMetrics.hoursSaved) document.getElementById('metricHours').textContent = cfg.dashboardMetrics.hoursSaved;
+        if (cfg.dashboardMetrics.errorsReduced) document.getElementById('metricErrors').textContent = cfg.dashboardMetrics.errorsReduced;
+        if (cfg.dashboardMetrics.activeWorkflows) document.getElementById('metricWorkflows').textContent = cfg.dashboardMetrics.activeWorkflows;
+      }
+
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

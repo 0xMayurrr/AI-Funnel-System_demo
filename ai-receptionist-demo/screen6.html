@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 6: Receptionist Intelligence Dashboard | Buildicy AI Receptionist Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            medGreen: '#0B7A4B',
+            waGreen: '#25D366',
+            waDarkGreen: '#075E54',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+  <div id="loom-navbar-container"></div>
+
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-8 space-y-6">
+
+    <!-- Top Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 mb-1.5">
+          <i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>Live Operations Telemetry</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold font-heading text-darkNavy tracking-tight">
+          <span id="dashClinicTitle">Bright Smile Dental Clinic</span> — Front Desk Telemetry
+        </h1>
+        <p class="text-slate-600 text-xs sm:text-sm">Real-time performance across omni-channel phone calls, WhatsApp messages, and calendar bookings.</p>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <span class="text-xs bg-emerald-100 text-emerald-900 border border-emerald-200 px-3 py-1.5 rounded-xl font-bold flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>AI Active 24/7/365</span>
+        </span>
+        <a href="admin.html" class="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200 flex items-center gap-1.5 transition">
+          <i data-lucide="settings" class="w-3.5 h-3.5"></i>
+          <span>Admin Settings</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 5 Core Metrics Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3.5">
+      
+      <!-- Metric 1: Calls Answered -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider">Calls Answered</span>
+          <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-black font-heading text-darkNavy" id="metricCalls">48</div>
+        <div class="text-[10px] text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+          <span>&uarr; 100% Zero Missed</span>
+        </div>
+      </div>
+
+      <!-- Metric 2: WhatsApp Chats Handled -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider">WhatsApp Chats</span>
+          <div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-black font-heading text-darkNavy" id="metricChats">64</div>
+        <div class="text-[10px] text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+          <span>Avg speed: 1.8s</span>
+        </div>
+      </div>
+
+      <!-- Metric 3: Appointments Booked -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-emerald-200 shadow-xs bg-emerald-50/20">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-800">Booked</span>
+          <div class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center shadow-xs">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-black font-heading text-emerald-950" id="metricBooked">22</div>
+        <div class="text-[10px] text-emerald-700 font-semibold mt-1 flex items-center gap-1">
+          <span>46% Conversation Conv.</span>
+        </div>
+      </div>
+
+      <!-- Metric 4: No-Shows Prevented -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider">No-Shows Prevented</span>
+          <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-black font-heading text-darkNavy" id="metricNoShows">100%</div>
+        <div class="text-[10px] text-slate-500 font-semibold mt-1 flex items-center gap-1">
+          <span>WhatsApp Reminders</span>
+        </div>
+      </div>
+
+      <!-- Metric 5: Human Handoffs -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200 shadow-xs col-span-2 md:col-span-1">
+        <div class="flex items-center justify-between text-slate-400 mb-2">
+          <span class="text-[11px] font-semibold uppercase tracking-wider">Human Handoffs</span>
+          <div class="w-7 h-7 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center">
+            <i data-lucide="user-check" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-black font-heading text-darkNavy" id="metricHandoffs">3</div>
+        <div class="text-[10px] text-slate-500 font-semibold mt-1 flex items-center gap-1">
+          <span>Complex cases only</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Highlight Section: After-Hours Coverage & Recent Conversations Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Left Column: After-Hours Coverage Highlight -->
+      <div class="lg:col-span-5 space-y-4">
+        
+        <div class="card-luxury p-6 rounded-3xl bg-gradient-to-br from-slate-900 to-darkNavy text-white shadow-xl relative overflow-hidden">
+          <div class="absolute -right-12 -bottom-12 w-48 h-48 rounded-full bg-emerald-500/10 blur-2xl"></div>
+
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+              <i data-lucide="moon" class="w-4 h-4"></i>
+              <span>After-Hours Coverage</span>
+            </span>
+            <span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full border border-white/20">7 PM – 8 AM</span>
+          </div>
+
+          <div class="text-3xl font-extrabold font-heading text-white mb-2">
+            64% Enquiries Captured
+          </div>
+          <p class="text-slate-300 text-xs leading-relaxed mb-4">
+            Most patients look for dental or wellness appointments after their work shift or during weekends when physical clinics are closed. Buildicy captures them before they call your competitors.
+          </p>
+
+          <div class="space-y-2 text-xs">
+            <div class="flex items-center justify-between p-2 rounded-xl bg-white/10 border border-white/10">
+              <span class="text-slate-300">Revenue Protected:</span>
+              <span class="font-bold text-emerald-300">₹88,000 / week</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-xl bg-white/10 border border-white/10">
+              <span class="text-slate-300">Average AI Resolution:</span>
+              <span class="font-bold text-white">4 minutes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preset Switcher Card -->
+        <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200 text-xs space-y-3">
+          <div class="font-bold text-darkNavy flex items-center gap-1.5">
+            <i data-lucide="briefcase" class="w-4 h-4 text-emerald-600"></i>
+            <span>Test with Other Industry Profiles</span>
+          </div>
+          <p class="text-slate-500 text-[11px]">Click any preset to re-render all 6 screens for that industry:</p>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="selectReceptionistPreset('dental')" class="p-2 rounded-xl border border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-left text-[11px] flex items-center gap-1.5">
+              <span>🦷 Dental Clinic</span>
+            </button>
+            <button onclick="selectReceptionistPreset('medspa')" class="p-2 rounded-xl border border-slate-200 hover:border-emerald-500 text-slate-700 font-semibold text-left text-[11px] flex items-center gap-1.5">
+              <span>✨ MedSpa & Skin</span>
+            </button>
+            <button onclick="selectReceptionistPreset('veterinary')" class="p-2 rounded-xl border border-slate-200 hover:border-emerald-500 text-slate-700 font-semibold text-left text-[11px] flex items-center gap-1.5">
+              <span>🐾 Pet Hospital</span>
+            </button>
+            <button onclick="selectReceptionistPreset('lawfirm')" class="p-2 rounded-xl border border-slate-200 hover:border-emerald-500 text-slate-700 font-semibold text-left text-[11px] flex items-center gap-1.5">
+              <span>⚖️ Law Firm Intake</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Recent Conversations Feed -->
+      <div class="lg:col-span-7">
+        <div class="card-luxury rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden h-full flex flex-col">
+          
+          <div class="p-5 border-b border-slate-200 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <i data-lucide="messages-square" class="w-4 h-4 text-emerald-600"></i>
+              <h3 class="font-bold font-heading text-sm text-darkNavy">Recent AI Conversations Stream</h3>
+            </div>
+            <span class="text-[11px] text-slate-500">Live Feed</span>
+          </div>
+
+          <div class="p-4 space-y-3 flex-1 overflow-y-auto">
+            
+            <!-- Conversation Item 1: Priya (Just Booked) -->
+            <div class="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 space-y-1.5">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-darkNavy flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span id="recentPatientName">Priya Sharma</span>
+                </span>
+                <span class="text-[10px] text-slate-400">Just now &bull; WhatsApp</span>
+              </div>
+              <p class="text-xs text-slate-600" id="recentPatientSummary">
+                Booked <strong>Dental Cleaning & Polish</strong> for Tomorrow at 3:00 PM. Calendar sync sent.
+              </p>
+              <div class="flex items-center gap-2 pt-1 text-[10px]">
+                <span class="bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold">Slot Booked</span>
+                <span class="text-slate-400">Duration: 1m 40s</span>
+              </div>
+            </div>
+
+            <!-- Conversation Item 2: Rahul -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-darkNavy">Rahul Verma</span>
+                <span class="text-[10px] text-slate-400">18 mins ago &bull; Inbound Call</span>
+              </div>
+              <p class="text-xs text-slate-600">
+                Inquired about Root Canal procedure pricing and insurance coverage. AI provided fee range and scheduled callback.
+              </p>
+              <div class="flex items-center gap-2 pt-1 text-[10px]">
+                <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-bold">Price Inquiry</span>
+                <span class="text-slate-400">Duration: 2m 12s</span>
+              </div>
+            </div>
+
+            <!-- Conversation Item 3: Deepa -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-darkNavy">Deepa Menon</span>
+                <span class="text-[10px] text-slate-400">42 mins ago &bull; WhatsApp</span>
+              </div>
+              <p class="text-xs text-slate-600">
+                Rescheduled existing teeth whitening appointment from Friday to Saturday 4 PM without front desk intervention.
+              </p>
+              <div class="flex items-center gap-2 pt-1 text-[10px]">
+                <span class="bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full font-bold">Self-Service Reschedule</span>
+                <span class="text-slate-400">Duration: 45s</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Action in Card -->
+          <div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+            <span class="text-xs text-slate-500">Want to test from the beginning?</span>
+            <button onclick="handleResetDemo()" class="px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-bold text-xs flex items-center gap-1.5 shadow-xs transition">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              <span>Restart Interactive Demo</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Core Promise Footer Callout -->
+    <div class="p-8 rounded-3xl bg-emerald-900 text-white text-center space-y-3 shadow-xl relative overflow-hidden">
+      <div class="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 mx-auto flex items-center justify-center">
+        <i data-lucide="check-check" class="w-5 h-5 text-emerald-300"></i>
+      </div>
+      <h2 class="text-2xl font-black font-heading text-white">
+        Never miss a customer enquiry again.
+      </h2>
+      <p class="text-emerald-100/90 text-xs sm:text-sm max-w-xl mx-auto">
+        Buildicy AI Receptionist gives local clinics, law firms, and service agencies 24/7 instant response across phone calls and WhatsApp, turning lost queries into booked revenue.
+      </p>
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+        <a href="../index.html" class="px-5 py-2.5 rounded-xl bg-white text-emerald-950 font-bold text-xs hover:bg-emerald-50 transition shadow-md">
+          Explore All 3 Interactive Demos
+        </a>
+        <button onclick="openReceptionistCategoryModal()" class="px-5 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs border border-emerald-600 transition">
+          Switch Business Category
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderLoomNavbar(6);
+
+      const cfg = window.DEMO_CONFIG || {};
+      const patient = (typeof getPatientData === 'function') ? getPatientData() : getDefaultPatient();
+
+      const bName = cfg.businessName || "Bright Smile Dental Clinic";
+      const pName = patient.name || "Priya Sharma";
+      const sInterest = patient.serviceInterest || "Dental Cleaning & Polish";
+      const slot = patient.selectedSlot || "Tomorrow, 3:00 PM";
+
+      document.getElementById('dashClinicTitle').textContent = bName;
+      document.getElementById('recentPatientName').textContent = pName;
+      document.getElementById('recentPatientSummary').innerHTML = `
+        Booked <strong>${sInterest}</strong> for <strong>${slot}</strong>. Calendar sync sent automatically.
+      `;
+
+      if (cfg.dashboardMetrics) {
+        if (cfg.dashboardMetrics.callsAnswered) document.getElementById('metricCalls').textContent = cfg.dashboardMetrics.callsAnswered;
+        if (cfg.dashboardMetrics.whatsappChats) document.getElementById('metricChats').textContent = cfg.dashboardMetrics.whatsappChats;
+        if (cfg.dashboardMetrics.appointmentsBooked) document.getElementById('metricBooked').textContent = cfg.dashboardMetrics.appointmentsBooked;
+        if (cfg.dashboardMetrics.noShowsPrevented) document.getElementById('metricNoShows').textContent = cfg.dashboardMetrics.noShowsPrevented;
+        if (cfg.dashboardMetrics.humanHandoffs) document.getElementById('metricHandoffs').textContent = cfg.dashboardMetrics.humanHandoffs;
+      }
+
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

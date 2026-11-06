@@ -1,0 +1,144 @@
+/* shared.css - Buildicy AI Receptionist Design System */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --wa-green: #0B7A4B;
+  --wa-green-hover: #08613B;
+  --wa-teal: #0D9488;
+  --wa-dark-teal: #064E3B;
+  --wa-light-green: #E8F5E9;
+  --wa-chat-bg: #EFEAE2;
+  --dark-navy: #0B1F3A;
+  --navy-surface: #102A4E;
+  --card-border: #E2E8F0;
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #F8FAFC;
+  color: #0F172A;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+.ambient-canvas {
+  background-color: #F8FAFC;
+  background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.card-luxury {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 20px 40px -15px rgba(11, 31, 58, 0.07);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-luxury:hover {
+  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.08), 0 25px 45px -15px rgba(11, 31, 58, 0.1);
+}
+
+.btn-primary-glow {
+  background: #0B7A4B;
+  color: #FFFFFF;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-primary-glow:hover {
+  background: #08613B;
+  box-shadow: 0 0 20px rgba(11, 122, 75, 0.4);
+}
+
+/* iPhone 16 Pro Frame */
+.iphone-frame {
+  width: 375px;
+  height: 740px;
+  background: #1E293B;
+  border-radius: 50px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 
+    0 0 0 1.5px #475569,
+    0 25px 60px -12px rgba(11, 31, 58, 0.35),
+    0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.dynamic-island {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 105px;
+  height: 26px;
+  background: #000000;
+  border-radius: 20px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 9px;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.camera-lens {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #1E293B;
+  border: 1px solid #334155;
+}
+
+.iphone-screen {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border-radius: 42px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-wallpaper {
+  background-color: #EFEAE2;
+  background-image: radial-gradient(#d3cbbd 0.75px, transparent 0.75px), radial-gradient(#d3cbbd 0.75px, #EFEAE2 0.75px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+.step-nav-item.active {
+  background: #0B7A4B;
+  color: #FFFFFF;
+}
+
+.step-nav-item.completed {
+  color: #0B7A4B;
+}
+
+/* Call Pulsing Animation */
+@keyframes callRing {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(11, 122, 75, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(11, 122, 75, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(11, 122, 75, 0); }
+}
+
+.call-ring-pulse {
+  animation: callRing 1.8s infinite;
+}
+

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 5: Team Alert & Lead Sheet | Buildicy AI Funnel Demo</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            waGreen: '#25D366',
+            waDarkGreen: '#075E54',
+            waTeal: '#008069',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Demo Central Configuration -->
+  <script src="config/demoConfig.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+
+  <!-- TOP LOOM PRESENTER NAVBAR -->
+  <div id="loom-navbar-container"></div>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 sm:py-8 space-y-6">
+    
+    <!-- Header Context Bar -->
+    <div class="card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200 mb-1.5">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Screen 5 • <span class="team-member-noun-cap">Director</span> Alert & Lead Management Command Center</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold font-heading text-darkNavy tracking-tight">
+          <span class="team-member-noun-cap">Director</span> Alert & Lead Command Center
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Zero-delay handoff: Qualified <span class="customer-noun-lower">lead</span> dossier is automatically registered in CRM and routed to the assigned <span class="location-name">Global Remote Hub</span> <span class="team-member-noun-lower">specialist</span>'s WhatsApp.
+        </p>
+      </div>
+
+      <a href="screen6.html" class="px-5 py-3 btn-primary-glow text-darkNavy rounded-2xl font-heading font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md hover:scale-105 transition-transform">
+        <span>Next: AI Funnel Dashboard</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <!-- Live Telemetry KPI Ticker Ribbon -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div class="card-luxury p-3.5 rounded-2xl bg-white border border-slate-200 flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center font-bold">
+          <i data-lucide="inbox" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase font-bold text-slate-400">Captured Pipeline</div>
+          <div class="text-lg font-bold font-heading text-darkNavy">12 <span class="customer-noun-plural">Leads</span></div>
+        </div>
+      </div>
+
+      <div class="card-luxury p-3.5 rounded-2xl bg-white border border-slate-200 flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+          <i data-lucide="bot" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase font-bold text-slate-400">AI Qualification</div>
+          <div class="text-lg font-bold font-heading text-emerald-700">83.3% Rate</div>
+        </div>
+      </div>
+
+      <div class="card-luxury p-3.5 rounded-2xl bg-white border border-slate-200 flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center font-bold">
+          <i data-lucide="flame" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase font-bold text-slate-400">Hot Leads Today</div>
+          <div class="text-lg font-bold font-heading text-rose-600">4 Immediate</div>
+        </div>
+      </div>
+
+      <div class="card-luxury p-3.5 rounded-2xl bg-white border border-slate-200 flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
+          <i data-lucide="zap" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase font-bold text-slate-400"><span class="team-member-noun-cap">Director</span> Ping</div>
+          <div class="text-lg font-bold font-heading text-darkNavy">&lt; 2.8 Seconds</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual Layout: CRM Lead Sheet (Left 7 Cols) + Counsellor Alert (Right 5 Cols) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- LEFT: Live Lead Management Table (CRM Sheet) -->
+      <div class="lg:col-span-7 card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-4">
+        <div>
+          <!-- Table Toolbar -->
+          <div class="flex flex-wrap items-center justify-between pb-3.5 border-b border-slate-200 gap-3 mb-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center font-bold">
+                <i data-lucide="database" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-darkNavy font-heading"><span class="business-name">Buildicy</span> — High-Ticket Pipeline Registry</h3>
+                <p class="text-[11px] text-slate-500">Real-time webhook sync from WhatsApp qualification</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] bg-emerald-50 text-emerald-800 font-bold px-2.5 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5 shadow-xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-waGreen animate-ping"></span>
+                <span>CRM Synced</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- CRM Filter Tabs -->
+          <div class="flex items-center gap-2 mb-3 text-xs">
+            <button class="px-3 py-1 bg-darkNavy text-white font-semibold rounded-lg shadow-xs">All Pipeline (12)</button>
+            <button class="px-3 py-1 bg-rose-50 text-rose-800 border border-rose-200 font-bold rounded-lg flex items-center gap-1">
+              <span>🔥 Hot Leads (4)</span>
+            </button>
+            <button class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-lg"><span class="service-noun-cap">Strategy Call</span> Booked (6)</button>
+          </div>
+
+          <!-- Responsive Data Table -->
+          <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-xs">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 text-slate-600 border-b border-slate-200 uppercase tracking-wider text-[10px]">
+                <tr>
+                  <th class="py-3 px-3.5 font-bold"><span class="customer-noun-cap">Lead</span> Profile</th>
+                  <th class="py-3 px-2 font-bold">Target Solution</th>
+                  <th class="py-3 px-2 font-bold">Budget & Readiness</th>
+                  <th class="py-3 px-2 font-bold">AI Score</th>
+                  <th class="py-3 px-3 font-bold">Stage & Slot</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-700">
+                
+                <!-- FEATURED LEAD ROW (ALEX MORGAN / BUILDICY SPECIFICATION) -->
+                <tr class="bg-emerald-50/70 border-l-4 border-waGreen hover:bg-emerald-50 transition cursor-pointer" onclick="toggleDossier()">
+                  <td class="py-3 px-3.5">
+                    <div class="flex items-center gap-2.5">
+                      <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-sm font-heading lead-initials">
+                        AM
+                      </div>
+                      <div>
+                        <div class="font-bold text-darkNavy text-xs student-name flex items-center gap-1.5">
+                          <span>Alex Morgan</span>
+                          <span class="text-[9px] bg-emerald-200 text-emerald-900 px-1 rounded font-bold">Hot</span>
+                        </div>
+                        <div class="text-[10px] text-slate-500 font-medium">+91 98XXXXXX21</div>
+                        <div class="text-[10px] text-slate-400 student-qual">Growth Stage ($500k+ ARR)</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 px-2">
+                    <div class="font-bold text-slate-900 flex items-center gap-1">
+                      <span class="lead-country-badge">⚡ AI Funnel System</span>
+                    </div>
+                    <div class="text-[10px] text-emerald-800 font-semibold"><span class="location-name">Global Remote Hub</span></div>
+                  </td>
+                  <td class="py-3 px-2">
+                    <div class="font-bold text-darkNavy lead-budget-badge">$10k–$25k</div>
+                    <div class="text-[10px] text-amber-800 font-bold lead-ielts-text">CRM & Workflow Ready</div>
+                  </td>
+                  <td class="py-3 px-2">
+                    <div class="flex items-center gap-1">
+                      <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700 border border-rose-200 shadow-xs">
+                        🔥 Hot
+                      </span>
+                      <span class="text-[10px] font-bold text-slate-500">96/100</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-3">
+                    <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200 mb-0.5">
+                      <span class="service-noun-cap">Strategy Call</span> booked
+                    </span>
+                    <div class="text-[10px] text-slate-700 font-bold flex items-center gap-1">
+                      <i data-lucide="clock" class="w-3 h-3 text-waTeal"></i>
+                      <span class="selected-slot-text">Tomorrow, 3:00 PM</span>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Context Row 2 -->
+                <tr class="hover:bg-slate-50 transition opacity-80">
+                  <td class="py-2.5 px-3.5">
+                    <div class="flex items-center gap-2.5">
+                      <div class="w-7 h-7 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-xs">
+                        MV
+                      </div>
+                      <div>
+                        <div class="font-semibold text-slate-800">Marcus Vance</div>
+                        <div class="text-[10px] text-slate-400">+1 415XXXXX89 • Series A Tech</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-2.5 px-2">
+                    <div class="font-medium">📈 Revenue Engine</div>
+                    <div class="text-[10px] text-slate-500">North America Hub</div>
+                  </td>
+                  <td class="py-2.5 px-2">
+                    <div class="font-semibold text-darkNavy">$25k–$50k</div>
+                    <div class="text-[10px] text-emerald-700 font-medium">High Readiness</div>
+                  </td>
+                  <td class="py-2.5 px-2">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-100 text-amber-800">
+                      Warm (84)
+                    </span>
+                  </td>
+                  <td class="py-2.5 px-3">
+                    <span class="text-[10px] text-slate-500">Discovery Scheduled</span>
+                  </td>
+                </tr>
+
+                <!-- Context Row 3 -->
+                <tr class="hover:bg-slate-50 transition opacity-65">
+                  <td class="py-2.5 px-3.5">
+                    <div class="flex items-center gap-2.5">
+                      <div class="w-7 h-7 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center text-xs">
+                        ER
+                      </div>
+                      <div>
+                        <div class="font-semibold text-slate-800">Elena Rostova</div>
+                        <div class="text-[10px] text-slate-400">+44 20XXXXX44 • B2B Professional</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-2.5 px-2">
+                    <div class="font-medium">🔄 Workflow AI</div>
+                    <div class="text-[10px] text-slate-500">EMEA Regional Hub</div>
+                  </td>
+                  <td class="py-2.5 px-2">
+                    <div class="font-semibold text-darkNavy">$15k–$30k</div>
+                    <div class="text-[10px] text-slate-500">Scoping Complete</div>
+                  </td>
+                  <td class="py-2.5 px-2">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-100 text-blue-800">
+                      Qualified (76)
+                    </span>
+                  </td>
+                  <td class="py-2.5 px-3">
+                    <span class="text-[10px] text-slate-500">Proposal Sent</span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Student Quick Dossier Card (Enhanced UX feature) -->
+          <div id="studentDossierCard" class="mt-3 p-4 rounded-2xl bg-gradient-to-r from-blue-50/70 via-indigo-50/50 to-emerald-50/70 border border-blue-200">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-darkNavy flex items-center gap-1.5 font-heading">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-600"></i>
+                <span>AI Pre-Screening Summary: <span class="student-name">Alex Morgan</span></span>
+              </span>
+              <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">High Intent Matched</span>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-700">
+              <div class="bg-white/80 p-2 rounded-xl border border-slate-200">
+                <span class="text-[10px] text-slate-400 block font-medium">Budget Range</span>
+                <span class="font-bold text-darkNavy lead-budget-text">$10k–$25k</span>
+              </div>
+              <div class="bg-white/80 p-2 rounded-xl border border-slate-200">
+                <span class="text-[10px] text-slate-400 block font-medium">Implementation Window</span>
+                <span class="font-bold text-darkNavy lead-intake-text">Next 30 Days</span>
+              </div>
+              <div class="bg-white/80 p-2 rounded-xl border border-slate-200">
+                <span class="text-[10px] text-slate-400 block font-medium">Assigned Solutions Desk</span>
+                <span class="font-bold text-emerald-800"><span class="location-name">Global Remote Hub</span> <span class="team-member-noun-cap">Director</span></span>
+              </div>
+              <div class="bg-white/80 p-2 rounded-xl border border-slate-200">
+                <span class="text-[10px] text-slate-400 block font-medium">Auto-Reminders</span>
+                <span class="font-bold text-blue-700">Scheduled (WhatsApp + Cal)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table Footer -->
+        <div class="pt-2 border-t border-slate-200 flex flex-wrap items-center justify-between text-xs text-slate-500 gap-2">
+          <span>Active Pipeline: <strong>1 of 12 records</strong></span>
+          <span class="text-emerald-700 font-semibold flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4 text-waGreen"></i>
+            <span>Google Sheets & HubSpot Webhook Active</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- RIGHT: Counsellor Instant WhatsApp Mobile Notification (Enhanced UX) -->
+      <div class="lg:col-span-5 card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-4">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between pb-3.5 border-b border-slate-200 mb-3.5">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center font-bold">
+                <i data-lucide="smartphone" class="w-5 h-5 text-waTeal"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-darkNavy font-heading"><span class="team-member-noun-cap">Counsellor</span> WhatsApp Push Alert</h3>
+                <p class="text-[11px] text-slate-500">Delivered directly to <span class="location-name">Coimbatore</span> <span class="team-member-noun-cap">Advisor</span> phone</p>
+              </div>
+            </div>
+            <span class="text-[10px] bg-rose-100 text-rose-700 font-bold px-2 py-0.5 rounded border border-rose-200 animate-pulse">
+              ⚡ Live Alert
+            </span>
+          </div>
+
+          <!-- Realistic Lock-Screen Push Banner (Enhanced UX) -->
+          <div class="mb-3 p-3 rounded-2xl bg-slate-900 text-white shadow-md text-xs flex items-start gap-2.5 border border-slate-700">
+            <div class="w-7 h-7 rounded-lg bg-waGreen text-darkNavy flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-current"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between text-[10px] text-slate-400">
+                <span class="font-semibold text-slate-200">WhatsApp • <span class="business-name">Buildicy</span> Bot</span>
+                <span>Just now</span>
+              </div>
+              <p class="font-bold text-white text-[11px] mt-0.5">
+                🚨 New Hot Lead: <span class="student-name">Alex Morgan</span> (<span class="lead-country-badge">⚡ AI Funnel</span> • <span class="lead-budget-badge">$10k–$25k</span>)
+              </p>
+              <p class="text-[10px] text-slate-300"><span class="service-noun-cap">Strategy Session</span> booked <span class="selected-slot-text">Tomorrow, 3:00 PM</span>. Tap to review dossier.</p>
+            </div>
+          </div>
+
+          <!-- Realistic WhatsApp Chat Alert Container (Exact Text from Build Guide) -->
+          <div class="wa-wallpaper rounded-2xl p-4 border border-slate-300 shadow-inner relative">
+            
+            <div class="flex items-center justify-between text-[11px] text-slate-600 mb-2 pb-1.5 border-b border-slate-200 font-medium">
+              <span class="font-bold text-waDarkGreen flex items-center gap-1">
+                <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+                <span class="business-name">Buildicy</span> AI Dispatch
+              </span>
+              <span>10:04 AM</span>
+            </div>
+
+            <!-- Exact WhatsApp Alert Bubble (From Specification) -->
+            <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-rose-500 text-xs leading-relaxed space-y-1.5 text-slate-800">
+              <div class="font-bold text-rose-600 text-sm flex items-center gap-1.5">
+                <span>🚨</span>
+                <span>New Qualified Opportunity</span>
+              </div>
+              
+              <div class="pt-1 space-y-1 font-sans">
+                <p><strong>Lead Name:</strong> <span class="student-name font-semibold text-darkNavy">Alex Morgan</span></p>
+                <p><strong>Target System:</strong> <span class="lead-country-text">⚡ AI Funnel System</span></p>
+                <p><strong>Business Scale:</strong> <span class="lead-qual-text">Growth Stage ($500k+ ARR)</span></p>
+                <p><strong>Budget:</strong> <span class="lead-budget-text">$10k–$25k</span></p>
+                <p><strong>Readiness:</strong> <span class="lead-ielts-text">CRM & Workflow Ready</span></p>
+                <p><strong>Territory:</strong> <span class="location-name">Global Remote Hub</span></p>
+                <p><strong><span class="service-noun-cap">Strategy Call</span>:</strong> <span class="selected-slot-text">Tomorrow, 3:00 PM</span></p>
+              </div>
+
+              <div class="text-[11px] text-amber-800 font-bold pt-2 border-t border-slate-100 flex items-center gap-1">
+                <span>⚡</span>
+                <span>AI briefing ready. Tap below to review implementation scope before call.</span>
+              </div>
+            </div>
+
+            <!-- Enhanced Interactive Action Buttons -->
+            <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+              <button onclick="handleActionWhatsApp()" class="bg-waGreen hover:bg-emerald-600 text-darkNavy font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition">
+                <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                <span>1-Click WhatsApp</span>
+              </button>
+              <button onclick="handleActionCall()" class="bg-darkNavy hover:bg-navySurface text-white font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition">
+                <i data-lucide="phone-call" class="w-3.5 h-3.5 text-waGreen"></i>
+                <span>Direct Call</span>
+              </button>
+            </div>
+
+            <div class="mt-2 flex items-center gap-2 text-xs">
+              <button onclick="handleActionCalendar()" class="flex-1 bg-white hover:bg-slate-50 text-slate-700 font-medium py-1.5 px-2.5 rounded-lg border border-slate-300 shadow-xs flex items-center justify-center gap-1 text-[11px]">
+                <i data-lucide="calendar" class="w-3 h-3 text-blue-600"></i>
+                <span id="btnCalText">Sync Google Calendar</span>
+              </button>
+              <button onclick="handleActionChecklist()" class="flex-1 bg-white hover:bg-slate-50 text-slate-700 font-medium py-1.5 px-2.5 rounded-lg border border-slate-300 shadow-xs flex items-center justify-center gap-1 text-[11px]">
+                <i data-lucide="file-text" class="w-3 h-3 text-emerald-600"></i>
+                <span>Send Scope Roadmap</span>
+              </button>
+            </div>
+
+            <!-- Action Status Toast Feedback -->
+            <div id="actionFeedbackToast" class="hidden mt-2 p-2 bg-emerald-100 text-emerald-900 rounded-lg text-[11px] font-semibold text-center animate-pulse">
+              Action executed successfully
+            </div>
+          </div>
+        </div>
+
+        <!-- Explainer Callout -->
+        <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-600">
+          <p><strong class="text-darkNavy">⚡ Zero Time Wasted:</strong> <span class="team-member-noun-plural">Specialists</span> spend 0 minutes on repetitive qualification questions. They know the client's exact budget, business scale, target timeline, and system readiness before picking up the phone.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Navigation Call to Action -->
+    <div class="text-center pt-2">
+      <a href="screen6.html" class="inline-flex items-center gap-2 px-8 py-4 btn-primary-glow text-darkNavy rounded-2xl font-heading font-bold text-sm sm:text-base shadow-xl hover:scale-105 transition-transform">
+        <span>Proceed to Screen 6: Executive AI Funnel Dashboard</span>
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="shared.js"></script>
+  <script>
+    renderLoomNavbar(5);
+
+    const cfg = window.DEMO_CONFIG || {};
+    const student = getStudentData();
+
+    if (cfg.businessName) {
+      document.title = `Screen 5: ${cfg.teamMemberNoun || "Director"} Alert & Lead Sheet | ${cfg.businessName} Simulation`;
+      document.querySelectorAll('.business-name').forEach(el => el.textContent = cfg.businessName);
+    }
+    if (cfg.serviceNoun) {
+      document.querySelectorAll('.service-noun-cap').forEach(el => el.textContent = cfg.serviceNoun);
+    }
+    if (cfg.teamMemberNoun) {
+      const tm = cfg.teamMemberNoun;
+      document.querySelectorAll('.team-member-noun-cap').forEach(el => el.textContent = tm);
+      document.querySelectorAll('.team-member-noun-lower').forEach(el => el.textContent = tm.toLowerCase());
+      document.querySelectorAll('.team-member-noun-plural').forEach(el => el.textContent = `${tm}s`);
+    }
+    if (cfg.customerNoun) {
+      const cn = cfg.customerNoun;
+      document.querySelectorAll('.customer-noun-cap').forEach(el => el.textContent = cn);
+      document.querySelectorAll('.customer-noun-lower').forEach(el => el.textContent = cn.toLowerCase());
+      document.querySelectorAll('.customer-noun-plural').forEach(el => el.textContent = `${cn}s`);
+    }
+    if (cfg.location) {
+      document.querySelectorAll('.location-name').forEach(el => el.textContent = cfg.location);
+    }
+
+    const sInit = student.name ? student.name.split(' ').map(n=>n[0]).join('') : 'AM';
+    document.querySelectorAll('.lead-initials').forEach(el => el.textContent = sInit);
+    document.querySelectorAll('.student-name').forEach(el => el.textContent = student.name || "Alex Morgan");
+    document.querySelectorAll('.student-qual').forEach(el => el.textContent = student.qualification || "Growth Stage ($500k+ ARR)");
+    document.querySelectorAll('.lead-country-badge').forEach(el => el.textContent = student.country || "⚡ AI Funnel System");
+    document.querySelectorAll('.lead-country-text').forEach(el => el.textContent = student.country || "⚡ AI Funnel System");
+    document.querySelectorAll('.lead-budget-badge').forEach(el => el.textContent = student.budget || "$10k–$25k");
+    document.querySelectorAll('.lead-budget-text').forEach(el => el.textContent = student.budget || "$10k–$25k");
+    document.querySelectorAll('.lead-intake-text').forEach(el => el.textContent = student.intake || "Next 30 Days");
+    document.querySelectorAll('.lead-qual-text').forEach(el => el.textContent = student.qualification || "Growth Stage ($500k+ ARR)");
+    document.querySelectorAll('.lead-ielts-text').forEach(el => el.textContent = student.ielts || "CRM & Workflow Ready");
+    document.querySelectorAll('.selected-slot-text').forEach(el => el.textContent = student.selectedSlot || "Tomorrow, 3:00 PM");
+
+    function showToast(msg) {
+      playClickSound();
+      const t = document.getElementById('actionFeedbackToast');
+      t.textContent = msg;
+      t.classList.remove('hidden');
+      setTimeout(() => t.classList.add('hidden'), 3000);
+    }
+
+    function handleActionWhatsApp() {
+      showToast(`Opening WhatsApp chat with ${student.name} (+91 98765 43221)...`);
+    }
+
+    function handleActionCall() {
+      const cNoun = cfg.customerNoun ? cfg.customerNoun.toLowerCase() : "lead";
+      showToast(`Dialing ${cNoun} ${student.name} at +91 98765 43221...`);
+    }
+
+    function handleActionCalendar() {
+      const sNoun = cfg.serviceNoun ? cfg.serviceNoun.toLowerCase() : "strategy call";
+      document.getElementById('btnCalText').textContent = "✓ Synced with Calendar";
+      showToast(`Added ${sNoun} session to Google Calendar for ${student.selectedSlot || "Tomorrow, 3:00 PM"}.`);
+    }
+
+    function handleActionChecklist() {
+      showToast(`Dispatched Implementation Scope & Roadmap to ${student.name} on WhatsApp.`);
+    }
+
+    function toggleDossier() {
+      playClickSound();
+      const d = document.getElementById('studentDossierCard');
+      d.classList.toggle('ring-2');
+      d.classList.toggle('ring-emerald-400');
+    }
+  </script>
+</body>
+</html>

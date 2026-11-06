@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Panel | Buildicy AI Funnel Demo</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            waGreen: '#25D366',
+            waDarkGreen: '#075E54',
+            waTeal: '#008069',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Central Config & Shared Scripts -->
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+
+  <!-- ADMIN HEADER -->
+  <header class="glass-nav sticky top-0 z-50 border-b border-slate-200/90 shadow-sm bg-white/95">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="screen1.html" class="flex items-center gap-2.5 group">
+          <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+            <img src="buildicy_logo_icon.png" class="w-8 h-8 object-contain" alt="Buildicy Logo">
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-heading font-bold text-base text-darkNavy tracking-tight">Buildicy AI Funnel</span>
+              <span class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full border border-amber-300">Admin Control</span>
+            </div>
+            <p class="text-[10px] text-slate-500">Universal Multi-Industry Demo Configurator</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quick Screen Launcher -->
+      <div class="flex items-center gap-1.5 text-xs">
+        <span class="text-slate-400 font-semibold mr-1 text-[11px] hidden md:inline">Jump to:</span>
+        <a href="screen1.html" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition">1. Form</a>
+        <a href="screen2.html" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition">2. Chat</a>
+        <a href="screen3.html" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition">3. Qualify</a>
+        <a href="screen4.html" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition">4. Book</a>
+        <a href="screen5.html" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition">5. Alert</a>
+        <a href="screen6.html" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition">6. Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ADMIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 sm:py-8 space-y-6">
+
+    <!-- Hero Context Banner -->
+    <div class="card-luxury p-6 rounded-3xl bg-white border border-slate-200 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-bold border border-blue-200 mb-2">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-600"></i>
+          <span>Instant Category Switcher</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold font-heading text-darkNavy tracking-tight">
+          Admin Control Center & Industry Category Presets
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+          Switch the entire 6-screen demo between different client industries in 1 click, or manually customize any branding, lead profile, or terminology. Your changes immediately persist across all screens.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="resetToFactoryDefault()" class="px-4 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-bold transition flex items-center gap-1.5 shadow-xs">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-slate-500"></i>
+          <span>Reset to Default</span>
+        </button>
+        <button onclick="saveAndLaunchScreen1()" class="px-5 py-2.5 btn-primary-glow text-darkNavy rounded-xl text-xs sm:text-sm font-bold font-heading transition flex items-center gap-2 shadow-md">
+          <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+          <span>Apply & Launch Demo</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SECTION 1: 1-CLICK INDUSTRY PRESETS -->
+    <div class="card-luxury p-6 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-sm">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div>
+          <h2 class="font-bold text-base text-darkNavy font-heading flex items-center gap-2">
+            <i data-lucide="layout-grid" class="w-4 h-4 text-emerald-600"></i>
+            <span>1-Click Business Category Presets</span>
+          </h2>
+          <p class="text-xs text-slate-500">Select any industry below to instantly populate all form fields, chat scripts, and dashboard metrics.</p>
+        </div>
+        <span class="text-xs bg-emerald-50 text-emerald-800 font-bold px-2.5 py-1 rounded-full border border-emerald-200">7 Ready-to-Pitch Presets</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5" id="presetsGrid">
+        <!-- Preset Cards rendered dynamically by JS -->
+      </div>
+    </div>
+
+    <!-- SECTION 2: LIVE DEMO CONFIGURATION FORM -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- LEFT 8 COLS: FORM CONTROLS -->
+      <div class="lg:col-span-8 card-luxury p-6 rounded-3xl bg-white border border-slate-200 space-y-6 shadow-sm">
+        
+        <!-- Tab Navigation -->
+        <div class="flex items-center gap-2 border-b border-slate-200 pb-3 text-xs">
+          <button type="button" onclick="switchTab('brand')" id="tabBtn-brand" class="tab-btn px-4 py-2 font-bold rounded-xl bg-darkNavy text-white shadow-xs">1. Brand & Business Identity</button>
+          <button type="button" onclick="switchTab('lead')" id="tabBtn-lead" class="tab-btn px-4 py-2 font-semibold text-slate-600 hover:bg-slate-100 rounded-xl">2. Demo Lead Profile</button>
+          <button type="button" onclick="switchTab('booking')" id="tabBtn-booking" class="tab-btn px-4 py-2 font-semibold text-slate-600 hover:bg-slate-100 rounded-xl">3. Advisor & Consultation</button>
+        </div>
+
+        <form id="adminForm" onsubmit="handleAdminFormSubmit(event)" class="space-y-5 text-xs sm:text-sm">
+          
+          <!-- TAB 1: BRAND & BUSINESS IDENTITY -->
+          <div id="tabContent-brand" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Business / Brand Name <span class="text-rose-500">*</span></label>
+                <input type="text" id="cfgBusinessName" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Business Initials (Avatar Badge)</label>
+                <input type="text" id="cfgBusinessInitials" maxlength="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Industry / Vertical <span class="text-rose-500">*</span></label>
+                <input type="text" id="cfgIndustry" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Location / Primary Hub</label>
+                <input type="text" id="cfgLocation" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Customer Noun</label>
+                <input type="text" id="cfgCustomerNoun" placeholder="e.g. Client, Patient, Buyer" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition">
+                <span class="text-[10px] text-slate-400">Used for titles & badges</span>
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Team Member Noun</label>
+                <input type="text" id="cfgTeamMemberNoun" placeholder="e.g. Advisor, Director" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition">
+                <span class="text-[10px] text-slate-400">Used for alerts & reps</span>
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Service / Consultation Noun</label>
+                <input type="text" id="cfgServiceNoun" placeholder="e.g. Strategy Session, Audit" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition">
+                <span class="text-[10px] text-slate-400">Used in booking & chat</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Booking Button Label</label>
+                <input type="text" id="cfgBookingLabel" placeholder="e.g. Book Strategy Session" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Form Button Label</label>
+                <input type="text" id="cfgFormButtonText" placeholder="e.g. Generate My Plan" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition">
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Form Title & Subtitle</label>
+              <input type="text" id="cfgFormTitle" placeholder="Form Headline" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition mb-2">
+              <textarea id="cfgFormSubtitle" rows="2" placeholder="Form Subtitle description" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-slate-900 font-medium focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition"></textarea>
+            </div>
+          </div>
+
+          <!-- TAB 2: DEMO LEAD PROFILE -->
+          <div id="tabContent-lead" class="space-y-4 hidden">
+            <div class="p-3 bg-blue-50/70 rounded-2xl border border-blue-200 text-xs text-blue-900">
+              💡 This lead is automatically pre-filled when clicking <strong>"Auto-fill Demo Lead Data"</strong> on Screen 1.
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Lead Full Name</label>
+                <input type="text" id="cfgLeadName" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">WhatsApp Phone</label>
+                <input type="tel" id="cfgLeadPhone" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Target Solution / Requirement</label>
+                <input type="text" id="cfgLeadCountry" placeholder="e.g. AI Funnel System" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Business Stage / Background</label>
+                <input type="text" id="cfgLeadQual" placeholder="e.g. Growth Stage ($500k+ ARR)" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Budget Range</label>
+                <input type="text" id="cfgLeadBudget" placeholder="e.g. $10k–$25k" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Readiness / Status</label>
+                <input type="text" id="cfgLeadIelts" placeholder="e.g. CRM & Workflow Ready" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Target Rollout Timeline</label>
+                <input type="text" id="cfgLeadIntake" placeholder="e.g. Next 30 Days" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: ADVISOR & CONSULTATION -->
+          <div id="tabContent-booking" class="space-y-4 hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Advisor Name</label>
+                <input type="text" id="cfgAdvisorName" placeholder="e.g. Sarah Jenkins" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Advisor Title</label>
+                <input type="text" id="cfgAdvisorTitle" placeholder="e.g. Senior Solutions Director" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Advisor Credential / Department Subtitle</label>
+              <input type="text" id="cfgAdvisorBranch" placeholder="e.g. Global Architecture Team • 180+ Enterprise Funnels Deployed" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+            </div>
+
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1 text-xs uppercase tracking-wider">Default Consultation Slot</label>
+              <input type="text" id="cfgDefaultSlot" placeholder="Tomorrow, 3:00 PM" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-900 font-medium">
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <button type="submit" class="px-6 py-3 btn-primary-glow text-darkNavy rounded-xl font-bold font-heading text-sm shadow-md flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                <span>Save & Apply Changes</span>
+              </button>
+            </div>
+            <span id="saveStatusToast" class="text-xs font-bold text-emerald-700 hidden flex items-center gap-1.5 animate-pulse">
+              <i data-lucide="check" class="w-4 h-4"></i>
+              <span>Saved! All 6 screens now updated.</span>
+            </span>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- RIGHT 4 COLS: LIVE SYNC PREVIEW & QUICK ACTIONS -->
+      <div class="lg:col-span-4 space-y-5">
+        
+        <!-- Live Status Card -->
+        <div class="card-luxury p-5 rounded-3xl bg-slate-900 text-white space-y-4 shadow-md border border-slate-700">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-700">
+            <span class="text-xs uppercase font-bold text-slate-400">Active Live Branding</span>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded border border-emerald-500/30">Synced</span>
+          </div>
+
+          <div class="space-y-2">
+            <div class="text-xl font-bold font-heading text-white" id="previewBusinessName">Nexus AI Studio</div>
+            <div class="text-xs text-slate-400" id="previewIndustry">AI Growth Systems & Professional Services</div>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-1.5 text-xs">
+            <div class="flex justify-between">
+              <span class="text-slate-400">Customer:</span>
+              <span class="font-bold text-slate-200" id="previewCustomerNoun">Client</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Team Member:</span>
+              <span class="font-bold text-slate-200" id="previewTeamNoun">Solutions Director</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Consultation:</span>
+              <span class="font-bold text-slate-200" id="previewServiceNoun">Strategy Session</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Territory:</span>
+              <span class="font-bold text-slate-200" id="previewLocation">Global Remote Hub</span>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="screen1.html" class="w-full py-3 px-4 bg-waGreen hover:bg-emerald-500 text-darkNavy font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition">
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              <span>Launch Screen 1 (Test Live)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6-Screen Architecture Navigator -->
+        <div class="card-luxury p-5 rounded-3xl bg-white border border-slate-200 space-y-3 shadow-sm">
+          <div class="text-xs font-bold uppercase tracking-wider text-darkNavy pb-2 border-b border-slate-100 flex items-center justify-between">
+            <span>6-Screen Live Previews</span>
+            <span class="text-[10px] text-slate-400">Click to open</span>
+          </div>
+          <div class="space-y-1.5 text-xs">
+            <a href="screen1.html" class="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-slate-700 font-medium transition">
+              <span>Screen 1: Assessment Intake Form</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+            </a>
+            <a href="screen2.html" class="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-slate-700 font-medium transition">
+              <span>Screen 2: WhatsApp AI Welcome</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+            </a>
+            <a href="screen3.html" class="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-slate-700 font-medium transition">
+              <span>Screen 3: AI Qualification & Scoring</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+            </a>
+            <a href="screen4.html" class="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-slate-700 font-medium transition">
+              <span>Screen 4: 1-on-1 Session Slot Booking</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+            </a>
+            <a href="screen5.html" class="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-slate-700 font-medium transition">
+              <span>Screen 5: Team Alert & Lead Sheet</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+            </a>
+            <a href="screen6.html" class="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-slate-700 font-medium transition">
+              <span>Screen 6: AI Funnel Executive Dashboard</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="shared.js"></script>
+  <script>
+    // PRESET CATALOG
+    const PRESETS = [
+      {
+        id: "b2b_ai",
+        badge: "DEFAULT",
+        icon: "zap",
+        color: "bg-blue-50 text-blue-800 border-blue-200",
+        name: "Nexus AI Studio",
+        category: "AI Agency & B2B SaaS",
+        initials: "NA",
+        industry: "AI Growth Systems & Professional Services",
+        customerNoun: "Client",
+        teamMemberNoun: "Solutions Director",
+        serviceNoun: "Strategy Session",
+        bookingLabel: "Book Strategy Session",
+        location: "Global Remote Hub",
+        formTitle: "Free AI Funnel Assessment",
+        formSubtitle: "Get an instant, customized diagnostic of your growth pipeline. Our AI qualifies your requirements in under 30 seconds and connects directly on WhatsApp.",
+        formButtonText: "Generate My AI Funnel Plan",
+        advisorName: "Sarah Jenkins",
+        advisorTitle: "Senior Solutions Director",
+        advisorBranch: "Global Architecture Team • 180+ Enterprise Funnels Deployed",
+        defaultSlot: "Tomorrow, 3:00 PM",
+        lead: {
+          name: "Alex Morgan",
+          phone: "9876543221",
+          email: "alex.morgan@company.com",
+          country: "⚡ AI Funnel System",
+          qualification: "Growth Stage ($500k+ ARR)",
+          budget: "$10k–$25k",
+          ielts: "CRM & Workflow Ready",
+          intake: "Next 30 Days",
+          branch: "Global Remote Hub"
+        }
+      },
+      {
+        id: "real_estate",
+        badge: "POPULAR",
+        icon: "building-2",
+        color: "bg-amber-50 text-amber-800 border-amber-200",
+        name: "Apex Luxury Realty",
+        category: "Real Estate & Commercial",
+        initials: "AR",
+        industry: "Commercial Property & Luxury Residential",
+        customerNoun: "Buyer",
+        teamMemberNoun: "Property Advisor",
+        serviceNoun: "Private Viewing",
+        bookingLabel: "Book Private VIP Viewing",
+        location: "Metropolitan Sales Desk",
+        formTitle: "VIP Property Matching Consultation",
+        formSubtitle: "Access off-market commercial and luxury residential properties tailored to your portfolio budget.",
+        formButtonText: "Request VIP Property Dossier",
+        advisorName: "Marcus Sterling",
+        advisorTitle: "Senior Portfolio Director",
+        advisorBranch: "Prime Real Estate Group • $240M+ In Transactions",
+        defaultSlot: "Tomorrow, 2:00 PM",
+        lead: {
+          name: "David Vance",
+          phone: "9845123980",
+          email: "d.vance@capitalgroup.com",
+          country: "Commercial & Penthouse Tier",
+          qualification: "Accredited Investor ($1M+ Liquidity)",
+          budget: "$500k–$1.2M",
+          ielts: "Pre-Approval Verified",
+          intake: "Within 60 Days",
+          branch: "Metropolitan Sales Desk"
+        }
+      },
+      {
+        id: "solar_energy",
+        badge: "HIGH ROI",
+        icon: "sun",
+        color: "bg-emerald-50 text-emerald-800 border-emerald-200",
+        name: "SolarPulse Dynamics",
+        category: "Solar & Clean Energy",
+        initials: "SP",
+        industry: "CleanTech & Residential Solar Installations",
+        customerNoun: "Homeowner",
+        teamMemberNoun: "Energy Consultant",
+        serviceNoun: "Free Roof Audit",
+        bookingLabel: "Schedule Free Roof & Solar Audit",
+        location: "Regional CleanTech Hub",
+        formTitle: "Instant Solar Savings Assessment",
+        formSubtitle: "Discover how much you can save with zero-down solar panels and 30% federal clean energy rebates.",
+        formButtonText: "Calculate Solar Savings",
+        advisorName: "Ryan Miller",
+        advisorTitle: "Principal Energy Specialist",
+        advisorBranch: "CleanTech Engineering Desk • 650+ Homes Converted",
+        defaultSlot: "Tomorrow, 11:30 AM",
+        lead: {
+          name: "Michael Chang",
+          phone: "9872345671",
+          email: "mchang@homeowner.net",
+          country: "Full Grid-Tied Solar + Battery",
+          qualification: "3,200 sq.ft Single Family ($280/mo Bill)",
+          budget: "$25k–$40k",
+          ielts: "Roof Inspection Ready",
+          intake: "Immediate (Tax Year)",
+          branch: "Regional CleanTech Hub"
+        }
+      },
+      {
+        id: "dental_clinic",
+        badge: "HEALTHCARE",
+        icon: "sparkle",
+        color: "bg-purple-50 text-purple-800 border-purple-200",
+        name: "Aura Aesthetic & Dental",
+        category: "Dental & MedSpa Clinic",
+        initials: "AD",
+        industry: "High-Ticket Cosmetic & Implant Dentistry",
+        customerNoun: "Patient",
+        teamMemberNoun: "Treatment Coordinator",
+        serviceNoun: "Smile Assessment",
+        bookingLabel: "Book 3D Smile Assessment",
+        location: "Beverly Hills Clinic",
+        formTitle: "Free 3D Smile & Implant Assessment",
+        formSubtitle: "Get an accurate digital treatment roadmap and financing breakdown directly from our senior clinicians.",
+        formButtonText: "Claim Free 3D Scan",
+        advisorName: "Dr. Rachel Simmons",
+        advisorTitle: "Clinical Treatment Director",
+        advisorBranch: "Cosmetic & Implant Center • 1,200+ Smile Restorations",
+        defaultSlot: "Tomorrow, 4:00 PM",
+        lead: {
+          name: "Jessica Bennett",
+          phone: "9812345678",
+          email: "jess.bennett@outlook.com",
+          country: "Full Arch Dental Implants",
+          qualification: "Cosmetic Restoration Candidate",
+          budget: "$4k–$8k",
+          ielts: "CT Scan Eligible",
+          intake: "This Month",
+          branch: "Beverly Hills Clinic"
+        }
+      },
+      {
+        id: "wealth_advisory",
+        badge: "FINANCE",
+        icon: "trending-up",
+        color: "bg-indigo-50 text-indigo-800 border-indigo-200",
+        name: "Vanguard Wealth Advisory",
+        category: "Wealth & Tax Planning",
+        initials: "VW",
+        industry: "Private Wealth Management & Tax Advisory",
+        customerNoun: "Client",
+        teamMemberNoun: "Senior Wealth Partner",
+        serviceNoun: "Portfolio Audit",
+        bookingLabel: "Book Wealth & Tax Strategy Call",
+        location: "Financial District Office",
+        formTitle: "Complimentary Portfolio & Tax Diagnostic",
+        formSubtitle: "Analyze high-yield passive income strategies, tax shielding, and fiduciary asset protection.",
+        formButtonText: "Request Wealth Diagnostic",
+        advisorName: "Arthur King, CFA",
+        advisorTitle: "Managing Wealth Partner",
+        advisorBranch: "Fiduciary Wealth Group • $180M AUM",
+        defaultSlot: "Tomorrow, 10:00 AM",
+        lead: {
+          name: "Robert Henderson",
+          phone: "9887766554",
+          email: "r.henderson@privatewealth.org",
+          country: "Tax Shield & Growth Portfolio",
+          qualification: "Business Owner / High Net Worth",
+          budget: "$100k+ Investable",
+          ielts: "Financial Statements Ready",
+          intake: "Q1 Allocation",
+          branch: "Financial District Office"
+        }
+      },
+      {
+        id: "education_study_abroad",
+        badge: "EDUCATION",
+        icon: "graduation-cap",
+        color: "bg-emerald-50 text-emerald-800 border-emerald-200",
+        name: "Team Overseas",
+        category: "Study Abroad Consultancy",
+        initials: "TO",
+        industry: "International Education & University Admissions",
+        customerNoun: "Student",
+        teamMemberNoun: "Counsellor",
+        serviceNoun: "Counselling Session",
+        bookingLabel: "Book Free Counselling Slot",
+        location: "Coimbatore Hub",
+        formTitle: "Free Eligibility & Visa Assessment",
+        formSubtitle: "Check your university admission eligibility for UK, Canada, Australia and Germany with 0 consultancy fee.",
+        formButtonText: "Check My Eligibility",
+        advisorName: "Priya Ramanathan",
+        advisorTitle: "Senior UK Advisor",
+        advisorBranch: "International Admissions Desk • 180+ Visas Processed",
+        defaultSlot: "Tomorrow, 3:00 PM",
+        lead: {
+          name: "Arun Kumar",
+          phone: "9876543221",
+          email: "arun.kumar@gmail.com",
+          country: "UK 🇬🇧",
+          qualification: "B.Tech IT (2026 Batch)",
+          budget: "₹15–20 Lakhs",
+          ielts: "IELTS Waiver Eligible",
+          intake: "Sept 2027",
+          branch: "Coimbatore Hub"
+        }
+      },
+      {
+        id: "executive_fitness",
+        badge: "COACHING",
+        icon: "dumbbell",
+        color: "bg-rose-50 text-rose-800 border-rose-200",
+        name: "ProFit Performance Lab",
+        category: "Executive Coaching & Fitness",
+        initials: "PF",
+        industry: "High-Performance Executive Health & Longevity",
+        customerNoun: "Member",
+        teamMemberNoun: "Head Coach",
+        serviceNoun: "Fitness Assessment",
+        bookingLabel: "Schedule 1-on-1 Performance Audit",
+        location: "Executive Wellness Center",
+        formTitle: "Executive Body & Metabolic Assessment",
+        formSubtitle: "Tailored bio-individual nutrition, hormone balance, and concierge physical conditioning for executives.",
+        formButtonText: "Claim Performance Audit",
+        advisorName: "Coach Eric Sterling",
+        advisorTitle: "Performance & Longevity Director",
+        advisorBranch: "Executive Coaching Desk • 340+ C-Suite Clients",
+        defaultSlot: "Tomorrow, 6:00 PM",
+        lead: {
+          name: "Samantha Cole",
+          phone: "9834567890",
+          email: "sam.cole@techfirm.io",
+          country: "Executive Longevity & Hypertrophy",
+          qualification: "VP of Product (Sedentary / High Stress)",
+          budget: "$5k–$10k",
+          ielts: "Bloodwork Panel Available",
+          intake: "Immediate Start",
+          branch: "Executive Wellness Center"
+        }
+      }
+    ];
+
+    // RENDER PRESET CARDS
+    function renderPresetCards() {
+      const container = document.getElementById('presetsGrid');
+      container.innerHTML = PRESETS.map(p => `
+        <div onclick="applyPreset('${p.id}')" class="p-4 rounded-2xl border border-slate-200 hover:border-waGreen hover:shadow-md cursor-pointer transition flex flex-col justify-between group bg-slate-50/50 hover:bg-white">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${p.color}">${p.badge}</span>
+              <span class="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-700 shadow-2xs group-hover:scale-110 transition-transform">
+                <i data-lucide="${p.icon}" class="w-3.5 h-3.5 text-darkNavy"></i>
+              </span>
+            </div>
+            <h3 class="font-bold text-sm text-darkNavy font-heading group-hover:text-emerald-700 transition">${p.name}</h3>
+            <p class="text-[11px] text-slate-500 mt-0.5">${p.category}</p>
+          </div>
+          <div class="mt-3 pt-2 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-600">
+            <span class="font-medium">${p.customerNoun} → ${p.serviceNoun}</span>
+            <span class="text-waTeal font-bold flex items-center gap-0.5">
+              <span>Select</span>
+              <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </span>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // LOAD CURRENT CONFIG INTO FORM
+    function loadCurrentConfigIntoForm() {
+      const cfg = window.DEMO_CONFIG || {};
+      const lead = (cfg.demoLead) || {};
+
+      document.getElementById('cfgBusinessName').value = cfg.businessName || "Nexus AI Studio";
+      document.getElementById('cfgBusinessInitials').value = cfg.businessInitials || "NA";
+      document.getElementById('cfgIndustry').value = cfg.industry || "AI Growth Systems";
+      document.getElementById('cfgLocation').value = cfg.location || "Global Remote Hub";
+      document.getElementById('cfgCustomerNoun').value = cfg.customerNoun || "Client";
+      document.getElementById('cfgTeamMemberNoun').value = cfg.teamMemberNoun || "Solutions Director";
+      document.getElementById('cfgServiceNoun').value = cfg.serviceNoun || "Strategy Session";
+      document.getElementById('cfgBookingLabel').value = cfg.bookingLabel || "Book Strategy Session";
+      document.getElementById('cfgFormButtonText').value = cfg.formButtonText || "Generate My Plan";
+      document.getElementById('cfgFormTitle').value = cfg.formTitle || "Free Assessment";
+      document.getElementById('cfgFormSubtitle').value = cfg.formSubtitle || "";
+
+      document.getElementById('cfgLeadName').value = lead.name || "Alex Morgan";
+      document.getElementById('cfgLeadPhone').value = lead.phone || "9876543221";
+      document.getElementById('cfgLeadCountry').value = lead.country || lead.serviceInterest || "⚡ AI Funnel System";
+      document.getElementById('cfgLeadQual').value = lead.qualification || lead.scale || "Growth Stage ($500k+ ARR)";
+      document.getElementById('cfgLeadBudget').value = lead.budget || "$10k–$25k";
+      document.getElementById('cfgLeadIelts').value = lead.ielts || lead.readiness || "CRM & Workflow Ready";
+      document.getElementById('cfgLeadIntake').value = lead.intake || lead.timeline || "Next 30 Days";
+
+      const opts = cfg.appointmentOptions || {};
+      document.getElementById('cfgAdvisorName').value = opts.advisorName || "Sarah Jenkins";
+      document.getElementById('cfgAdvisorTitle').value = opts.advisorTitle || "Senior Solutions Director";
+      document.getElementById('cfgAdvisorBranch').value = opts.advisorBranch || "Global Architecture Team";
+      document.getElementById('cfgDefaultSlot').value = opts.defaultSlot || lead.defaultSlot || "Tomorrow, 3:00 PM";
+
+      updateLivePreview();
+    }
+
+    // UPDATE LIVE PREVIEW CARD
+    function updateLivePreview() {
+      const bName = document.getElementById('cfgBusinessName').value || "Nexus AI Studio";
+      const ind = document.getElementById('cfgIndustry').value || "AI Growth Systems";
+      const cNoun = document.getElementById('cfgCustomerNoun').value || "Client";
+      const tNoun = document.getElementById('cfgTeamMemberNoun').value || "Solutions Director";
+      const sNoun = document.getElementById('cfgServiceNoun').value || "Strategy Session";
+      const loc = document.getElementById('cfgLocation').value || "Global Remote Hub";
+
+      document.getElementById('previewBusinessName').textContent = bName;
+      document.getElementById('previewIndustry').textContent = ind;
+      document.getElementById('previewCustomerNoun').textContent = cNoun;
+      document.getElementById('previewTeamNoun').textContent = tNoun;
+      document.getElementById('previewServiceNoun').textContent = sNoun;
+      document.getElementById('previewLocation').textContent = loc;
+    }
+
+    // APPLY PRESET FUNCTION
+    function applyPreset(presetId) {
+      playClickSound();
+      const p = PRESETS.find(item => item.id === presetId);
+      if (!p) return;
+
+      document.getElementById('cfgBusinessName').value = p.name;
+      document.getElementById('cfgBusinessInitials').value = p.initials;
+      document.getElementById('cfgIndustry').value = p.industry;
+      document.getElementById('cfgLocation').value = p.location;
+      document.getElementById('cfgCustomerNoun').value = p.customerNoun;
+      document.getElementById('cfgTeamMemberNoun').value = p.teamMemberNoun;
+      document.getElementById('cfgServiceNoun').value = p.serviceNoun;
+      document.getElementById('cfgBookingLabel').value = p.bookingLabel;
+      document.getElementById('cfgFormButtonText').value = p.formButtonText;
+      document.getElementById('cfgFormTitle').value = p.formTitle;
+      document.getElementById('cfgFormSubtitle').value = p.formSubtitle;
+
+      document.getElementById('cfgLeadName').value = p.lead.name;
+      document.getElementById('cfgLeadPhone').value = p.lead.phone;
+      document.getElementById('cfgLeadCountry').value = p.lead.country;
+      document.getElementById('cfgLeadQual').value = p.lead.qualification;
+      document.getElementById('cfgLeadBudget').value = p.lead.budget;
+      document.getElementById('cfgLeadIelts').value = p.lead.ielts;
+      document.getElementById('cfgLeadIntake').value = p.lead.intake;
+
+      document.getElementById('cfgAdvisorName').value = p.advisorName;
+      document.getElementById('cfgAdvisorTitle').value = p.advisorTitle;
+      document.getElementById('cfgAdvisorBranch').value = p.advisorBranch;
+      document.getElementById('cfgDefaultSlot').value = p.defaultSlot;
+
+      updateLivePreview();
+      saveAdminConfig();
+      showToast();
+    }
+
+    // FORM SUBMIT HANDLER
+    function handleAdminFormSubmit(e) {
+      e.preventDefault();
+      saveAdminConfig();
+      showToast();
+    }
+
+    // SAVE ADMIN CONFIG TO LOCALSTORAGE
+    function saveAdminConfig() {
+      const cfg = {
+        businessName: document.getElementById('cfgBusinessName').value.trim(),
+        businessInitials: document.getElementById('cfgBusinessInitials').value.trim() || "YB",
+        industry: document.getElementById('cfgIndustry').value.trim(),
+        location: document.getElementById('cfgLocation').value.trim(),
+        customerNoun: document.getElementById('cfgCustomerNoun').value.trim(),
+        teamMemberNoun: document.getElementById('cfgTeamMemberNoun').value.trim(),
+        serviceNoun: document.getElementById('cfgServiceNoun').value.trim(),
+        bookingLabel: document.getElementById('cfgBookingLabel').value.trim(),
+        formButtonText: document.getElementById('cfgFormButtonText').value.trim(),
+        formTitle: document.getElementById('cfgFormTitle').value.trim(),
+        formSubtitle: document.getElementById('cfgFormSubtitle').value.trim(),
+        demoLead: {
+          name: document.getElementById('cfgLeadName').value.trim(),
+          phone: document.getElementById('cfgLeadPhone').value.trim(),
+          country: document.getElementById('cfgLeadCountry').value.trim(),
+          serviceInterest: document.getElementById('cfgLeadCountry').value.trim(),
+          qualification: document.getElementById('cfgLeadQual').value.trim(),
+          scale: document.getElementById('cfgLeadQual').value.trim(),
+          budget: document.getElementById('cfgLeadBudget').value.trim(),
+          ielts: document.getElementById('cfgLeadIelts').value.trim(),
+          readiness: document.getElementById('cfgLeadIelts').value.trim(),
+          intake: document.getElementById('cfgLeadIntake').value.trim(),
+          branch: document.getElementById('cfgLocation').value.trim(),
+          defaultSlot: document.getElementById('cfgDefaultSlot').value.trim()
+        },
+        appointmentOptions: {
+          advisorName: document.getElementById('cfgAdvisorName').value.trim(),
+          advisorTitle: document.getElementById('cfgAdvisorTitle').value.trim(),
+          advisorBranch: document.getElementById('cfgAdvisorBranch').value.trim(),
+          defaultSlot: document.getElementById('cfgDefaultSlot').value.trim()
+        }
+      };
+
+      // Save to localStorage
+      localStorage.setItem('buildicy_admin_config', JSON.stringify(cfg));
+      
+      // Also reset lead data to align with new preset
+      localStorage.setItem('buildicy_lead_data', JSON.stringify({
+        name: cfg.demoLead.name,
+        phone: cfg.demoLead.phone,
+        email: "client@" + cfg.businessName.toLowerCase().replace(/[^a-z0-9]/g, '') + ".com",
+        country: cfg.demoLead.country,
+        qualification: cfg.demoLead.qualification,
+        budget: cfg.demoLead.budget,
+        ielts: cfg.demoLead.ielts,
+        intake: cfg.demoLead.intake,
+        branch: cfg.location,
+        selectedSlot: cfg.demoLead.defaultSlot
+      }));
+    }
+
+    function showToast() {
+      playClickSound();
+      const t = document.getElementById('saveStatusToast');
+      t.classList.remove('hidden');
+      setTimeout(() => t.classList.add('hidden'), 3500);
+    }
+
+    function saveAndLaunchScreen1() {
+      saveAdminConfig();
+      playClickSound();
+      window.location.href = 'screen1.html';
+    }
+
+    function resetToFactoryDefault() {
+      playClickSound();
+      localStorage.removeItem('buildicy_admin_config');
+      localStorage.removeItem('buildicy_lead_data');
+      window.location.reload();
+    }
+
+    function switchTab(tabId) {
+      playClickSound();
+      ['brand', 'lead', 'booking'].forEach(id => {
+        const btn = document.getElementById(`tabBtn-${id}`);
+        const content = document.getElementById(`tabContent-${id}`);
+        if (id === tabId) {
+          btn.classList.add('bg-darkNavy', 'text-white', 'shadow-xs');
+          btn.classList.remove('text-slate-600');
+          content.classList.remove('hidden');
+        } else {
+          btn.classList.remove('bg-darkNavy', 'text-white', 'shadow-xs');
+          btn.classList.add('text-slate-600');
+          content.classList.add('hidden');
+        }
+      });
+    }
+
+    // Input change live listener
+    ['cfgBusinessName', 'cfgIndustry', 'cfgCustomerNoun', 'cfgTeamMemberNoun', 'cfgServiceNoun', 'cfgLocation'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateLivePreview);
+    });
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPresetCards();
+      loadCurrentConfigIntoForm();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

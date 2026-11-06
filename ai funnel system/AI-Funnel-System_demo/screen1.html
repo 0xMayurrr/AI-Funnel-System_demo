@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 1: Enquiry Form | AI Funnel System Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { waGreen: '#25D366', waDarkGreen: '#075E54', waTeal: '#008069', darkNavy: '#0B1F3A', navySurface: '#102A4E' },
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'], heading: ['Outfit', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+  <div id="loom-navbar-container"></div>
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 sm:py-12 flex flex-col items-center justify-center">
+
+    <div class="mb-5 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold bg-white text-slate-700 px-3.5 py-1.5 rounded-full border border-slate-200 shadow-sm">
+        <img src="buildicy_logo_icon.png" class="w-4 h-4 object-contain inline" alt="Buildicy">
+        <span>Concept Simulation — AI Funnel System for <strong id="simBusinessName">Your Business</strong> | Built by <strong class="text-blue-700">Buildicy</strong></span>
+      </span>
+    </div>
+
+    <div class="card-luxury w-full max-w-2xl rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl">
+
+      <div class="bg-gradient-to-r from-[#0B1F3A] via-[#102A4E] to-[#163B6E] p-6 sm:p-8 text-white relative">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 text-emerald-300 text-xs font-semibold border border-white/15 mb-2.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-waGreen"></i>
+              <span>Instant AI Assessment via WhatsApp</span>
+            </div>
+            <h1 id="formMainTitle" class="text-2xl sm:text-3xl font-bold font-heading tracking-tight text-white">
+              Your Business — Free Consultation
+            </h1>
+            <p id="formMainSubtitle" class="text-slate-300 text-xs sm:text-sm mt-1.5 max-w-lg leading-relaxed">
+              Tell us about your needs and our AI will qualify your profile instantly and connect you on WhatsApp.
+            </p>
+          </div>
+          <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 p-2.5 flex items-center justify-center shadow-inner self-start sm:self-center">
+            <i data-lucide="bot" class="w-8 h-8 text-waGreen"></i>
+          </div>
+        </div>
+        <div class="mt-5 pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-3">
+          <button type="button" onclick="quickFillDemo()" class="py-2 px-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/25 text-xs font-semibold flex items-center gap-2 transition group shadow-sm">
+            <i data-lucide="wand-sparkles" class="w-3.5 h-3.5 text-amber-300 group-hover:rotate-12 transition-transform"></i>
+            <span id="quickFillBtnLabel">Auto-fill Demo Lead Data</span>
+          </button>
+          <span class="text-[11px] text-slate-300 flex items-center gap-1">
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-waGreen"></i>
+            <span>Avg Response: &lt; 30 seconds</span>
+          </span>
+        </div>
+      </div>
+
+      <form id="leadForm" onsubmit="handleFormSubmit(event)" class="p-6 sm:p-8 space-y-5 bg-white text-xs sm:text-sm">
+
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">Full Name <span class="text-rose-500">*</span></label>
+          <div class="relative">
+            <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="text" id="fieldName" required placeholder="e.g. Alex Johnson" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition text-sm">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">WhatsApp Number <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <i data-lucide="phone" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+              <input type="tel" id="fieldPhone" required placeholder="Your WhatsApp number" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition text-sm">
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Our AI will reach out on this number.</p>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">Email Address <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+              <input type="email" id="fieldEmail" required placeholder="your@email.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition text-sm">
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label id="lblOptionField" class="block font-semibold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">Preferred Option <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <i data-lucide="layers" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+              <input type="text" id="fieldCountry" required placeholder="e.g. Option A" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition text-sm">
+            </div>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">Your Background <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <i data-lucide="briefcase" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+              <input type="text" id="fieldQual" required placeholder="e.g. Your background / experience" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition text-sm">
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">Current Status <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <i data-lucide="activity" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+              <input type="text" id="fieldIelts" required placeholder="e.g. Exploring / Ready to start" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition text-sm">
+            </div>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">Budget Range <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <i data-lucide="wallet" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+              <input type="text" id="fieldBudget" required placeholder="e.g. To be discussed" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition text-sm">
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">Timeline <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <i data-lucide="calendar" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+              <input type="text" id="fieldIntake" required placeholder="e.g. ASAP / Within 3 months" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition text-sm">
+            </div>
+          </div>
+          <div>
+            <label id="lblBranchField" class="block font-semibold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">Preferred Location <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <i data-lucide="map-pin" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+              <input type="text" id="fieldBranch" required placeholder="e.g. Your City" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 font-medium placeholder-slate-400 focus:bg-white focus:border-waGreen focus:ring-2 focus:ring-waGreen/20 transition text-sm">
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-3">
+          <button type="submit" id="btnSubmit" class="w-full py-4 px-6 btn-primary-glow rounded-2xl flex items-center justify-center gap-2.5 text-base font-bold font-heading group">
+            <span id="btnSubmitLabel">Get My Free Consultation</span>
+            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1.5 transition-transform text-darkNavy"></i>
+          </button>
+          <div class="flex items-center justify-center gap-2 text-xs text-slate-500 mt-3 text-center">
+            <i data-lucide="shield-check" class="w-4 h-4 text-waGreen"></i>
+            <span>Encrypted submission. AI bot initiates chat immediately on Screen 2.</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="shared.js"></script>
+  <script>
+    renderLoomNavbar(1);
+    const cfg = window.DEMO_CONFIG || {};
+
+    if (cfg.businessName) {
+      document.title = `Screen 1: ${cfg.formTitle || "Enquiry Form"} | ${cfg.businessName} AI Funnel`;
+      const simEl = document.getElementById('simBusinessName');
+      if (simEl) simEl.textContent = cfg.businessName;
+      const titleEl = document.getElementById('formMainTitle');
+      if (titleEl) titleEl.textContent = `${cfg.businessName} — ${cfg.formTitle || "Free Consultation"}`;
+    }
+    if (cfg.formSubtitle) {
+      const subEl = document.getElementById('formMainSubtitle');
+      if (subEl) subEl.textContent = cfg.formSubtitle;
+    }
+    if (cfg.customerNoun) {
+      const qBtn = document.getElementById('quickFillBtnLabel');
+      if (qBtn) qBtn.textContent = `Auto-fill Demo ${cfg.customerNoun} Data`;
+    }
+    if (cfg.formButtonText) {
+      const bLabel = document.getElementById('btnSubmitLabel');
+      if (bLabel) bLabel.textContent = cfg.formButtonText;
+    }
+
+    function quickFillDemo() {
+      playClickSound();
+      const d = getStudentData();
+      document.getElementById('fieldName').value = d.name;
+      document.getElementById('fieldPhone').value = d.phone;
+      document.getElementById('fieldEmail').value = d.email;
+      document.getElementById('fieldCountry').value = d.country;
+      document.getElementById('fieldQual').value = d.qualification;
+      document.getElementById('fieldIelts').value = d.ielts;
+      document.getElementById('fieldBudget').value = d.budget;
+      document.getElementById('fieldIntake').value = d.intake;
+      document.getElementById('fieldBranch').value = d.branch;
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      playWhatsAppTone();
+      const data = {
+        name: document.getElementById('fieldName').value.trim(),
+        phone: document.getElementById('fieldPhone').value.trim(),
+        email: document.getElementById('fieldEmail').value.trim(),
+        country: document.getElementById('fieldCountry').value.trim(),
+        qualification: document.getElementById('fieldQual').value.trim(),
+        ielts: document.getElementById('fieldIelts').value.trim(),
+        budget: document.getElementById('fieldBudget').value.trim(),
+        intake: document.getElementById('fieldIntake').value.trim(),
+        branch: document.getElementById('fieldBranch').value.trim()
+      };
+      saveStudentData(data);
+      const btn = document.getElementById('btnSubmit');
+      btn.innerHTML = `<span class="animate-pulse">Connecting to WhatsApp AI...</span>`;
+      btn.classList.add('opacity-90', 'pointer-events-none');
+      setTimeout(() => { window.location.href = 'screen2.html'; }, 700);
+    }
+  </script>
+</body>
+</html>

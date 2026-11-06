@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 2: AI Processes Task | Buildicy AI Automation Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            corpBlue: '#1E3A8A',
+            corpBlueLight: '#2563EB',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+  <div id="loom-navbar-container"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8 flex flex-col items-center justify-center">
+
+    <!-- Screen Tracker -->
+    <div class="mb-5 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold bg-white text-slate-700 px-3.5 py-1.5 rounded-full border border-slate-200 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+        <span>Screen 2 of 6: Multi-Stage Document OCR, Extraction & ERP Verification</span>
+      </span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+      <!-- Left Column: Pipeline Execution Checklist & Progress -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-900 text-xs font-bold border border-blue-200">
+            <i data-lucide="cpu" class="w-3.5 h-3.5 text-blue-600"></i>
+            <span>Autonomous AI Execution Pipeline</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold font-heading text-darkNavy tracking-tight">
+            AI Executes 4-Step Back-Office Pipeline
+          </h1>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Watch the neural pipeline ingest raw unformatted documents, validate compliance rules, and synchronize records into ERP ledgers with zero human touch.
+          </p>
+        </div>
+
+        <!-- Master Progress Bar Container -->
+        <div class="card-luxury p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-darkNavy flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
+              <span id="pipelineStatusText">Executing Pipeline...</span>
+            </span>
+            <span class="font-mono font-bold text-blue-900" id="progressPercentage">0%</span>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden p-0.5 border border-slate-200">
+            <div id="pipelineProgressBar" class="h-full bg-gradient-to-r from-blue-700 via-blue-500 to-emerald-500 rounded-full transition-all duration-300 w-0"></div>
+          </div>
+        </div>
+
+        <!-- 4 Step-by-Step Pipeline Cards -->
+        <div class="space-y-3" id="stepsContainer">
+          
+          <!-- Step 1: Reading Document -->
+          <div id="stepCard1" class="step-card p-4 rounded-2xl border border-slate-200 bg-white transition flex items-center justify-between">
+            <div class="flex items-center space-x-3.5">
+              <div class="step-badge w-8 h-8 rounded-xl bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs">
+                1
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-darkNavy">Reading Document</h4>
+                <p class="text-[11px] text-slate-500">OCR scanning PDF invoice layout & visual key-value pairs</p>
+              </div>
+            </div>
+            <div class="step-status text-[11px] font-semibold text-slate-400">Waiting</div>
+          </div>
+
+          <!-- Step 2: Extracting Key Fields -->
+          <div id="stepCard2" class="step-card p-4 rounded-2xl border border-slate-200 bg-white transition flex items-center justify-between">
+            <div class="flex items-center space-x-3.5">
+              <div class="step-badge w-8 h-8 rounded-xl bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs">
+                2
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-darkNavy">Extracting Key Fields</h4>
+                <p class="text-[11px] text-slate-500">Parsing Vendor GST, PO Number, Line Items, Net & Tax amounts</p>
+              </div>
+            </div>
+            <div class="step-status text-[11px] font-semibold text-slate-400">Waiting</div>
+          </div>
+
+          <!-- Step 3: Validating Data -->
+          <div id="stepCard3" class="step-card p-4 rounded-2xl border border-slate-200 bg-white transition flex items-center justify-between">
+            <div class="flex items-center space-x-3.5">
+              <div class="step-badge w-8 h-8 rounded-xl bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs">
+                3
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-darkNavy">Validating Data</h4>
+                <p class="text-[11px] text-slate-500">Matching 3-way reconciliation against ERP Purchase Order PO-2026-891</p>
+              </div>
+            </div>
+            <div class="step-status text-[11px] font-semibold text-slate-400">Waiting</div>
+          </div>
+
+          <!-- Step 4: Updating System -->
+          <div id="stepCard4" class="step-card p-4 rounded-2xl border border-slate-200 bg-white transition flex items-center justify-between">
+            <div class="flex items-center space-x-3.5">
+              <div class="step-badge w-8 h-8 rounded-xl bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs">
+                4
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-darkNavy">Updating System</h4>
+                <p class="text-[11px] text-slate-500">Auto-posting voucher to SAP ERP & triggering AP payment queue</p>
+              </div>
+            </div>
+            <div class="step-status text-[11px] font-semibold text-slate-400">Waiting</div>
+          </div>
+
+        </div>
+
+        <!-- Action / Proceed Button -->
+        <div class="pt-2">
+          <a href="screen3.html" id="proceedBtn" onclick="playClickSound()" class="w-full py-3.5 px-4 rounded-xl bg-darkNavy hover:bg-navySurface text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-darkNavy/20 transition group">
+            <span id="proceedBtnText">Processing Pipeline...</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Simulated Live Document Scanning View -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[380px] rounded-3xl bg-white border border-slate-300 shadow-2xl p-5 relative overflow-hidden space-y-4">
+          
+          <!-- Animated Laser Scan Beam -->
+          <div class="scan-beam"></div>
+
+          <!-- Document Header Preview -->
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-600 animate-ping"></span>
+              <span class="text-xs font-bold text-darkNavy uppercase font-mono tracking-wider">LIVE OCR SCAN</span>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400">FPS: 60 &bull; CONF: 99.8%</span>
+          </div>
+
+          <!-- Dynamic Bounding Boxes Simulation -->
+          <div class="space-y-3 text-xs bg-slate-50 p-4 rounded-2xl border border-slate-200/90 font-mono">
+            
+            <div class="p-2 rounded-lg bg-blue-50 border border-blue-300 flex items-center justify-between">
+              <span class="text-slate-500 text-[10px]">VENDOR:</span>
+              <span class="font-bold text-blue-900 text-[11px]" id="scanVendor">Apex Shipping Ltd.</span>
+            </div>
+
+            <div class="p-2 rounded-lg bg-emerald-50 border border-emerald-300 flex items-center justify-between">
+              <span class="text-slate-500 text-[10px]">PO MATCH:</span>
+              <span class="font-bold text-emerald-800 text-[11px]" id="scanPo">PO-2026-891 [VERIFIED]</span>
+            </div>
+
+            <div class="p-2 rounded-lg bg-blue-50 border border-blue-300 flex items-center justify-between">
+              <span class="text-slate-500 text-[10px]">TAXABLE:</span>
+              <span class="font-bold text-blue-900 text-[11px]" id="scanAmount">₹45,000</span>
+            </div>
+
+            <div class="p-2 rounded-lg bg-purple-50 border border-purple-300 flex items-center justify-between">
+              <span class="text-slate-500 text-[10px]">TOTAL:</span>
+              <span class="font-bold text-purple-900 text-[11px]" id="scanTotal">₹53,100</span>
+            </div>
+
+          </div>
+
+          <!-- Real-Time Telemetry Micro-Feed -->
+          <div class="p-3 rounded-xl bg-slate-900 text-slate-300 text-[10px] font-mono space-y-1">
+            <div class="text-emerald-400 flex items-center gap-1">
+              <i data-lucide="terminal" class="w-3 h-3"></i>
+              <span>[AI ENGINE CORE]</span>
+            </div>
+            <p id="telemetryLine1">&gt; Initializing OCR bounding boxes...</p>
+            <p id="telemetryLine2" class="text-slate-400">&gt; Awaiting line-item matrix parser...</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderLoomNavbar(2);
+
+      const cfg = window.DEMO_CONFIG || {};
+      const inv = cfg.sampleInvoice || {};
+
+      document.getElementById('scanVendor').textContent = inv.vendorName ? inv.vendorName.substring(0, 20) : "Apex Shipping Ltd.";
+      document.getElementById('scanPo').textContent = `${inv.poNumber || 'PO-2026-891'} [VERIFIED]`;
+      document.getElementById('scanAmount').textContent = inv.amount || "₹45,000";
+      document.getElementById('scanTotal').textContent = inv.totalAmount || "₹53,100";
+
+      const progressBar = document.getElementById('pipelineProgressBar');
+      const progressText = document.getElementById('progressPercentage');
+      const statusText = document.getElementById('pipelineStatusText');
+      const proceedBtnText = document.getElementById('proceedBtnText');
+      const proceedBtn = document.getElementById('proceedBtn');
+
+      const telemetry1 = document.getElementById('telemetryLine1');
+      const telemetry2 = document.getElementById('telemetryLine2');
+
+      const steps = [
+        { card: 'stepCard1', pct: 25, label: 'Reading Document...', tel1: '> Optical character recognition complete (12 lines)', tel2: '> Confidence threshold: 99.85%' },
+        { card: 'stepCard2', pct: 50, label: 'Extracting Key Fields...', tel1: '> Extracted GSTIN: 33AABCA1234F1Z8', tel2: '> Extracted Subtotal: ' + (inv.amount || '₹45,000') },
+        { card: 'stepCard3', pct: 75, label: 'Validating Data (3-Way Match)...', tel1: '> Match confirmed against PO-2026-891', tel2: '> Zero variance detected in line items' },
+        { card: 'stepCard4', pct: 100, label: 'Updating System & ERP Ledger...', tel1: '> SAP Ledger entry posted: #GL-99120', tel2: '> Payment voucher queued for AP run' }
+      ];
+
+      let currentStep = 0;
+
+      function runPipelineStep() {
+        if (currentStep >= steps.length) {
+          statusText.textContent = "All 4 Stages Verified in 18.4s";
+          proceedBtnText.textContent = "Pipeline Finished &bull; Proceed to Data Updated";
+          proceedBtn.classList.replace('bg-darkNavy', 'bg-emerald-600');
+          proceedBtn.classList.replace('hover:bg-navySurface', 'hover:bg-emerald-700');
+          playSuccessChime();
+          return;
+        }
+
+        const step = steps[currentStep];
+        playScanTone();
+
+        // Update progress bar
+        progressBar.style.width = step.pct + '%';
+        progressText.textContent = step.pct + '%';
+        statusText.textContent = step.label;
+
+        // Update card
+        const card = document.getElementById(step.card);
+        card.classList.remove('border-slate-200');
+        card.classList.add('border-blue-500', 'bg-blue-50/50', 'shadow-xs');
+
+        const badge = card.querySelector('.step-badge');
+        badge.classList.remove('bg-slate-100', 'text-slate-500');
+        badge.classList.add('bg-blue-900', 'text-white');
+        badge.textContent = '✓';
+
+        const statusLabel = card.querySelector('.step-status');
+        statusLabel.classList.remove('text-slate-400');
+        statusLabel.classList.add('text-emerald-700', 'font-bold');
+        statusLabel.textContent = 'Completed (0.4s)';
+
+        // Telemetry update
+        telemetry1.textContent = step.tel1;
+        telemetry2.textContent = step.tel2;
+
+        currentStep++;
+        setTimeout(runPipelineStep, 800);
+      }
+
+      // Kickoff pipeline after brief initial load
+      setTimeout(runPipelineStep, 400);
+
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

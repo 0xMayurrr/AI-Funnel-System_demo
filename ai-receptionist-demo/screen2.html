@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 2: AI Receptionist Answers | Buildicy AI Receptionist Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            medGreen: '#0B7A4B',
+            waGreen: '#25D366',
+            waDarkGreen: '#075E54',
+            waTeal: '#008069',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+  <div id="loom-navbar-container"></div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8 flex flex-col items-center justify-center">
+
+    <div class="mb-5 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold bg-white text-slate-700 px-3.5 py-1.5 rounded-full border border-slate-200 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Screen 2 of 6: Instant AI Receptionist Greeting & Intent Extraction</span>
+      </span>
+    </div>
+
+    <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+      <!-- Left Column: Explainer and Next Steps -->
+      <div class="lg:col-span-5 space-y-5">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
+            <i data-lucide="bot" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>Zero Wait Time &bull; Multi-Turn NLP</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold font-heading text-darkNavy tracking-tight">
+            Conversational AI Answers in Seconds
+          </h1>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            The AI greets the patient warmly, verifies the service needed, and captures preferred dates and times naturally without clumsy IVR menus.
+          </p>
+        </div>
+
+        <!-- Capability Highlights -->
+        <div class="space-y-3">
+          <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3">
+            <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-darkNavy">&lt; 2 Second Initial Response</h4>
+              <p class="text-[11px] text-slate-500">Patients never wait on hold or abandon chats.</p>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-xs flex items-start gap-3">
+            <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-darkNavy">Intent & Schedule Parsing</h4>
+              <p class="text-[11px] text-slate-500">Extracts "tomorrow afternoon" into specific calendar query slots.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress to Screen 3 -->
+        <div class="pt-2">
+          <a href="screen3.html" onclick="playClickSound()" class="w-full py-3 px-4 rounded-xl bg-darkNavy hover:bg-navySurface text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-darkNavy/20 transition group">
+            <span>Continue to Screen 3: Qualification & Availability</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Phone Mockup with WhatsApp Conversation -->
+      <div class="lg:col-span-7 flex justify-center">
+        <div class="phone-frame w-full max-w-[390px] h-[640px] rounded-[44px] bg-slate-950 p-3 shadow-2xl border-4 border-slate-800 relative flex flex-col overflow-hidden">
+          
+          <!-- Dynamic Island Notch -->
+          <div class="w-28 h-5 bg-black rounded-full mx-auto mb-2 flex items-center justify-center space-x-1.5 z-20">
+            <span class="w-2 h-2 rounded-full bg-slate-800"></span>
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          </div>
+
+          <!-- Phone Inner Screen -->
+          <div class="flex-1 rounded-[34px] bg-[#EFEAE2] flex flex-col overflow-hidden relative border border-slate-700/50">
+            
+            <!-- WhatsApp Chat Header -->
+            <div class="bg-waDarkGreen px-4 py-3 text-white flex items-center justify-between shadow-md z-10">
+              <div class="flex items-center space-x-2.5">
+                <a href="screen1.html" class="text-white hover:opacity-80">
+                  <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </a>
+                <div class="w-9 h-9 rounded-full bg-emerald-700 border-2 border-white/20 flex items-center justify-center text-xs font-bold">
+                  <span id="avatarInitials">BS</span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-xs leading-none" id="chatClinicName">Bright Smile Clinic</h3>
+                  <span class="text-[10px] text-emerald-200 flex items-center gap-1 mt-0.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse"></span>
+                    <span>AI Receptionist &bull; Online</span>
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3 text-emerald-100">
+                <i data-lucide="phone" class="w-4 h-4 cursor-pointer hover:text-white"></i>
+                <i data-lucide="video" class="w-4 h-4 cursor-pointer hover:text-white"></i>
+                <i data-lucide="more-vertical" class="w-4 h-4 cursor-pointer hover:text-white"></i>
+              </div>
+            </div>
+
+            <!-- WhatsApp Message Stream Body -->
+            <div id="chatStream" class="flex-1 p-3 overflow-y-auto space-y-2.5 text-xs">
+              <!-- Chat messages will be dynamically placed and animated here -->
+            </div>
+
+            <!-- Typing Indicator Container -->
+            <div id="typingIndicator" class="px-4 py-2 hidden">
+              <div class="inline-flex items-center gap-1.5 bg-white py-1.5 px-3 rounded-2xl shadow-sm text-slate-500 text-[11px]">
+                <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
+                <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                <span class="ml-1 text-[10px] font-medium text-slate-400" id="typingLabel">AI Receptionist is typing...</span>
+              </div>
+            </div>
+
+            <!-- WhatsApp Chat Footer / Input -->
+            <div class="bg-[#F0F2F5] p-2 flex items-center space-x-2 border-t border-slate-300">
+              <div class="flex-1 bg-white rounded-full px-3.5 py-2 text-xs text-slate-600 flex items-center justify-between border border-slate-200 shadow-inner">
+                <span id="chatInputPlaceholder">AI handling conversation...</span>
+                <i data-lucide="paperclip" class="w-3.5 h-3.5 text-slate-400"></i>
+              </div>
+              <a href="screen3.html" onclick="playClickSound()" class="w-8 h-8 rounded-full bg-waTeal hover:bg-waDarkGreen text-white flex items-center justify-center transition shadow-md" title="Go to Screen 3">
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderLoomNavbar(2);
+
+      const cfg = window.DEMO_CONFIG || {};
+      const patient = (typeof getPatientData === 'function') ? getPatientData() : getDefaultPatient();
+
+      const bName = cfg.businessName || "Bright Smile Dental Clinic";
+      const bInitials = cfg.businessInitials || "BS";
+      const pName = patient.name || "Priya Sharma";
+      const sInterest = patient.serviceInterest || "Dental Cleaning & Polish";
+
+      document.getElementById('chatClinicName').textContent = bName;
+      document.getElementById('avatarInitials').textContent = bInitials;
+
+      const chatStream = document.getElementById('chatStream');
+      const typingIndicator = document.getElementById('typingIndicator');
+
+      const messages = [
+        { sender: 'customer', text: `Hi! I'd like to book an appointment for ${sInterest.toLowerCase()}.`, time: '9:41 AM' },
+        { sender: 'ai', text: `Hello ${pName.split(' ')[0]}! 👋 Welcome to ${bName}. I'm your 24/7 AI Receptionist.`, time: '9:41 AM' },
+        { sender: 'ai', text: `I can help you secure that ${sInterest.toLowerCase()} slot right away. Could you please confirm your preferred date and time?`, time: '9:41 AM' },
+        { sender: 'customer', text: `Tomorrow afternoon works best for me! Around 3 PM if possible.`, time: '9:42 AM' },
+        { sender: 'ai', text: `Got it! Let me check real-time availability for tomorrow afternoon... 🗓️`, time: '9:42 AM' }
+      ];
+
+      let msgIndex = 0;
+
+      function renderNextMessage() {
+        if (msgIndex >= messages.length) {
+          typingIndicator.classList.add('hidden');
+          return;
+        }
+
+        const msg = messages[msgIndex];
+
+        if (msg.sender === 'ai') {
+          typingIndicator.classList.remove('hidden');
+          setTimeout(() => {
+            typingIndicator.classList.add('hidden');
+            appendBubble(msg);
+            playWhatsAppTone();
+            msgIndex++;
+            setTimeout(renderNextMessage, 1100);
+          }, 900);
+        } else {
+          typingIndicator.classList.add('hidden');
+          appendBubble(msg);
+          playTapSound();
+          msgIndex++;
+          setTimeout(renderNextMessage, 1200);
+        }
+      }
+
+      function appendBubble(msg) {
+        const isAI = msg.sender === 'ai';
+        const bubble = document.createElement('div');
+        bubble.className = `flex ${isAI ? 'justify-start' : 'justify-end'} animate-fade-in`;
+
+        bubble.innerHTML = `
+          <div class="max-w-[82%] rounded-2xl px-3.5 py-2.5 shadow-sm text-xs ${
+            isAI 
+              ? 'bg-white text-slate-800 rounded-tl-xs border border-slate-100' 
+              : 'bg-[#D9FDD3] text-slate-900 rounded-tr-xs'
+          }">
+            ${isAI ? `<div class="text-[10px] font-bold text-emerald-800 mb-0.5 flex items-center gap-1"><i data-lucide="bot" class="w-3 h-3"></i> AI Receptionist</div>` : ''}
+            <p class="leading-relaxed">${msg.text}</p>
+            <div class="flex items-center justify-end space-x-1 mt-1 text-[9px] text-slate-400">
+              <span>${msg.time}</span>
+              ${!isAI ? `<i data-lucide="check-check" class="w-3 h-3 text-blue-500"></i>` : ''}
+            </div>
+          </div>
+        `;
+        chatStream.appendChild(bubble);
+        chatStream.scrollTop = chatStream.scrollHeight;
+        if (window.lucide) lucide.createIcons();
+      }
+
+      // Start sequence
+      renderNextMessage();
+
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

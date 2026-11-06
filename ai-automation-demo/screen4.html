@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 4: Team Notification | Buildicy AI Automation Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            corpBlue: '#1E3A8A',
+            corpBlueLight: '#2563EB',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+  <div id="loom-navbar-container"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 sm:py-12 flex flex-col items-center justify-center space-y-6">
+
+    <!-- Screen Tracker -->
+    <div class="text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold bg-white text-slate-700 px-3.5 py-1.5 rounded-full border border-slate-200 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+        <span>Screen 4 of 6: Omni-Channel Team Alert & System Dispatch</span>
+      </span>
+    </div>
+
+    <!-- Main Card Container -->
+    <div class="w-full max-w-2xl card-luxury rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-white space-y-6">
+      
+      <!-- Top Card Header -->
+      <div class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 p-6 sm:p-8 text-white relative">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center shadow-inner">
+              <i data-lucide="bell-ring" class="w-6 h-6 text-blue-200"></i>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-wider text-blue-200 font-semibold">Automated Notification</span>
+              <h1 class="text-2xl font-bold font-heading text-white">Team Dispatched Instantly</h1>
+            </div>
+          </div>
+          <span class="text-xs font-mono bg-white/10 px-3 py-1.5 rounded-xl border border-white/20">Latency: 200ms</span>
+        </div>
+
+        <p class="mt-3 text-xs sm:text-sm text-blue-100/90 leading-relaxed">
+          The moment the invoice passed 3-way validation, notifications were routed instantly to Slack, Email, and the Finance AP queue.
+        </p>
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-6 pt-0">
+
+        <!-- Slack-Style Notification Bubble -->
+        <div class="rounded-2xl bg-slate-900 text-white p-5 shadow-lg border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+            <div class="flex items-center space-x-2">
+              <div class="w-6 h-6 rounded-md bg-[#4A154B] flex items-center justify-center text-[10px] font-bold text-white">#</div>
+              <span class="text-xs font-bold text-slate-300 font-mono">finance-ap-alerts</span>
+              <span class="text-[10px] bg-blue-900/60 text-blue-300 px-2 py-0.5 rounded font-mono">APP</span>
+            </div>
+            <span class="text-[10px] text-slate-500 font-mono">10:15 AM (Just now)</span>
+          </div>
+
+          <div class="flex items-start space-x-3 pt-1">
+            <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-white font-heading">Buildicy Autonomous Worker</span>
+                <span class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Verified 3-Way Match</span>
+                </span>
+              </div>
+
+              <!-- Required user text -->
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 text-xs text-slate-200 font-medium leading-relaxed" id="slackAlertMessage">
+                Invoice INV-2043 processed. Amount: ₹45,000. Status: Approved. Assigned to: Finance Team.
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2 pt-1">
+                <span class="text-[11px] bg-slate-800 px-2.5 py-1 rounded-lg text-slate-300 font-mono">
+                  PO: <strong class="text-white" id="notifPo">PO-2026-891</strong>
+                </span>
+                <span class="text-[11px] bg-slate-800 px-2.5 py-1 rounded-lg text-slate-300 font-mono">
+                  Vendor: <strong class="text-white" id="notifVendor">Apex Shipping</strong>
+                </span>
+                <span class="text-[11px] bg-emerald-950 text-emerald-300 border border-emerald-800 px-2.5 py-1 rounded-lg font-bold">
+                  Payment Voucher Queued
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Channel Delivery Status Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          
+          <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
+              <i data-lucide="hash" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Slack Channel</div>
+              <div class="text-[10px] text-emerald-600 font-bold">Delivered (0.2s)</div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">AP Finance Email</div>
+              <div class="text-[10px] text-emerald-600 font-bold">Delivered (0.4s)</div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+              <i data-lucide="server" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">SAP Webhook</div>
+              <div class="text-[10px] text-emerald-600 font-bold">Synced (0.1s)</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Next Action -->
+        <div class="pt-2 flex items-center justify-between border-t border-slate-100">
+          <a href="screen3.html" class="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-semibold flex items-center gap-1.5 transition">
+            <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+            <span>Back to Record</span>
+          </a>
+
+          <a href="screen5.html" onclick="playClickSound()" class="px-6 py-3 rounded-xl bg-darkNavy hover:bg-navySurface text-white text-xs font-bold flex items-center gap-2 shadow-lg shadow-darkNavy/20 transition group">
+            <span>Next: View Full Automation Log</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderLoomNavbar(4);
+
+      const cfg = window.DEMO_CONFIG || {};
+      const inv = cfg.sampleInvoice || {};
+
+      const iNo = inv.invoiceNumber || "INV-2043";
+      const amt = inv.amount || "₹45,000";
+      const status = inv.status || "Approved";
+      const assigned = inv.assignedTo || "Finance Team";
+
+      document.getElementById('slackAlertMessage').innerHTML = `
+        <strong>Invoice ${iNo} processed.</strong> Amount: <strong>${amt}</strong>. Status: <strong>${status}</strong>. Assigned to: <strong>${assigned}</strong>.
+      `;
+      document.getElementById('notifPo').textContent = inv.poNumber || "PO-2026-891";
+      document.getElementById('notifVendor').textContent = inv.vendorName ? inv.vendorName.substring(0, 18) : "Apex Shipping";
+
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

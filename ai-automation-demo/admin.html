@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Panel | Buildicy AI Automation Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            corpBlue: '#1E3A8A',
+            corpBlueLight: '#2563EB',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+  
+  <!-- Clean Admin Header -->
+  <header class="glass-nav sticky top-0 z-50 border-b border-slate-200/90 shadow-sm bg-white/95">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold text-xs flex items-center gap-1 transition">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
+          <span>All Demos</span>
+        </a>
+        <div class="h-4 w-px bg-slate-200"></div>
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-blue-900 text-white flex items-center justify-center font-bold text-xs">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h1 class="text-sm font-bold font-heading text-darkNavy">AI Automation Admin Control Center</h1>
+            <p class="text-[10px] text-slate-500">Configure business identity, workflow presets, and autonomous pipeline parameters</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="screen1.html" class="px-4 py-2 rounded-xl bg-blue-900 hover:bg-blue-950 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition">
+          <i data-lucide="play" class="w-3.5 h-3.5"></i>
+          <span>Launch Automation Demo</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8 space-y-8">
+
+    <!-- Industry Presets Selector -->
+    <div class="card-luxury p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+      <div>
+        <span class="text-xs uppercase tracking-wider font-bold text-blue-900">1-Click Workflow Presets</span>
+        <h2 class="text-lg font-bold font-heading text-darkNavy">Select Pre-Configured Workflow Template</h2>
+        <p class="text-xs text-slate-500 mt-0.5">Loads realistic document types, line items, PO numbers, and enterprise departments instantly.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        
+        <button type="button" onclick="loadPreset('logistics')" class="p-4 rounded-2xl border border-blue-500 bg-blue-50/70 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">🚛</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Freight Logistics</div>
+              <div class="text-[10px] text-slate-500">Nexa Logistics</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Invoice INV-2043 &bull; Apex Shipping &bull; ₹45,000</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('invoicing')" class="p-4 rounded-2xl border border-slate-200 hover:border-blue-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">💳</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Accounts Payable</div>
+              <div class="text-[10px] text-slate-500">Apex Global Accounts</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Invoice INV-5510 &bull; CloudServe &bull; ₹82,400</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('ecommerce')" class="p-4 rounded-2xl border border-slate-200 hover:border-blue-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">📦</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">E-Commerce Returns</div>
+              <div class="text-[10px] text-slate-500">SwiftCart Fulfillment</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">RMA-4421 &bull; UrbanStyle &bull; ₹14,200</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('hronboarding')" class="p-4 rounded-2xl border border-slate-200 hover:border-blue-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">👥</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">HR Onboarding</div>
+              <div class="text-[10px] text-slate-500">TalentHub HR Systems</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Dossier EMP-2026 &bull; Rahul S. &bull; CTC Band L5</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('crmleads')" class="p-4 rounded-2xl border border-slate-200 hover:border-blue-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">🎯</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">CRM Lead Routing</div>
+              <div class="text-[10px] text-slate-500">GrowthScale Agency</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Lead LEAD-991 &bull; Health Systems &bull; ₹15L deal</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('legal')" class="p-4 rounded-2xl border border-slate-200 hover:border-blue-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">⚖️</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Legal Contract Review</div>
+              <div class="text-[10px] text-slate-500">Lexis Corporate Law</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">CTR-8812 &bull; FinTech Innovations &bull; ₹2,50,000</div>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Customizer Form -->
+    <form id="adminForm" onsubmit="handleSaveConfig(event)" class="card-luxury p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-6">
+      
+      <div>
+        <h2 class="text-lg font-bold font-heading text-darkNavy">Customize Configuration Manually</h2>
+        <p class="text-xs text-slate-500">Fine-tune workflow parameters to pitch any specific client or enterprise team.</p>
+      </div>
+
+      <!-- Business Identity -->
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-blue-900 uppercase tracking-wider pb-1 border-b border-slate-100">1. Business Identity</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Company Name</label>
+            <input type="text" id="cfgBusinessName" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Industry</label>
+            <input type="text" id="cfgIndustry" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Location / HQ</label>
+            <input type="text" id="cfgLocation" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Invoice / Record Payload -->
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-blue-900 uppercase tracking-wider pb-1 border-b border-slate-100">2. Inbound Document / Record Details</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Invoice / Reference #</label>
+            <input type="text" id="cfgInvoiceNumber" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Vendor / Counterparty Name</label>
+            <input type="text" id="cfgVendorName" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">PO / Contract Number</label>
+            <input type="text" id="cfgPoNumber" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Subtotal Amount</label>
+            <input type="text" id="cfgAmount" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Total (Inc. Taxes / Gross)</label>
+            <input type="text" id="cfgTotalAmount" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Assigned Department / Team</label>
+            <input type="text" id="cfgAssignedTo" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+        <button type="button" onclick="handleResetDefaultConfig()" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+          <span>Reset to Nexa Logistics Defaults</span>
+        </button>
+
+        <button type="submit" class="px-6 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-950 text-white text-xs font-bold flex items-center gap-2 shadow-md shadow-blue-900/30 transition">
+          <i data-lucide="save" class="w-4 h-4"></i>
+          <span>Save Changes & Launch Screen 1</span>
+        </button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <script src="shared.js"></script>
+  <script>
+    function loadPreset(key) {
+      if (typeof selectAutomationPreset === 'function') {
+        selectAutomationPreset(key);
+      }
+    }
+
+    function populateForm() {
+      const cfg = window.DEMO_CONFIG || {};
+      const inv = cfg.sampleInvoice || {};
+
+      document.getElementById('cfgBusinessName').value = cfg.businessName || '';
+      document.getElementById('cfgIndustry').value = cfg.industry || '';
+      document.getElementById('cfgLocation').value = cfg.location || '';
+
+      document.getElementById('cfgInvoiceNumber').value = inv.invoiceNumber || '';
+      document.getElementById('cfgVendorName').value = inv.vendorName || '';
+      document.getElementById('cfgPoNumber').value = inv.poNumber || '';
+      document.getElementById('cfgAmount').value = inv.amount || '';
+      document.getElementById('cfgTotalAmount').value = inv.totalAmount || '';
+      document.getElementById('cfgAssignedTo').value = inv.assignedTo || '';
+    }
+
+    function handleSaveConfig(e) {
+      e.preventDefault();
+      const current = window.DEMO_CONFIG || {};
+
+      const updated = {
+        ...current,
+        businessName: document.getElementById('cfgBusinessName').value,
+        businessInitials: document.getElementById('cfgBusinessName').value.substring(0, 2).toUpperCase(),
+        industry: document.getElementById('cfgIndustry').value,
+        location: document.getElementById('cfgLocation').value,
+        sampleInvoice: {
+          ...(current.sampleInvoice || {}),
+          invoiceNumber: document.getElementById('cfgInvoiceNumber').value,
+          vendorName: document.getElementById('cfgVendorName').value,
+          poNumber: document.getElementById('cfgPoNumber').value,
+          amount: document.getElementById('cfgAmount').value,
+          totalAmount: document.getElementById('cfgTotalAmount').value,
+          assignedTo: document.getElementById('cfgAssignedTo').value
+        }
+      };
+
+      localStorage.setItem('buildicy_automation_admin_config', JSON.stringify(updated));
+      localStorage.setItem('buildicy_automation_data', JSON.stringify({
+        invoiceNumber: updated.sampleInvoice.invoiceNumber,
+        vendorName: updated.sampleInvoice.vendorName,
+        amount: updated.sampleInvoice.amount,
+        totalAmount: updated.sampleInvoice.totalAmount,
+        poNumber: updated.sampleInvoice.poNumber,
+        status: "Approved",
+        assignedTo: updated.sampleInvoice.assignedTo,
+        processedTimestamp: "Just now",
+        timeElapsedSeconds: 20
+      }));
+
+      window.location.href = 'screen1.html';
+    }
+
+    function handleResetDefaultConfig() {
+      localStorage.removeItem('buildicy_automation_admin_config');
+      localStorage.removeItem('buildicy_automation_data');
+      window.location.reload();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      populateForm();
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

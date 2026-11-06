@@ -1,0 +1,80 @@
+/**
+ * shared.css - Design System for Buildicy AI Automation Demo
+ * Corporate Blue & Slate theme (#1E3A8A)
+ */
+
+:root {
+  --corpBlue: #1E3A8A;
+  --corpBlueLight: #2563EB;
+  --corpBlueDark: #172554;
+  --accentEmerald: #10B981;
+  --darkNavy: #0B1F3A;
+  --navySurface: #102A4E;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F8FAFC;
+  color: #1E293B;
+  overflow-x: hidden;
+}
+
+.font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+.ambient-canvas {
+  background-color: #F8FAFC;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.03) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(30, 58, 138, 0.03) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+.glass-nav {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.card-luxury {
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-luxury:hover {
+  box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.07), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+}
+
+.step-nav-item {
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-nav-item.active {
+  background: #1E3A8A;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.25);
+}
+
+.step-nav-item.completed {
+  color: #1E3A8A;
+}
+
+/* Pipeline Progress Pulse */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(30, 58, 138, 0);
+  }
+}
+
+.pipeline-pulse {
+  animation: pulseGlow 1.8s infinite;
+}
+

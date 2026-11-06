@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Panel | Buildicy AI Receptionist Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            medGreen: '#0B7A4B',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config/demoConfig.js"></script>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+  
+  <!-- Simple Clean Admin Nav Header -->
+  <header class="glass-nav sticky top-0 z-50 border-b border-slate-200/90 shadow-sm bg-white/95">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold text-xs flex items-center gap-1 transition">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
+          <span>All Demos</span>
+        </a>
+        <div class="h-4 w-px bg-slate-200"></div>
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">
+            <i data-lucide="sliders" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h1 class="text-sm font-bold font-heading text-darkNavy">AI Receptionist Admin Control Center</h1>
+            <p class="text-[10px] text-slate-500">Configure business identity, industry presets, and receptionist parameters</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="screen1.html" class="px-4 py-2 rounded-xl bg-darkNavy hover:bg-navySurface text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition">
+          <i data-lucide="play" class="w-3.5 h-3.5"></i>
+          <span>Launch Receptionist Demo</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-8 space-y-8">
+
+    <!-- Industry Presets Selector -->
+    <div class="card-luxury p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs uppercase tracking-wider font-bold text-emerald-800">1-Click Industry Templates</span>
+          <h2 class="text-lg font-bold font-heading text-darkNavy">Select Pre-Configured Vertical</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Loads proven dialogue trees, doctor titles, services, and realistic patient scenarios instantly.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        
+        <button type="button" onclick="loadPreset('dental')" class="preset-card p-4 rounded-2xl border border-emerald-500 bg-emerald-50/70 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">🦷</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Dental Clinic</div>
+              <div class="text-[10px] text-slate-500">Bright Smile Dental Clinic</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Dr. Aravind Swaminathan &bull; Patient Priya</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('medspa')" class="preset-card p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">✨</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Aesthetic MedSpa</div>
+              <div class="text-[10px] text-slate-500">Radiance Aesthetic Clinic</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Dr. Meera Vasudevan &bull; Client Ananya</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('veterinary')" class="preset-card p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">🐾</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Pet Hospital & Vet</div>
+              <div class="text-[10px] text-slate-500">Paws & Claws Pet Hospital</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Dr. Rajesh Kulkarni &bull; Parent Rohan (Milo)</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('lawfirm')" class="preset-card p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">⚖️</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Law Firm Intake</div>
+              <div class="text-[10px] text-slate-500">Sterling Legal Partners</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Advocate Vikramaditya &bull; Client Karan</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('autorepair')" class="preset-card p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">🔧</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Auto Repair & Service</div>
+              <div class="text-[10px] text-slate-500">Apex Auto Care & Service</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Service Advisor Ramesh &bull; Siddharth</div>
+        </button>
+
+        <button type="button" onclick="loadPreset('salon')" class="preset-card p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 text-left transition hover:shadow-md flex flex-col justify-between">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">💇‍♀️</span>
+            <div>
+              <div class="font-bold text-darkNavy text-xs">Luxury Salon & Spa</div>
+              <div class="text-[10px] text-slate-500">Glow Luxury Salon & Spa</div>
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-600">Director Natasha &bull; Guest Divya</div>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Customizer Form -->
+    <form id="adminForm" onsubmit="handleSaveConfig(event)" class="card-luxury p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-6">
+      
+      <div>
+        <h2 class="text-lg font-bold font-heading text-darkNavy">Customize Configuration Manually</h2>
+        <p class="text-xs text-slate-500">Fine-tune the parameters below to represent any specific client business.</p>
+      </div>
+
+      <!-- Business Identity Section -->
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-emerald-800 uppercase tracking-wider pb-1 border-b border-slate-100">1. Business Identity</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Business Name</label>
+            <input type="text" id="cfgBusinessName" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Industry</label>
+            <input type="text" id="cfgIndustry" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Location / City</label>
+            <input type="text" id="cfgLocation" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Doctor / Specialist / Team Lead</label>
+            <input type="text" id="cfgDentistName" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Physical Address</label>
+            <input type="text" id="cfgClinicAddress" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- Terminology Nouns Section -->
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-emerald-800 uppercase tracking-wider pb-1 border-b border-slate-100">2. Terminology & Nouns</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Customer Noun (e.g. Patient, Client)</label>
+            <input type="text" id="cfgCustomerNoun" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Team Member Noun (e.g. Receptionist)</label>
+            <input type="text" id="cfgTeamMemberNoun" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Service Noun (e.g. Appointment)</label>
+            <input type="text" id="cfgServiceNoun" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- Default Demo Patient Section -->
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-emerald-800 uppercase tracking-wider pb-1 border-b border-slate-100">3. Demo Inquirer Profile</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Customer Name</label>
+            <input type="text" id="cfgPatientName" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Phone Number</label>
+            <input type="text" id="cfgPatientPhone" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Service Requested</label>
+            <input type="text" id="cfgPatientService" class="w-full p-2.5 rounded-xl border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+        <button type="button" onclick="handleResetDefaultConfig()" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+          <span>Reset to Bright Smile Defaults</span>
+        </button>
+
+        <button type="submit" class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-2 shadow-md shadow-emerald-600/30 transition">
+          <i data-lucide="save" class="w-4 h-4"></i>
+          <span>Save Changes & Launch Screen 1</span>
+        </button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <script src="shared.js"></script>
+  <script>
+    function loadPreset(key) {
+      if (typeof selectReceptionistPreset === 'function') {
+        selectReceptionistPreset(key);
+      }
+    }
+
+    function populateForm() {
+      const cfg = window.DEMO_CONFIG || {};
+      const dp = cfg.demoPatient || {};
+
+      document.getElementById('cfgBusinessName').value = cfg.businessName || '';
+      document.getElementById('cfgIndustry').value = cfg.industry || '';
+      document.getElementById('cfgLocation').value = cfg.location || '';
+      document.getElementById('cfgDentistName').value = cfg.dentistName || '';
+      document.getElementById('cfgClinicAddress').value = cfg.clinicAddress || '';
+
+      document.getElementById('cfgCustomerNoun').value = cfg.customerNoun || '';
+      document.getElementById('cfgTeamMemberNoun').value = cfg.teamMemberNoun || '';
+      document.getElementById('cfgServiceNoun').value = cfg.serviceNoun || '';
+
+      document.getElementById('cfgPatientName').value = dp.name || '';
+      document.getElementById('cfgPatientPhone').value = dp.phone || '';
+      document.getElementById('cfgPatientService').value = dp.serviceInterest || '';
+    }
+
+    function handleSaveConfig(e) {
+      e.preventDefault();
+      const current = window.DEMO_CONFIG || {};
+
+      const updated = {
+        ...current,
+        businessName: document.getElementById('cfgBusinessName').value,
+        businessInitials: document.getElementById('cfgBusinessName').value.substring(0, 2).toUpperCase(),
+        industry: document.getElementById('cfgIndustry').value,
+        location: document.getElementById('cfgLocation').value,
+        dentistName: document.getElementById('cfgDentistName').value,
+        clinicAddress: document.getElementById('cfgClinicAddress').value,
+        customerNoun: document.getElementById('cfgCustomerNoun').value,
+        teamMemberNoun: document.getElementById('cfgTeamMemberNoun').value,
+        serviceNoun: document.getElementById('cfgServiceNoun').value,
+        demoPatient: {
+          ...(current.demoPatient || {}),
+          name: document.getElementById('cfgPatientName').value,
+          phone: document.getElementById('cfgPatientPhone').value,
+          serviceInterest: document.getElementById('cfgPatientService').value
+        }
+      };
+
+      localStorage.setItem('buildicy_receptionist_admin_config', JSON.stringify(updated));
+      localStorage.setItem('buildicy_receptionist_data', JSON.stringify({
+        name: updated.demoPatient.name,
+        phone: updated.demoPatient.phone,
+        serviceInterest: updated.demoPatient.serviceInterest,
+        selectedSlot: "Tomorrow, 3:00 PM",
+        dentist: updated.dentistName,
+        clinic: updated.businessName,
+        location: updated.location,
+        status: "Confirmed"
+      }));
+
+      window.location.href = 'screen1.html';
+    }
+
+    function handleResetDefaultConfig() {
+      localStorage.removeItem('buildicy_receptionist_admin_config');
+      localStorage.removeItem('buildicy_receptionist_data');
+      window.location.reload();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      populateForm();
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

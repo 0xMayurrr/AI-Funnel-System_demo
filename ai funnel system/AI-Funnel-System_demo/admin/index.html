@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — Buildicy AI Funnel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: '#25D366', navy: '#0B1F3A' },
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen font-sans">
+
+  <!-- TOP NAV -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-navy flex items-center justify-center">
+          <i data-lucide="settings-2" class="w-4 h-4 text-brand"></i>
+        </div>
+        <div>
+          <h1 class="font-semibold text-sm text-navy">Buildicy Admin Panel</h1>
+          <p class="text-[10px] text-slate-400">Configure all 3 demos from one place</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="resetToDefault()" class="px-3 py-1.5 text-xs font-medium text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50 flex items-center gap-1.5 transition">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset
+        </button>
+        <button onclick="saveAndApply()" class="px-4 py-1.5 text-xs font-semibold bg-navy text-white rounded-lg hover:bg-slate-800 flex items-center gap-1.5 transition">
+          <i data-lucide="save" class="w-3.5 h-3.5"></i> Save & Apply
+        </button>
+        <a id="previewDemoBtn" href="../screen1.html" target="_blank" class="px-4 py-1.5 text-xs font-semibold bg-brand text-navy rounded-lg hover:bg-emerald-400 flex items-center gap-1.5 transition">
+          <i data-lucide="play" class="w-3.5 h-3.5"></i> Preview Demo
+        </a>
+      </div>
+    </div>
+
+    <!-- DEMO TAB SWITCHER -->
+    <div class="max-w-6xl mx-auto px-6 pb-0 flex items-center gap-1 border-t border-slate-100">
+      <button onclick="switchDemoTab('funnel')" id="tab-funnel" class="demo-tab px-4 py-2.5 text-xs font-semibold flex items-center gap-1.5 border-b-2 transition">
+        <i data-lucide="filter" class="w-3.5 h-3.5"></i> AI Funnel System
+      </button>
+      <button onclick="switchDemoTab('receptionist')" id="tab-receptionist" class="demo-tab px-4 py-2.5 text-xs font-semibold flex items-center gap-1.5 border-b-2 transition">
+        <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> AI Receptionist
+      </button>
+      <button onclick="switchDemoTab('automation')" id="tab-automation" class="demo-tab px-4 py-2.5 text-xs font-semibold flex items-center gap-1.5 border-b-2 transition">
+        <i data-lucide="cpu" class="w-3.5 h-3.5"></i> AI Automation
+      </button>
+    </div>
+  </header>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden">
+    <div class="bg-navy text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-lg flex items-center gap-2">
+      <i data-lucide="check-circle" class="w-4 h-4 text-brand"></i>
+      <span id="toastMsg">Saved!</span>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- SIDEBAR -->
+    <aside class="lg:col-span-1">
+      <nav class="bg-white border border-slate-200 rounded-2xl p-3 space-y-1 sticky top-20" id="funnelSidebar">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-3 pb-1">Sections</p>
+        <a href="#industry" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="layers" class="w-3.5 h-3.5 text-brand"></i> Industry Preset
+        </a>
+        <a href="#brand" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="building-2" class="w-3.5 h-3.5"></i> Brand & Identity
+        </a>
+        <a href="#terminology" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="type" class="w-3.5 h-3.5"></i> Terminology
+        </a>
+        <a href="#form" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Form Config
+        </a>
+        <a href="#chat" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Chat Messages
+        </a>
+        <a href="#qualification" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i> AI Qualification
+        </a>
+        <a href="#counsellor" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="user-circle" class="w-3.5 h-3.5"></i> Advisor Profile
+        </a>
+        <a href="#slots" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Booking Slots
+        </a>
+        <a href="#documents" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="files" class="w-3.5 h-3.5"></i> Documents Checklist
+        </a>
+        <a href="#metrics" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i> Dashboard Metrics
+        </a>
+        <a href="#funnel" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="filter" class="w-3.5 h-3.5"></i> Funnel Stages
+        </a>
+        <a href="#branches" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Branch Routing
+        </a>
+      </nav>
+    </aside>
+
+    <!-- FORM SECTIONS (FUNNEL) -->
+    <div class="lg:col-span-3 space-y-6" id="funnelPanel">
+
+      <!-- INDUSTRY PRESET -->
+      <section id="industry" class="card">
+        <div class="card-header">
+          <i data-lucide="layers" class="w-4 h-4 text-brand"></i>
+          <h2>Industry Preset</h2>
+          <span class="badge">Auto-fills all terminology below</span>
+        </div>
+        <div class="card-body">
+          <p class="text-xs text-slate-500 mb-4">Pick your client's industry — all labels, nouns, messages, and metrics auto-populate. Then fine-tune the details below.</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="industryGrid"></div>
+        </div>
+      </section>
+
+      <!-- BRAND & IDENTITY -->
+      <section id="brand" class="card">
+        <div class="card-header">
+          <i data-lucide="building-2" class="w-4 h-4 text-brand"></i>
+          <h2>Brand & Identity</h2>
+        </div>
+        <div class="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="field">
+            <label>Business Name</label>
+            <input id="cfg_businessName" type="text" placeholder="e.g. Team Overseas">
+          </div>
+          <div class="field">
+            <label>Business Initials</label>
+            <input id="cfg_businessInitials" type="text" placeholder="e.g. TO" maxlength="3">
+          </div>
+          <div class="field">
+            <label>Industry</label>
+            <input id="cfg_industry" type="text" placeholder="e.g. Education Consultancy">
+          </div>
+          <div class="field">
+            <label>Location / City</label>
+            <input id="cfg_location" type="text" placeholder="e.g. Coimbatore">
+          </div>
+          <div class="field">
+            <label>Brand Color</label>
+            <div class="flex items-center gap-2">
+              <input id="cfg_brandColor" type="color" class="w-10 h-9 rounded-lg border border-slate-200 cursor-pointer p-0.5">
+              <input id="cfg_brandColorHex" type="text" placeholder="#0B1F3A" class="flex-1">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TERMINOLOGY -->
+      <section id="terminology" class="card">
+        <div class="card-header">
+          <i data-lucide="type" class="w-4 h-4 text-brand"></i>
+          <h2>Terminology</h2>
+          <span class="badge">Controls all labels across 6 screens</span>
+        </div>
+        <div class="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="field">
+            <label>Customer Noun</label>
+            <input id="cfg_customerNoun" type="text" placeholder="e.g. Student / Client / Patient">
+            <p class="hint">Used as: "Student Registry", "Student Profile"</p>
+          </div>
+          <div class="field">
+            <label>Team Member Noun</label>
+            <input id="cfg_teamMemberNoun" type="text" placeholder="e.g. Counsellor / Advisor / Agent">
+            <p class="hint">Used as: "Counsellor Alert", "Senior Counsellor"</p>
+          </div>
+          <div class="field">
+            <label>Service Noun</label>
+            <input id="cfg_serviceNoun" type="text" placeholder="e.g. Counselling / Consultation / Demo">
+            <p class="hint">Used as: "Book Counselling", "Counselling booked"</p>
+          </div>
+          <div class="field">
+            <label>Booking Button Label</label>
+            <input id="cfg_bookingLabel" type="text" placeholder="e.g. Book Counselling">
+          </div>
+        </div>
+      </section>
+
+      <!-- FORM CONFIG -->
+      <section id="form" class="card">
+        <div class="card-header">
+          <i data-lucide="file-text" class="w-4 h-4 text-brand"></i>
+          <h2>Form Config (Screen 1)</h2>
+        </div>
+        <div class="card-body space-y-4">
+          <div class="field">
+            <label>Form Title</label>
+            <input id="cfg_formTitle" type="text" placeholder="e.g. Free Eligibility Check">
+          </div>
+          <div class="field">
+            <label>Form Subtitle</label>
+            <textarea id="cfg_formSubtitle" rows="2" placeholder="Describe what the form does..."></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAT MESSAGES -->
+      <section id="chat" class="card">
+        <div class="card-header">
+          <i data-lucide="message-circle" class="w-4 h-4 text-brand"></i>
+          <h2>Chat Messages</h2>
+          <span class="badge">Use {name} {businessName} {country} {location} {serviceNoun} {slot}</span>
+        </div>
+        <div class="card-body space-y-4">
+          <div class="field">
+            <label>Welcome Message (Screen 2)</label>
+            <textarea id="cfg_chatWelcome" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label>AI Recommendation Message (Screen 3)</label>
+            <textarea id="cfg_chatRecommendation" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label>Booking Confirmation Message (Screen 4)</label>
+            <textarea id="cfg_chatBookingConfirmation" rows="2"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI QUALIFICATION -->
+      <section id="qualification" class="card">
+        <div class="card-header">
+          <i data-lucide="cpu" class="w-4 h-4 text-brand"></i>
+          <h2>AI Qualification Engine (Screen 3)</h2>
+        </div>
+        <div class="card-body space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="field">
+              <label>Lead Score (out of 100)</label>
+              <input id="cfg_leadScore" type="number" min="0" max="100" placeholder="96">
+            </div>
+            <div class="field">
+              <label>Lead Badge Label</label>
+              <input id="cfg_leadBadge" type="text" placeholder="HOT LEAD">
+            </div>
+          </div>
+          <div>
+            <label class="field-label">Qualification Metrics (4 boxes on Screen 3)</label>
+            <div id="metricsQualContainer" class="space-y-2 mt-2"></div>
+          </div>
+          <div>
+            <label class="field-label">Quick Reply Options (Country/Category buttons)</label>
+            <div id="quickRepliesContainer" class="space-y-2 mt-2"></div>
+            <button onclick="addQuickReply()" class="text-xs font-medium text-brand flex items-center gap-1.5 hover:underline mt-2">
+              <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Add Quick Reply
+            </button>
+          </div>
+          <div>
+            <label class="field-label">Partner Institutions / Options (Screen 3 matrix)</label>
+            <div id="institutionsContainer" class="space-y-2 mt-2"></div>
+            <button onclick="addInstitution()" class="text-xs font-medium text-brand flex items-center gap-1.5 hover:underline mt-2">
+              <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Add Institution / Option
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADVISOR PROFILE -->
+      <section id="counsellor" class="card">
+        <div class="card-header">
+          <i data-lucide="user-circle" class="w-4 h-4 text-brand"></i>
+          <h2>Advisor Profile (Screen 4)</h2>
+        </div>
+        <div class="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="field">
+            <label>Advisor Name</label>
+            <input id="cfg_counsellorName" type="text" placeholder="e.g. Priya Ramanathan">
+          </div>
+          <div class="field">
+            <label>Advisor Initials</label>
+            <input id="cfg_counsellorInitials" type="text" placeholder="e.g. PR" maxlength="3">
+          </div>
+          <div class="field">
+            <label>Advisor Title</label>
+            <input id="cfg_counsellorTitle" type="text" placeholder="e.g. Senior UK Advisor">
+          </div>
+          <div class="field">
+            <label>Branch Description</label>
+            <input id="cfg_counsellorBranch" type="text" placeholder="e.g. Coimbatore Branch • 180+ Visas">
+          </div>
+          <div class="field">
+            <label>Call Duration</label>
+            <input id="cfg_callDuration" type="text" placeholder="e.g. 30-Min Strategy Call">
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING SLOTS -->
+      <section id="slots" class="card">
+        <div class="card-header">
+          <i data-lucide="calendar" class="w-4 h-4 text-brand"></i>
+          <h2>Booking Slots (Screen 4)</h2>
+        </div>
+        <div class="card-body space-y-3">
+          <div id="slotsContainer" class="space-y-3"></div>
+          <button onclick="addSlot()" class="text-xs font-medium text-brand flex items-center gap-1.5 hover:underline mt-1">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Add Slot
+          </button>
+        </div>
+      </section>
+
+      <!-- DOCUMENTS CHECKLIST -->
+      <section id="documents" class="card">
+        <div class="card-header">
+          <i data-lucide="files" class="w-4 h-4 text-brand"></i>
+          <h2>Documents Checklist (Screen 4)</h2>
+        </div>
+        <div class="card-body space-y-2">
+          <div id="docsContainer" class="space-y-2"></div>
+          <button onclick="addDoc()" class="text-xs font-medium text-brand flex items-center gap-1.5 hover:underline mt-1">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Add Document
+          </button>
+        </div>
+      </section>
+
+      <!-- DASHBOARD METRICS -->
+      <section id="metrics" class="card">
+        <div class="card-header">
+          <i data-lucide="bar-chart-2" class="w-4 h-4 text-brand"></i>
+          <h2>Dashboard Metrics (Screen 6)</h2>
+        </div>
+        <div class="card-body">
+          <div id="metricsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        </div>
+      </section>
+
+      <!-- FUNNEL STAGES -->
+      <section id="funnel" class="card">
+        <div class="card-header">
+          <i data-lucide="filter" class="w-4 h-4 text-brand"></i>
+          <h2>Funnel Stages (Screen 6)</h2>
+        </div>
+        <div class="card-body space-y-3">
+          <div id="funnelContainer" class="space-y-3"></div>
+        </div>
+      </section>
+
+      <!-- BRANCH ROUTING -->
+      <section id="branches" class="card">
+        <div class="card-header">
+          <i data-lucide="map-pin" class="w-4 h-4 text-brand"></i>
+          <h2>Branch Routing (Screen 6)</h2>
+        </div>
+        <div class="card-body space-y-3">
+          <div id="branchesContainer" class="space-y-3"></div>
+          <button onclick="addBranch()" class="text-xs font-medium text-brand flex items-center gap-1.5 hover:underline mt-1">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Add Branch
+          </button>
+        </div>
+      </section>
+
+      <!-- BOTTOM ACTIONS -->
+      <div class="flex items-center justify-end gap-3 pb-8">
+        <button onclick="resetToDefault()" class="px-4 py-2 text-xs font-medium text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-50 flex items-center gap-2 transition">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset to Default
+        </button>
+        <button onclick="saveAndApply()" class="px-6 py-2 text-xs font-semibold bg-navy text-white rounded-xl hover:bg-slate-800 flex items-center gap-2 transition">
+          <i data-lucide="save" class="w-3.5 h-3.5"></i> Save & Apply to Demo
+        </button>
+        <a href="../screen1.html" target="_blank" class="px-6 py-2 text-xs font-semibold bg-brand text-navy rounded-xl hover:bg-emerald-400 flex items-center gap-2 transition">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open Demo
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       RECEPTIONIST & AUTOMATION PANELS (injected by tab switcher)
+  ═══════════════════════════════════════════════════════════ -->
+
+  <!-- RECEPTIONIST PANEL -->
+  <div id="receptionistPanel" class="hidden max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Receptionist Sidebar -->
+    <aside class="lg:col-span-1">
+      <nav class="bg-white border border-slate-200 rounded-2xl p-3 space-y-1 sticky top-20">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-3 pb-1">Sections</p>
+        <a href="#r_brand" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="building-2" class="w-3.5 h-3.5"></i> Clinic Identity
+        </a>
+        <a href="#r_staff" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="user-circle" class="w-3.5 h-3.5"></i> Staff / Doctor
+        </a>
+        <a href="#r_patient" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="user" class="w-3.5 h-3.5"></i> Demo Patient
+        </a>
+        <a href="#r_slots" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Appointment Slots
+        </a>
+        <a href="#r_messages" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Chat Messages
+        </a>
+        <a href="#r_metrics" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i> Dashboard Metrics
+        </a>
+      </nav>
+    </aside>
+
+    <div class="lg:col-span-3 space-y-6">
+
+      <!-- CLINIC IDENTITY -->
+      <section id="r_brand" class="card">
+        <div class="card-header">
+          <i data-lucide="building-2" class="w-4 h-4 text-brand"></i>
+          <h2>Clinic / Business Identity</h2>
+        </div>
+        <div class="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="field"><label>Business Name</label><input id="r_businessName" type="text" placeholder="e.g. Bright Smile Dental Clinic"></div>
+          <div class="field"><label>Industry</label><input id="r_industry" type="text" placeholder="e.g. Healthcare / Dental Clinic"></div>
+          <div class="field"><label>Location / City</label><input id="r_location" type="text" placeholder="e.g. Chennai"></div>
+          <div class="field"><label>Brand Color</label>
+            <div class="flex items-center gap-2">
+              <input id="r_brandColor" type="color" class="w-10 h-9 rounded-lg border border-slate-200 cursor-pointer p-0.5">
+              <input id="r_brandColorHex" type="text" placeholder="#0B7A4B" class="flex-1">
+            </div>
+          </div>
+          <div class="field"><label>Customer Noun</label><input id="r_customerNoun" type="text" placeholder="e.g. Patient"></div>
+          <div class="field"><label>Team Member Noun</label><input id="r_teamMemberNoun" type="text" placeholder="e.g. Receptionist"></div>
+          <div class="field"><label>Service Noun</label><input id="r_serviceNoun" type="text" placeholder="e.g. Appointment"></div>
+          <div class="field"><label>Booking Button Label</label><input id="r_bookingLabel" type="text" placeholder="e.g. Book Appointment"></div>
+        </div>
+      </section>
+
+      <!-- STAFF / DOCTOR -->
+      <section id="r_staff" class="card">
+        <div class="card-header">
+          <i data-lucide="user-circle" class="w-4 h-4 text-brand"></i>
+          <h2>Staff / Doctor Profile</h2>
+        </div>
+        <div class="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="field"><label>Doctor / Staff Name</label><input id="r_dentistName" type="text" placeholder="e.g. Dr. Aravind Swaminathan, MDS"></div>
+          <div class="field"><label>Staff Title</label><input id="r_staffTitle" type="text" placeholder="e.g. Senior Dentist"></div>
+          <div class="field sm:col-span-2"><label>Branch Description</label><input id="r_staffBranch" type="text" placeholder="e.g. Chennai Branch • 500+ Patients Served"></div>
+        </div>
+      </section>
+
+      <!-- DEMO PATIENT -->
+      <section id="r_patient" class="card">
+        <div class="card-header">
+          <i data-lucide="user" class="w-4 h-4 text-brand"></i>
+          <h2>Demo Patient / Customer Data</h2>
+          <span class="badge">Pre-fills the demo flow</span>
+        </div>
+        <div class="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="field"><label>Patient Name</label><input id="r_patientName" type="text" placeholder="e.g. Priya Sharma"></div>
+          <div class="field"><label>Phone Number</label><input id="r_patientPhone" type="text" placeholder="e.g. 9876543221"></div>
+          <div class="field"><label>Service Interest</label><input id="r_serviceInterest" type="text" placeholder="e.g. Dental Cleaning & Checkup"></div>
+          <div class="field"><label>Default Slot</label><input id="r_defaultSlot" type="text" placeholder="e.g. Tomorrow, 3:00 PM"></div>
+        </div>
+      </section>
+
+      <!-- APPOINTMENT SLOTS -->
+      <section id="r_slots" class="card">
+        <div class="card-header">
+          <i data-lucide="calendar" class="w-4 h-4 text-brand"></i>
+          <h2>Appointment Slots (Screen 3)</h2>
+        </div>
+        <div class="card-body space-y-3">
+          <div id="r_slotsContainer" class="space-y-3"></div>
+          <button onclick="addReceptionistSlot()" class="text-xs font-medium text-brand flex items-center gap-1.5 hover:underline mt-1">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Add Slot
+          </button>
+        </div>
+      </section>
+
+      <!-- CHAT MESSAGES -->
+      <section id="r_messages" class="card">
+        <div class="card-header">
+          <i data-lucide="message-circle" class="w-4 h-4 text-brand"></i>
+          <h2>Chat Messages</h2>
+          <span class="badge">Use {name} {businessName} {serviceInterest}</span>
+        </div>
+        <div class="card-body space-y-4">
+          <div class="field"><label>AI Greeting (Screen 2)</label><textarea id="r_msgGreeting" rows="2" placeholder="Hi {name} 👋 Welcome to {businessName}..."></textarea></div>
+          <div class="field"><label>Slot Confirmation (Screen 4)</label><textarea id="r_msgConfirmation" rows="2" placeholder="✅ Appointment confirmed for {slot}..."></textarea></div>
+        </div>
+      </section>
+
+      <!-- DASHBOARD METRICS -->
+      <section id="r_metrics" class="card">
+        <div class="card-header">
+          <i data-lucide="bar-chart-2" class="w-4 h-4 text-brand"></i>
+          <h2>Dashboard Metrics (Screen 6)</h2>
+        </div>
+        <div class="card-body">
+          <div id="r_metricsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        </div>
+      </section>
+
+      <!-- BOTTOM ACTIONS -->
+      <div class="flex items-center justify-end gap-3 pb-8">
+        <button onclick="resetToDefault()" class="px-4 py-2 text-xs font-medium text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-50 flex items-center gap-2 transition">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset to Default
+        </button>
+        <button onclick="saveAndApply()" class="px-6 py-2 text-xs font-semibold bg-navy text-white rounded-xl hover:bg-slate-800 flex items-center gap-2 transition">
+          <i data-lucide="save" class="w-3.5 h-3.5"></i> Save & Apply
+        </button>
+        <a href="../../../ai-receptionist-demo/screen1.html" target="_blank" class="px-6 py-2 text-xs font-semibold bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 flex items-center gap-2 transition">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open Receptionist Demo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTOMATION PANEL -->
+  <div id="automationPanel" class="hidden max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Automation Sidebar -->
+    <aside class="lg:col-span-1">
+      <nav class="bg-white border border-slate-200 rounded-2xl p-3 space-y-1 sticky top-20">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-3 pb-1">Sections</p>
+        <a href="#a_brand" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="building-2" class="w-3.5 h-3.5"></i> Business Identity
+        </a>
+        <a href="#a_invoice" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Trigger / Invoice Data
+        </a>
+        <a href="#a_notification" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="bell" class="w-3.5 h-3.5"></i> Notification Message
+        </a>
+        <a href="#a_metrics" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i> Dashboard Metrics
+        </a>
+        <a href="#a_workflows" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition">
+          <i data-lucide="git-branch" class="w-3.5 h-3.5"></i> Workflow List
+        </a>
+      </nav>
+    </aside>
+
+    <div class="lg:col-span-3 space-y-6">
+
+      <!-- BUSINESS IDENTITY -->
+      <section id="a_brand" class="card">
+        <div class="card-header">
+          <i data-lucide="building-2" class="w-4 h-4 text-brand"></i>
+          <h2>Business Identity</h2>
+        </div>
+        <div class="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="field"><label>Business Name</label><input id="a_businessName" type="text" placeholder="e.g. Nexa Logistics"></div>
+          <div class="field"><label>Industry</label><input id="a_industry" type="text" placeholder="e.g. Logistics / Operations"></div>
+          <div class="field"><label>Location / City</label><input id="a_location" type="text" placeholder="e.g. Chennai"></div>
+          <div class="field"><label>Brand Color</label>
+            <div class="flex items-center gap-2">
+              <input id="a_brandColor" type="color" class="w-10 h-9 rounded-lg border border-slate-200 cursor-pointer p-0.5">
+              <input id="a_brandColorHex" type="text" placeholder="#1E3A8A" class="flex-1">
+            </div>
+          </div>
+          <div class="field"><label>Team Member Noun</label><input id="a_teamMemberNoun" type="text" placeholder="e.g. Operations Manager"></div>
+          <div class="field"><label>Booking / Action Label</label><input id="a_bookingLabel" type="text" placeholder="e.g. Run Automation"></div>
+        </div>
+      </section>
+
+      <!-- TRIGGER / INVOICE DATA -->
+      <section id="a_invoice" class="card">
+        <div class="card-header">
+          <i data-lucide="file-text" class="w-4 h-4 text-brand"></i>
+          <h2>Trigger / Invoice Data</h2>
+          <span class="badge">Shown on Screen 1 & 3</span>
+        </div>
+        <div class="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="field"><label>Invoice / Record Number</label><input id="a_invoiceNumber" type="text" placeholder="e.g. INV-2043"></div>
+          <div class="field"><label>Vendor / Source Name</label><input id="a_vendorName" type="text" placeholder="e.g. Apex Shipping & Freight Ltd."></div>
+          <div class="field"><label>Amount</label><input id="a_amount" type="text" placeholder="e.g. ₹45,000"></div>
+          <div class="field"><label>Total Amount (with tax)</label><input id="a_totalAmount" type="text" placeholder="e.g. ₹53,100"></div>
+          <div class="field"><label>PO / Reference Number</label><input id="a_poNumber" type="text" placeholder="e.g. PO-2026-891"></div>
+          <div class="field"><label>Category</label><input id="a_category" type="text" placeholder="e.g. Inbound Freight & Customs"></div>
+          <div class="field"><label>Department</label><input id="a_department" type="text" placeholder="e.g. Finance & Accounts Payable"></div>
+          <div class="field"><label>Assigned To</label><input id="a_assignedTo" type="text" placeholder="e.g. Finance Team"></div>
+        </div>
+      </section>
+
+      <!-- NOTIFICATION MESSAGE -->
+      <section id="a_notification" class="card">
+        <div class="card-header">
+          <i data-lucide="bell" class="w-4 h-4 text-brand"></i>
+          <h2>Team Notification Message (Screen 4)</h2>
+        </div>
+        <div class="card-body space-y-4">
+          <div class="field"><label>Notification Text</label><textarea id="a_notificationMsg" rows="3" placeholder="Invoice {invoiceNumber} processed. Amount: {amount}. Status: Approved. Assigned to: {assignedTo}."></textarea>
+            <p class="hint">Use {invoiceNumber} {amount} {assignedTo} {vendorName}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DASHBOARD METRICS -->
+      <section id="a_metrics" class="card">
+        <div class="card-header">
+          <i data-lucide="bar-chart-2" class="w-4 h-4 text-brand"></i>
+          <h2>Dashboard Metrics (Screen 6)</h2>
+        </div>
+        <div class="card-body">
+          <div id="a_metricsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        </div>
+      </section>
+
+      <!-- WORKFLOW LIST -->
+      <section id="a_workflows" class="card">
+        <div class="card-header">
+          <i data-lucide="git-branch" class="w-4 h-4 text-brand"></i>
+          <h2>Active Workflow List (Screen 6)</h2>
+        </div>
+        <div class="card-body space-y-3">
+          <div id="a_workflowsContainer" class="space-y-2"></div>
+          <button onclick="addAutomationWorkflow()" class="text-xs font-medium text-brand flex items-center gap-1.5 hover:underline mt-1">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Add Workflow
+          </button>
+        </div>
+      </section>
+
+      <!-- BOTTOM ACTIONS -->
+      <div class="flex items-center justify-end gap-3 pb-8">
+        <button onclick="resetToDefault()" class="px-4 py-2 text-xs font-medium text-slate-600 border border-slate-200 rounded-xl hover:bg-slate-50 flex items-center gap-2 transition">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset to Default
+        </button>
+        <button onclick="saveAndApply()" class="px-6 py-2 text-xs font-semibold bg-navy text-white rounded-xl hover:bg-slate-800 flex items-center gap-2 transition">
+          <i data-lucide="save" class="w-3.5 h-3.5"></i> Save & Apply
+        </button>
+        <a href="../../../ai-automation-demo/screen1.html" target="_blank" class="px-6 py-2 text-xs font-semibold bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 flex items-center gap-2 transition">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open Automation Demo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../config/demoConfig.js"></script>
+  <script src="industries.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

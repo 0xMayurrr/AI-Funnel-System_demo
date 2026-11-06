@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 4: Strategy Session Booking | Buildicy AI Funnel Demo</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            waGreen: '#25D366',
+            waDarkGreen: '#075E54',
+            waTeal: '#008069',
+            waLightGreen: '#D9FDD3',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Demo Central Configuration -->
+  <script src="config/demoConfig.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+
+  <!-- TOP PRESENTER NAVBAR -->
+  <div id="loom-navbar-container"></div>
+
+  <!-- MAIN STAGE -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 sm:py-8 space-y-6">
+    
+    <!-- Header Banner -->
+    <div class="card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 mb-1.5">
+          <span class="w-2 h-2 rounded-full bg-waGreen animate-pulse"></span>
+          <span>Screen 4 • Automated 1-on-1 <span class="service-noun-cap">Strategy Session</span> Slot Booking</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold font-heading text-darkNavy tracking-tight">
+          <span class="business-name">Nexus AI Studio</span> — 1-on-1 <span class="service-noun-cap">Strategy Session</span> Booking
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Zero friction: <span class="customer-noun-cap">Lead</span> books their senior <span class="team-member-noun-lower">specialist</span> slot straight inside WhatsApp without filling third-party forms or leaving the chat.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="screen5.html" class="px-5 py-3 btn-primary-glow text-darkNavy rounded-2xl font-heading font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md hover:scale-105 transition-transform">
+          <span>Next: <span class="team-member-noun-cap">Director</span> Alert & Lead Sheet</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Dual Layout: Booking Overview Desk (Left 7 Cols) + Interactive WhatsApp (Right 5 Cols) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- LEFT: COUNSELLING BOOKING MANAGEMENT DESK -->
+      <div class="lg:col-span-7 space-y-5">
+        
+        <!-- Slot Confirmation & Counsellor Card -->
+        <div class="card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-5">
+          
+          <!-- Counsellor Profile Header -->
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+            <div class="flex items-center gap-3.5">
+              <div class="w-13 h-13 rounded-2xl bg-gradient-to-tr from-[#0B1F3A] to-[#1E3A8A] text-white flex items-center justify-center font-bold text-base shadow-sm border border-slate-200 counsellor-initials">
+                SJ
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-bold text-base text-darkNavy font-heading counsellor-name">Sarah Jenkins</h3>
+                  <span class="bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-bold px-2 py-0.5 rounded-full counsellor-title">
+                    Senior Solutions Director
+                  </span>
+                </div>
+                <p class="text-xs text-slate-500 mt-0.5 counsellor-branch">Global Architecture Team • 180+ Enterprise Funnels Deployed</p>
+              </div>
+            </div>
+
+            <div class="text-right">
+              <span class="text-[11px] bg-emerald-50 text-emerald-800 font-bold px-3 py-1 rounded-full border border-emerald-200 inline-flex items-center gap-1">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-waGreen"></i>
+                <span>100% Free Strategy Session</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Selected Appointment Snapshot -->
+          <div class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-waGreen text-darkNavy flex items-center justify-center font-bold shadow-sm">
+                <i data-lucide="calendar" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-[10px] uppercase font-bold text-emerald-800 tracking-wider">Scheduled Appointment</div>
+                <div class="text-base font-bold font-heading text-darkNavy" id="deskSlotText">Tomorrow at 3:00 PM (IST)</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs bg-white text-slate-700 font-semibold px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs">
+                30-Min Strategy Call
+              </span>
+            </div>
+          </div>
+
+          <!-- Available Slot Options Selection -->
+          <div class="space-y-2.5">
+            <label class="block text-xs font-bold uppercase tracking-wider text-darkNavy">
+              Available Consultation Time Slots
+            </label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="deskSlotContainer">
+              
+              <!-- Slot 1 -->
+              <div onclick="selectDeskSlot('Tomorrow, 11:00 AM')" id="slotCard1" class="cursor-pointer p-3 rounded-2xl border border-slate-200 hover:border-waGreen hover:bg-emerald-50/30 transition text-center space-y-1">
+                <div class="text-[10px] text-slate-400 font-semibold uppercase">Morning</div>
+                <div class="font-bold text-xs text-slate-800 font-heading">Tomorrow 11:00 AM</div>
+                <span class="text-[9px] text-slate-500">2 slots open</span>
+              </div>
+
+              <!-- Slot 2 (Recommended) -->
+              <div onclick="selectDeskSlot('Tomorrow, 3:00 PM')" id="slotCard2" class="cursor-pointer p-3 rounded-2xl border-2 border-waGreen bg-emerald-50/50 transition text-center space-y-1 shadow-xs">
+                <div class="text-[10px] text-emerald-700 font-bold uppercase flex items-center justify-center gap-1">
+                  <span>★ Preferred</span>
+                </div>
+                <div class="font-bold text-xs text-darkNavy font-heading">Tomorrow 3:00 PM</div>
+                <span class="text-[9px] text-emerald-800 font-semibold lead-selected-slot">Selected Slot</span>
+              </div>
+
+              <!-- Slot 3 -->
+              <div onclick="selectDeskSlot('Day after tomorrow, 5:00 PM')" id="slotCard3" class="cursor-pointer p-3 rounded-2xl border border-slate-200 hover:border-waGreen hover:bg-emerald-50/30 transition text-center space-y-1">
+                <div class="text-[10px] text-slate-400 font-semibold uppercase">Evening</div>
+                <div class="font-bold text-xs text-slate-800 font-heading">Day after 5:00 PM</div>
+                <span class="text-[9px] text-slate-500">1 slot open</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Document Readiness Protocol -->
+          <div class="pt-2 border-t border-slate-100 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-darkNavy flex items-center gap-1.5">
+                <i data-lucide="files" class="w-4 h-4 text-emerald-600"></i>
+                <span class="prep-checklist-title">Strategy Session Preparation Checklist</span>
+              </span>
+              <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Pre-session Prep</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs" id="prepChecklistGrid">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-square" class="w-4 h-4 text-waGreen shrink-0"></i>
+                <span>Current Pipeline Volume & Conversion Data</span>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-square" class="w-4 h-4 text-waGreen shrink-0"></i>
+                <span>Target Customer Persona & Value Proposition</span>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-square" class="w-4 h-4 text-waGreen shrink-0"></i>
+                <span>Existing CRM Stack & Inbound Channels</span>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-square" class="w-4 h-4 text-waGreen shrink-0"></i>
+                <span>Q1/Q2 Growth Objectives & Target Milestones</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Automated Sequence Telemetry -->
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-600 space-y-1.5">
+            <div class="font-bold text-darkNavy flex items-center gap-1.5">
+              <i data-lucide="bell-ring" class="w-3.5 h-3.5 text-blue-600"></i>
+              <span>Automated Retention & Reminder Workflow:</span>
+            </div>
+            <p class="text-[11px] leading-relaxed">
+              • <strong>24 Hours Prior:</strong> WhatsApp calendar sync confirmation sent to <span class="customer-noun-lower">lead</span>.<br>
+              • <strong>2 Hours Prior:</strong> Session reminder sent with Google Meet link & checklist.<br>
+              • <strong>Immediate:</strong> Lead dossier dispatched to <span class="counsellor-name">Sarah Jenkins</span> at <span class="location-name">Global Remote Hub</span>.
+            </p>
+          </div>
+
+          <!-- Action Bar -->
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+            <div class="text-xs text-slate-500 flex items-center gap-1.5">
+              <i data-lucide="user-check" class="w-4 h-4 text-emerald-600"></i>
+              <span><span class="team-member-noun-cap">Director</span> Alert ready for immediate dispatch</span>
+            </div>
+
+            <a href="screen5.html" class="py-3 px-6 btn-primary-glow text-darkNavy rounded-xl font-bold font-heading text-xs sm:text-sm flex items-center gap-2 shadow-md hover:scale-105 transition-transform">
+              <span>View <span class="team-member-noun-cap">Director</span> Alert & Lead Sheet (Screen 5)</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT: INTERACTIVE IPHONE 16 PRO WHATSAPP CHAT -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="iphone-frame shadow-2xl">
+          
+          <!-- Dynamic Island -->
+          <div class="dynamic-island">
+            <div class="camera-lens"></div>
+          </div>
+
+          <!-- Phone Screen Frame -->
+          <div class="iphone-screen flex flex-col justify-between">
+            
+            <!-- iOS Status Bar -->
+            <div class="bg-[#008069] text-white pt-2.5 px-7 pb-1 text-[11px] font-medium flex items-center justify-between z-20">
+              <span>9:43</span>
+              <div class="flex items-center gap-1.5 text-xs">
+                <i data-lucide="signal" class="w-3 h-3"></i>
+                <i data-lucide="wifi" class="w-3 h-3"></i>
+                <i data-lucide="battery-medium" class="w-3.5 h-3.5"></i>
+              </div>
+            </div>
+
+            <!-- WhatsApp Official Header -->
+            <div class="bg-[#008069] text-white px-3 py-2.5 flex items-center justify-between shadow-md z-20">
+              <div class="flex items-center gap-2.5">
+                <a href="screen3.html" class="p-1 hover:bg-black/10 rounded-full transition">
+                  <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </a>
+                <div class="relative">
+                  <div class="w-9 h-9 rounded-full bg-darkNavy text-white font-bold flex items-center justify-center text-xs border border-white/40 shadow-sm font-heading business-initials">
+                    NA
+                  </div>
+                  <!-- Official Verified Badge -->
+                  <div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-emerald-500 rounded-full flex items-center justify-center border-2 border-[#008069]">
+                    <i data-lucide="check" class="w-2.5 h-2.5 text-white stroke-[3]"></i>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center gap-1.5 leading-tight">
+                    <h2 class="font-bold text-sm tracking-tight text-white font-heading business-name">Nexus AI Studio</h2>
+                  </div>
+                  <div class="flex items-center gap-1 text-[10px] text-emerald-100 font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-ping"></span>
+                    <span><span class="service-noun-cap">Strategy Session</span> Booking Active</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 text-white/90">
+                <i data-lucide="video" class="w-4 h-4"></i>
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                <i data-lucide="more-vertical" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <!-- Chat Conversation Scroll Area -->
+            <div id="chatScrollArea" class="flex-1 p-3.5 space-y-3 overflow-y-auto wa-wallpaper text-xs">
+              
+              <!-- Previous Context Bubble -->
+              <div class="flex flex-col items-start opacity-75">
+                <div class="bg-white rounded-2xl rounded-tl-none p-2.5 shadow-xs max-w-[88%] border border-slate-200/70 text-slate-800 leading-relaxed">
+                  <p class="text-xs">
+                    Based on your requirements, high-fit automation architectures are available with estimated 4.8x ROI.
+                  </p>
+                </div>
+              </div>
+
+              <!-- ============================================== -->
+              <!-- MESSAGE 1: INLINE COUNSELLING SLOT SELECTION   -->
+              <!-- ============================================== -->
+              <div class="flex flex-col items-start bubble-in w-full">
+                <div class="bg-white rounded-2xl p-3.5 shadow-md w-full border-2 border-emerald-500/50 text-slate-800">
+                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
+                    <div class="flex items-center gap-2">
+                      <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                        <i data-lucide="calendar-check" class="w-4 h-4 text-waTeal"></i>
+                      </div>
+                      <div>
+                        <h3 class="font-bold text-xs text-darkNavy font-heading"><span class="business-name">Nexus AI Studio</span> — 1-on-1 <span class="service-noun-cap">Strategy Session</span></h3>
+                        <p class="text-[10px] text-slate-500"><span class="counsellor-name">Sarah Jenkins</span> • <span class="counsellor-title">Senior Solutions Director</span></p>
+                      </div>
+                    </div>
+                    <span class="text-[9px] bg-blue-50 text-blue-800 font-bold px-2 py-0.5 rounded-full border border-blue-200 location-name">Global Remote Hub</span>
+                  </div>
+
+                  <p class="text-[11px] text-slate-600 mb-2 font-medium">
+                    Select your preferred 1-on-1 session slot:
+                  </p>
+
+                  <!-- 3 Available Slots Specified in Build Guide -->
+                  <div class="space-y-1.5" id="slotPickerContainer">
+                    
+                    <button type="button" onclick="selectSlot('Tomorrow, 11:00 AM', this)" class="slot-item w-full text-left p-2 rounded-xl border border-slate-200 hover:border-waGreen hover:bg-emerald-50/40 transition flex items-center justify-between text-xs">
+                      <div class="flex items-center gap-2">
+                        <span class="radio-box w-3.5 h-3.5 rounded-full border border-slate-400 flex items-center justify-center"></span>
+                        <span class="font-medium text-slate-800">Tomorrow 11:00 AM</span>
+                      </div>
+                      <span class="text-[10px] text-slate-500">Morning</span>
+                    </button>
+
+                    <button type="button" onclick="selectSlot('Tomorrow, 3:00 PM', this)" class="slot-item w-full text-left p-2 rounded-xl border-2 border-waGreen bg-emerald-50/60 transition flex items-center justify-between text-xs font-semibold shadow-xs">
+                      <div class="flex items-center gap-2">
+                        <span class="radio-box w-3.5 h-3.5 rounded-full border-2 border-waGreen bg-waGreen flex items-center justify-center">
+                          <span class="w-1.5 h-1.5 rounded-full bg-darkNavy"></span>
+                        </span>
+                        <span class="text-emerald-950 font-bold">Tomorrow 3:00 PM</span>
+                      </div>
+                      <span class="text-[9px] bg-darkNavy text-white font-bold px-2 py-0.5 rounded-full">Recommended</span>
+                    </button>
+
+                    <button type="button" onclick="selectSlot('Day after tomorrow, 5:00 PM', this)" class="slot-item w-full text-left p-2 rounded-xl border border-slate-200 hover:border-waGreen hover:bg-emerald-50/40 transition flex items-center justify-between text-xs">
+                      <div class="flex items-center gap-2">
+                        <span class="radio-box w-3.5 h-3.5 rounded-full border border-slate-400 flex items-center justify-center"></span>
+                        <span class="font-medium text-slate-800">Day after tomorrow 5:00 PM</span>
+                      </div>
+                      <span class="text-[10px] text-slate-500">Evening</span>
+                    </button>
+
+                  </div>
+
+                  <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-500">
+                    <span class="flex items-center gap-1">
+                      <i data-lucide="video" class="w-3 h-3 text-emerald-600"></i>
+                      <span>Google Meet / <span class="location-name">Global Remote</span> Hub</span>
+                    </span>
+                    <span class="font-bold text-emerald-700">Instant Confirmation</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============================================== -->
+              <!-- MESSAGE 2: STUDENT SLOT CONFIRMATION           -->
+              <!-- ============================================== -->
+              <div id="bubbleStudentSlot" class="hidden flex flex-col items-end bubble-in">
+                <div class="bg-waLightGreen rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[80%] border border-emerald-200/60 text-slate-900 leading-relaxed">
+                  <p class="text-xs font-bold" id="textStudentSlot">Tomorrow, 3:00 PM</p>
+                  <div class="text-[9px] text-slate-500 flex items-center justify-end gap-1 mt-0.5 font-medium">
+                    <span>10:04 AM</span>
+                    <span class="text-blue-500 font-bold">✓✓</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============================================== -->
+              <!-- MESSAGE 3: BOT CONFIRMATION & PREP CHECKLIST   -->
+              <!-- ============================================== -->
+              <div id="bubbleAiBookingConfirmation" class="hidden flex flex-col items-start bubble-in">
+                <div class="bg-white rounded-2xl rounded-tl-none p-3.5 shadow-sm max-w-[92%] border border-slate-200/70 text-slate-800 leading-relaxed">
+                  <p class="text-xs font-semibold text-emerald-950 flex items-center gap-1.5">
+                    <span>✅ 1-on-1 <span class="service-noun-cap">Strategy Session</span> confirmed for <strong id="waConfirmSlotText">tomorrow at 3:00 PM</strong>.</span>
+                  </p>
+                  <p class="text-xs text-slate-700 mt-2" id="waConfirmDetailText">
+                    Our senior solutions specialist will review your audit in advance. We'll send a calendar reminder before the call.
+                  </p>
+                  
+                  <!-- Calendar Card Badge -->
+                  <div class="mt-2.5 p-2 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between text-[11px]">
+                    <div class="flex items-center gap-1.5">
+                      <i data-lucide="calendar" class="w-3.5 h-3.5 text-blue-600"></i>
+                      <span class="font-medium text-slate-800">Add to Calendar (.ics)</span>
+                    </div>
+                    <span class="text-[9px] bg-blue-100 text-blue-800 font-bold px-1.5 py-0.2 rounded">Synced</span>
+                  </div>
+
+                  <div class="text-[9px] text-slate-400 text-right mt-1.5 font-medium">10:04 AM</div>
+                </div>
+
+                <!-- Next CTA Button in Chat -->
+                <div class="mt-2.5 w-full max-w-[92%]">
+                  <a href="screen5.html" class="w-full py-2.5 px-3 bg-waGreen hover:bg-emerald-600 text-darkNavy font-bold rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs">
+                    <span>View <span class="team-member-noun-cap">Director</span> Alert & Lead Sheet</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Typing Indicator -->
+              <div id="typingIndicator" class="hidden flex items-center gap-1.5 p-2 bg-white/80 rounded-2xl w-20 shadow-xs">
+                <span class="w-2 h-2 rounded-full bg-slate-400 animate-bounce"></span>
+                <span class="w-2 h-2 rounded-full bg-slate-400 animate-bounce [animation-delay:0.2s]"></span>
+                <span class="w-2 h-2 rounded-full bg-slate-400 animate-bounce [animation-delay:0.4s]"></span>
+              </div>
+
+            </div>
+
+            <!-- WhatsApp Message Bar -->
+            <div class="p-2.5 bg-[#F0F2F5] border-t border-slate-200 flex items-center gap-2 z-20">
+              <button class="text-slate-500 p-1 hover:text-slate-700">
+                <i data-lucide="smile" class="w-5 h-5"></i>
+              </button>
+              
+              <div class="flex-1 bg-white rounded-full px-3.5 py-1.5 border border-slate-300 flex items-center justify-between text-xs text-slate-400 shadow-inner">
+                <input type="text" id="fakeInputBar" readonly placeholder="Type a message..." class="w-full bg-transparent outline-none text-slate-800 text-xs">
+              </div>
+
+              <button class="w-9 h-9 rounded-full bg-[#008069] text-white flex items-center justify-center shadow-sm">
+                <i data-lucide="send" class="w-4 h-4 ml-0.5"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="shared.js"></script>
+  <script>
+    renderLoomNavbar(4);
+
+    const cfg = window.DEMO_CONFIG || {};
+    const student = getStudentData();
+
+    if (cfg.businessName) {
+      document.title = `Screen 4: ${cfg.serviceNoun || "Counselling"} Booking | ${cfg.businessName} Simulation`;
+      document.querySelectorAll('.business-name').forEach(el => el.textContent = cfg.businessName);
+    }
+    if (cfg.businessInitials) {
+      document.querySelectorAll('.business-initials').forEach(el => el.textContent = cfg.businessInitials);
+    }
+    if (cfg.serviceNoun) {
+      const sNoun = cfg.serviceNoun;
+      document.querySelectorAll('.service-noun-cap').forEach(el => el.textContent = sNoun);
+      document.querySelectorAll('.service-noun-lower').forEach(el => el.textContent = sNoun.toLowerCase());
+    }
+    if (cfg.customerNoun) {
+      const cNoun = cfg.customerNoun;
+      document.querySelectorAll('.customer-noun-cap').forEach(el => el.textContent = cNoun);
+      document.querySelectorAll('.customer-noun-lower').forEach(el => el.textContent = cNoun.toLowerCase());
+    }
+    if (cfg.teamMemberNoun) {
+      const tNoun = cfg.teamMemberNoun;
+      document.querySelectorAll('.team-member-noun-cap').forEach(el => el.textContent = tNoun);
+      document.querySelectorAll('.team-member-noun-lower').forEach(el => el.textContent = tNoun.toLowerCase());
+    }
+    if (cfg.location) {
+      document.querySelectorAll('.location-name').forEach(el => el.textContent = cfg.location);
+    }
+
+    if (cfg.appointmentOptions) {
+      const opts = cfg.appointmentOptions;
+      const aName = opts.advisorName || opts.counsellorName;
+      if (aName) {
+        document.querySelectorAll('.counsellor-name').forEach(el => el.textContent = aName);
+      }
+      const aInit = opts.advisorInitials || opts.counsellorInitials || (aName ? aName.split(' ').map(n=>n[0]).join('') : 'AD');
+      if (aInit) {
+        document.querySelectorAll('.counsellor-initials').forEach(el => el.textContent = aInit);
+      }
+      const aTitle = opts.advisorTitle || opts.counsellorTitle;
+      if (aTitle) {
+        document.querySelectorAll('.counsellor-title').forEach(el => el.textContent = aTitle);
+      }
+      const aBranch = opts.advisorBranch || opts.counsellorBranch;
+      if (aBranch) {
+        document.querySelectorAll('.counsellor-branch').forEach(el => el.textContent = aBranch);
+      }
+    }
+
+    const scrollArea = document.getElementById('chatScrollArea');
+    const typing = document.getElementById('typingIndicator');
+
+    function selectSlot(slotText, element) {
+      playWhatsAppTone();
+
+      // Update styling
+      document.querySelectorAll('.slot-item').forEach(item => {
+        item.classList.remove('border-2', 'border-waGreen', 'bg-emerald-50/60', 'font-semibold', 'shadow-xs');
+        item.classList.add('border-slate-200');
+      });
+      if (element) {
+        element.classList.remove('border-slate-200');
+        element.classList.add('border-2', 'border-waGreen', 'bg-emerald-50/60', 'font-semibold', 'shadow-xs');
+      }
+
+      // Update Desk text
+      document.getElementById('deskSlotText').textContent = `${slotText} (IST)`;
+      saveStudentData({ selectedSlot: slotText });
+
+      // Show student reply
+      const studentSlotBubble = document.getElementById('bubbleStudentSlot');
+      document.getElementById('textStudentSlot').textContent = slotText;
+      studentSlotBubble.classList.remove('hidden');
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+
+      setTimeout(() => {
+        typing.classList.remove('hidden');
+        scrollArea.scrollTop = scrollArea.scrollHeight;
+      }, 350);
+
+      setTimeout(() => {
+        typing.classList.add('hidden');
+        const confirmBubble = document.getElementById('bubbleAiBookingConfirmation');
+        document.getElementById('waConfirmSlotText').textContent = slotText.toLowerCase();
+        confirmBubble.classList.remove('hidden');
+        scrollArea.scrollTop = scrollArea.scrollHeight;
+        playWhatsAppTone();
+        if (window.lucide) lucide.createIcons();
+      }, 1000);
+    }
+
+    function selectDeskSlot(slotText) {
+      // Trigger selectSlot
+      selectSlot(slotText, null);
+    }
+
+    // Auto-trigger default slot selection after 500ms
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        selectSlot('Tomorrow, 3:00 PM', document.querySelectorAll('.slot-item')[1]);
+      }, 600);
+    });
+  </script>
+</body>
+</html>

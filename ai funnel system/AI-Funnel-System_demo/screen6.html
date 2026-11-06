@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 6: AI Funnel Dashboard | Buildicy AI Funnel Demo</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            waGreen: '#25D366',
+            waDarkGreen: '#075E54',
+            waTeal: '#008069',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Demo Central Configuration -->
+  <script src="config/demoConfig.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+
+  <!-- TOP LOOM PRESENTER NAVBAR -->
+  <div id="loom-navbar-container"></div>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 sm:py-8 space-y-6">
+    
+    <!-- Executive Dashboard Header with Live Controls -->
+    <div class="card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 mb-1.5">
+          <span class="w-2 h-2 rounded-full bg-waGreen animate-pulse"></span>
+          <span>Screen 6 • Executive Funnel & Conversion Analytics</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold font-heading text-darkNavy tracking-tight">
+          <span class="business-name">Buildicy</span> — AI Funnel Dashboard
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Real-time <span class="customer-noun-lower">lead</span> conversion telemetry, AI qualification velocity, and regional routing analytics.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200 flex items-center gap-1.5 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span>Live Ticker: Active</span>
+        </span>
+        <a href="screen1.html" class="px-4 py-2 bg-darkNavy hover:bg-navySurface text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-waGreen"></i>
+          <span>Replay Prototype Journey</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 6 Executive KPI Cards with Micro-Sparkline Graphs (Build Guide Metrics) -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
+      
+      <!-- Card 1: New Leads = 12 -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-blue-300 transition">
+        <div class="flex items-center justify-between text-slate-500 mb-1">
+          <span class="text-[10px] font-bold uppercase tracking-wider">New Leads</span>
+          <div class="p-1 bg-blue-50 text-blue-600 rounded-md">
+            <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-bold font-heading text-blue-700">12</div>
+        <!-- Sparkline SVG -->
+        <div class="my-2 h-5 w-full">
+          <svg class="w-full h-full" viewBox="0 0 100 25" preserveAspectRatio="none">
+            <path d="M0,20 Q25,18 50,10 T100,4" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="text-[10px] text-emerald-700 font-bold flex items-center gap-0.5">
+          <i data-lucide="trending-up" class="w-3 h-3"></i>
+          <span>100% captured</span>
+        </div>
+      </div>
+
+      <!-- Card 2: AI Qualified = 10 -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-emerald-300 transition">
+        <div class="flex items-center justify-between text-slate-500 mb-1">
+          <span class="text-[10px] font-bold uppercase tracking-wider">AI Qualified</span>
+          <div class="p-1 bg-emerald-50 text-emerald-600 rounded-md">
+            <i data-lucide="bot" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-bold font-heading text-emerald-700">10</div>
+        <!-- Sparkline SVG -->
+        <div class="my-2 h-5 w-full">
+          <svg class="w-full h-full" viewBox="0 0 100 25" preserveAspectRatio="none">
+            <path d="M0,22 Q30,15 60,12 T100,5" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="text-[10px] text-emerald-700 font-bold flex items-center gap-0.5">
+          <span>83.3% qualification</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Strategy Sessions = 6 -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-300 transition">
+        <div class="flex items-center justify-between text-slate-500 mb-1">
+          <span class="text-[10px] font-bold uppercase tracking-wider">Strategy Sessions</span>
+          <div class="p-1 bg-indigo-50 text-indigo-600 rounded-md">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-bold font-heading text-indigo-700">6</div>
+        <!-- Sparkline SVG -->
+        <div class="my-2 h-5 w-full">
+          <svg class="w-full h-full" viewBox="0 0 100 25" preserveAspectRatio="none">
+            <path d="M0,24 Q35,20 70,8 T100,6" fill="none" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="text-[10px] text-indigo-700 font-bold flex items-center gap-0.5">
+          <span>50.0% conversion</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Reminders Sent = 8 -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-amber-300 transition">
+        <div class="flex items-center justify-between text-slate-500 mb-1">
+          <span class="text-[10px] font-bold uppercase tracking-wider">Briefings Sent</span>
+          <div class="p-1 bg-amber-50 text-amber-600 rounded-md">
+            <i data-lucide="bell" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-bold font-heading text-amber-700">8</div>
+        <!-- Sparkline SVG -->
+        <div class="my-2 h-5 w-full">
+          <svg class="w-full h-full" viewBox="0 0 100 25" preserveAspectRatio="none">
+            <path d="M0,18 Q40,16 70,10 T100,7" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="text-[10px] text-amber-700 font-bold flex items-center gap-0.5">
+          <span>0% drop-off rate</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Hot Leads = 4 -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-rose-300 transition">
+        <div class="flex items-center justify-between text-slate-500 mb-1">
+          <span class="text-[10px] font-bold uppercase tracking-wider">Hot Leads</span>
+          <div class="p-1 bg-rose-50 text-rose-600 rounded-md">
+            <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-bold font-heading text-rose-600">4</div>
+        <!-- Sparkline SVG -->
+        <div class="my-2 h-5 w-full">
+          <svg class="w-full h-full" viewBox="0 0 100 25" preserveAspectRatio="none">
+            <path d="M0,22 Q30,18 60,14 T100,4" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="text-[10px] text-rose-700 font-bold flex items-center gap-0.5">
+          <span>Immediate priority</span>
+        </div>
+      </div>
+
+      <!-- Card 6: Active Deployments = 3 -->
+      <div class="card-luxury p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-teal-300 transition">
+        <div class="flex items-center justify-between text-slate-500 mb-1">
+          <span class="text-[10px] font-bold uppercase tracking-wider">Active Deployments</span>
+          <div class="p-1 bg-teal-50 text-teal-600 rounded-md">
+            <i data-lucide="file-check-2" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-bold font-heading text-teal-700">3</div>
+        <!-- Sparkline SVG -->
+        <div class="my-2 h-5 w-full">
+          <svg class="w-full h-full" viewBox="0 0 100 25" preserveAspectRatio="none">
+            <path d="M0,25 Q35,22 70,12 T100,5" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="text-[10px] text-teal-700 font-bold flex items-center gap-0.5">
+          <span>Sprint implementations</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAIN ANALYTICS SECTION: Funnel Pipeline + Conversion Velocity -->
+    <div class="card-luxury p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-2 border-b border-slate-100">
+        <div>
+          <h3 class="font-bold text-base text-darkNavy font-heading flex items-center gap-2">
+            <span><span class="customer-noun-cap">Pipeline</span> Funnel Velocity & Stage-by-Stage Conversion</span>
+            <span class="text-xs bg-emerald-50 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full border border-emerald-200">
+              ⚡ 42s Avg Qualification
+            </span>
+          </h3>
+          <p class="text-xs text-slate-500">
+            Intake Lead → AI Qualified → <span class="service-noun-cap">Strategy Call</span> Booked → Scope Approved → Sprint Kickoff
+          </p>
+        </div>
+        <div class="text-xs text-slate-500">
+          Conversion Efficiency: <strong class="text-emerald-700 font-bold">+2.8x Industry Baseline</strong>
+        </div>
+      </div>
+
+      <!-- 5-Stage Interactive Funnel Pipeline -->
+      <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 pt-1">
+        
+        <!-- Stage 1 -->
+        <div class="bg-gradient-to-b from-blue-50/60 to-slate-50 p-4 rounded-2xl border border-blue-200 relative overflow-hidden group">
+          <div class="text-[10px] uppercase font-bold text-blue-700 mb-1.5 flex items-center justify-between">
+            <span>1. Inbound Leads</span>
+            <span class="text-slate-400">100%</span>
+          </div>
+          <div class="text-2xl font-bold font-heading text-darkNavy">12 Leads</div>
+          <p class="text-[11px] text-slate-500 mt-1">Website Funnel Intake</p>
+          <div class="w-full bg-slate-200 h-2 rounded-full mt-3 overflow-hidden">
+            <div class="bg-blue-600 h-full w-full"></div>
+          </div>
+          <div class="text-[10px] text-blue-800 font-semibold mt-2">0s Response Latency</div>
+          <div class="absolute -right-2 top-1/2 -translate-y-1/2 text-slate-300 hidden sm:block font-bold">›</div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="bg-gradient-to-b from-emerald-50/60 to-slate-50 p-4 rounded-2xl border border-emerald-200 relative overflow-hidden group">
+          <div class="text-[10px] uppercase font-bold text-emerald-700 mb-1.5 flex items-center justify-between">
+            <span>2. AI Qualified</span>
+            <span class="text-slate-400">83.3%</span>
+          </div>
+          <div class="text-2xl font-bold font-heading text-emerald-700">10 Leads</div>
+          <p class="text-[11px] text-slate-500 mt-1">Instant WhatsApp Bot</p>
+          <div class="w-full bg-slate-200 h-2 rounded-full mt-3 overflow-hidden">
+            <div class="bg-waGreen h-full w-[83.3%]"></div>
+          </div>
+          <div class="text-[10px] text-emerald-800 font-semibold mt-2">2 Drop-offs (Under-budget)</div>
+          <div class="absolute -right-2 top-1/2 -translate-y-1/2 text-slate-300 hidden sm:block font-bold">›</div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="bg-gradient-to-b from-indigo-50/60 to-slate-50 p-4 rounded-2xl border border-indigo-200 relative overflow-hidden group">
+          <div class="text-[10px] uppercase font-bold text-indigo-700 mb-1.5 flex items-center justify-between">
+            <span>3. Booked</span>
+            <span class="text-slate-400">50.0%</span>
+          </div>
+          <div class="text-2xl font-bold font-heading text-indigo-700">6 Slots</div>
+          <p class="text-[11px] text-slate-500 mt-1">Calendar Auto-Sync</p>
+          <div class="w-full bg-slate-200 h-2 rounded-full mt-3 overflow-hidden">
+            <div class="bg-indigo-600 h-full w-[50%]"></div>
+          </div>
+          <div class="text-[10px] text-indigo-800 font-semibold mt-2">60% of Qualified book slot</div>
+          <div class="absolute -right-2 top-1/2 -translate-y-1/2 text-slate-300 hidden sm:block font-bold">›</div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="bg-gradient-to-b from-amber-50/60 to-slate-50 p-4 rounded-2xl border border-amber-200 relative overflow-hidden group">
+          <div class="text-[10px] uppercase font-bold text-amber-700 mb-1.5 flex items-center justify-between">
+            <span>4. Scope Review</span>
+            <span class="text-slate-400">33.3%</span>
+          </div>
+          <div class="text-2xl font-bold font-heading text-amber-700">4 <span class="customer-noun-plural">Leads</span></div>
+          <p class="text-[11px] text-slate-500 mt-1">Automated Briefs</p>
+          <div class="w-full bg-slate-200 h-2 rounded-full mt-3 overflow-hidden">
+            <div class="bg-amber-500 h-full w-[33.3%]"></div>
+          </div>
+          <div class="text-[10px] text-amber-800 font-semibold mt-2">Roadmaps Auto-Sent</div>
+          <div class="absolute -right-2 top-1/2 -translate-y-1/2 text-slate-300 hidden sm:block font-bold">›</div>
+        </div>
+
+        <!-- Stage 5 -->
+        <div class="bg-gradient-to-b from-teal-50/60 to-slate-50 p-4 rounded-2xl border border-teal-200 relative overflow-hidden group">
+          <div class="text-[10px] uppercase font-bold text-teal-700 mb-1.5 flex items-center justify-between">
+            <span>5. Sprint Active</span>
+            <span class="text-slate-400">25.0%</span>
+          </div>
+          <div class="text-2xl font-bold font-heading text-teal-700">3 Deployments</div>
+          <p class="text-[11px] text-slate-500 mt-1">Implementation Kickoff</p>
+          <div class="w-full bg-slate-200 h-2 rounded-full mt-3 overflow-hidden">
+            <div class="bg-teal-600 h-full w-[25%]"></div>
+          </div>
+          <div class="text-[10px] text-teal-800 font-semibold mt-2">Rollout Window &lt; 30 Days</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DUAL VISUAL CHARTS SECTION (Rich Interactive Graphs) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- CHART 1: Lead Velocity & Instant Response Timeline (7 Cols) -->
+      <div class="lg:col-span-7 card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <div>
+            <h4 class="font-bold text-sm text-darkNavy font-heading flex items-center gap-1.5">
+              <i data-lucide="activity" class="w-4 h-4 text-blue-600"></i>
+              <span>Hourly Lead Influx & 0-Second AI Response Matching</span>
+            </h4>
+            <p class="text-[11px] text-slate-500">Live comparison between web submissions and automated WhatsApp messages</p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-semibold">
+            <span class="flex items-center gap-1 text-blue-700">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span> Inbound Enquiries
+            </span>
+            <span class="flex items-center gap-1 text-waGreen">
+              <span class="w-2.5 h-2.5 rounded-full bg-waGreen"></span> AI Responses (&lt; 30s)
+            </span>
+          </div>
+        </div>
+
+        <!-- High-End Responsive SVG Area Graph -->
+        <div class="relative w-full h-56 pt-2">
+          <svg class="w-full h-full" viewBox="0 0 600 200" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="areaGradientBlue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2563EB" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#2563EB" stop-opacity="0.0"/>
+              </linearGradient>
+              <linearGradient id="areaGradientGreen" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#25D366" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#25D366" stop-opacity="0.0"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Grid Lines -->
+            <line x1="0" y1="40" x2="600" y2="40" stroke="#E2E8F0" stroke-dasharray="4,4"/>
+            <line x1="0" y1="90" x2="600" y2="90" stroke="#E2E8F0" stroke-dasharray="4,4"/>
+            <line x1="0" y1="140" x2="600" y2="140" stroke="#E2E8F0" stroke-dasharray="4,4"/>
+            <line x1="0" y1="185" x2="600" y2="185" stroke="#CBD5E1"/>
+
+            <!-- Area Fill Under Green Line -->
+            <polygon points="0,185 0,160 100,120 200,80 300,50 400,60 500,30 600,20 600,185" fill="url(#areaGradientGreen)"/>
+            
+            <!-- Inbound Leads Blue Line -->
+            <polyline points="0,165 100,125 200,85 300,55 400,65 500,35 600,25" fill="none" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+            
+            <!-- AI Responses Green Line (100% matched right on top) -->
+            <polyline points="0,160 100,120 200,80 300,50 400,60 500,30 600,20" fill="none" stroke="#25D366" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- Data Dots -->
+            <circle cx="100" cy="120" r="4" fill="#008069" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="200" cy="80" r="4" fill="#008069" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="300" cy="50" r="4" fill="#008069" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="400" cy="60" r="4" fill="#008069" stroke="#FFFFFF" stroke-width="2"/>
+            <circle cx="500" cy="30" r="5" fill="#0B1F3A" stroke="#25D366" stroke-width="2.5"/>
+            <circle cx="600" cy="20" r="5" fill="#0B1F3A" stroke="#25D366" stroke-width="2.5"/>
+          </svg>
+
+          <!-- Timeline X-Axis Labels -->
+          <div class="flex justify-between text-[10px] text-slate-400 pt-2 font-medium">
+            <span>9:00 AM</span>
+            <span>11:00 AM</span>
+            <span>1:00 PM</span>
+            <span>3:00 PM</span>
+            <span>5:00 PM</span>
+            <span>Now (Peak)</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-600 flex items-center justify-between">
+          <span>🚀 Peak Intake Hours: <strong>3:00 PM – 5:00 PM</strong></span>
+          <span class="text-emerald-700 font-bold">100% Automated Response Coverage</span>
+        </div>
+      </div>
+
+      <!-- CHART 2: Target Solution Distribution Donut Chart (5 Cols) -->
+      <div class="lg:col-span-5 card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-4 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+            <h4 class="font-bold text-sm text-darkNavy font-heading flex items-center gap-1.5">
+              <i data-lucide="pie-chart" class="w-4 h-4 text-purple-600"></i>
+              <span>Solution Preference Share</span>
+            </h4>
+            <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">12 Leads</span>
+          </div>
+
+          <!-- SVG Donut Chart with Centered Metric -->
+          <div class="flex items-center justify-center pt-2">
+            <div class="relative w-44 h-44 flex items-center justify-center">
+              <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                <!-- AI Funnels 45% (dasharray 45 55) -->
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#0B1F3A" stroke-width="14" stroke-dasharray="45 55" stroke-dashoffset="0"/>
+                <!-- Revenue Engines 25% (dasharray 25 75) -->
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#2563EB" stroke-width="14" stroke-dasharray="25 75" stroke-dashoffset="-45"/>
+                <!-- Workflow Automation 18% (dasharray 18 82) -->
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#25D366" stroke-width="14" stroke-dasharray="18 82" stroke-dashoffset="-70"/>
+                <!-- Custom Systems 12% (dasharray 12 88) -->
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#F59E0B" stroke-width="14" stroke-dasharray="12 88" stroke-dashoffset="-88"/>
+              </svg>
+              <!-- Center Metric Pill -->
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <span class="text-xl font-bold font-heading text-darkNavy">45%</span>
+                <span class="text-[10px] font-bold text-slate-500 uppercase">AI Funnels</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legend Grid -->
+          <div class="grid grid-cols-2 gap-2 text-xs pt-3">
+            <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="w-3 h-3 rounded-full bg-[#0B1F3A]"></span>
+              <div>
+                <div class="font-bold text-darkNavy">⚡ AI Funnels: 45%</div>
+                <div class="text-[10px] text-slate-400">5 Clients</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="w-3 h-3 rounded-full bg-blue-600"></span>
+              <div>
+                <div class="font-bold text-darkNavy">📈 Revenue: 25%</div>
+                <div class="text-[10px] text-slate-400">3 Clients</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="w-3 h-3 rounded-full bg-waGreen"></span>
+              <div>
+                <div class="font-bold text-darkNavy">🔄 Workflow: 18%</div>
+                <div class="text-[10px] text-slate-400">2 Clients</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+              <div>
+                <div class="font-bold text-darkNavy">💼 Custom: 12%</div>
+                <div class="text-[10px] text-slate-400">2 Clients</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-slate-500 text-center pt-2 border-t border-slate-100">
+          Turnkey AI Funnels represent the highest demand solution across growth companies.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- LOWER SECTION: Branch Smart-Routing + Live Automation Activity Ticker + Speed ROI -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- 1. Branch Routing Telemetry -->
+      <div class="card-luxury p-5 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-3">
+        <h4 class="font-bold text-xs text-darkNavy uppercase tracking-wider flex items-center justify-between">
+          <span>Territory Smart-Routing Telemetry</span>
+          <i data-lucide="map-pin" class="w-4 h-4 text-blue-600"></i>
+        </h4>
+        <div class="space-y-3 text-xs">
+          <div>
+            <div class="flex justify-between text-slate-700 mb-1 font-semibold">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-waGreen"></span>
+                <span class="branch-hub-1">Global Remote Hub (Enterprise Desk)</span>
+              </span>
+              <span class="text-emerald-700 font-bold">5 leads (41.6%)</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div class="bg-waGreen h-full w-[41.6%]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-slate-700 mb-1 font-semibold">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                <span>North America Solutions Desk</span>
+              </span>
+              <span class="text-blue-600 font-bold">4 leads (33.3%)</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div class="bg-blue-600 h-full w-[33.3%]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-slate-700 mb-1 font-semibold">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+                <span>EMEA & APAC Operations Hub</span>
+              </span>
+              <span class="text-purple-600 font-bold">3 leads (25.0%)</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div class="bg-purple-600 h-full w-[25%]"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-2.5 bg-slate-50 rounded-xl text-[11px] text-slate-600 mt-2 border border-slate-200">
+          📍 Direct WhatsApp routing to respective solutions director based on client intake selection.
+        </div>
+      </div>
+
+      <!-- 2. Live Activity Ticker (Real-Time AI Stream) -->
+      <div class="card-luxury p-5 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-3">
+        <h4 class="font-bold text-xs text-darkNavy uppercase tracking-wider flex items-center justify-between">
+          <span>Live AI Automation Stream</span>
+          <span class="flex h-2 w-2 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-waGreen opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-waGreen"></span>
+          </span>
+        </h4>
+        
+        <div class="space-y-2 text-xs">
+          <div class="p-2 rounded-xl bg-emerald-50/80 border border-emerald-200 flex items-start gap-2">
+            <span class="text-emerald-700 font-bold text-[10px] shrink-0 mt-0.5">10:04 AM</span>
+            <div class="text-[11px] text-slate-700">
+              <strong class="text-darkNavy student-name">Alex Morgan</strong> booked <span class="selected-slot-text">Tomorrow, 3:00 PM</span> slot (<span class="location-name">Global Remote Hub</span>)
+            </div>
+          </div>
+
+          <div class="p-2 rounded-xl bg-blue-50/70 border border-blue-200 flex items-start gap-2">
+            <span class="text-blue-700 font-bold text-[10px] shrink-0 mt-0.5">10:03 AM</span>
+            <div class="text-[11px] text-slate-700">
+              AI qualified <strong class="student-name">Alex Morgan</strong>: ⚡ AI Funnel • $10k–$25k • 🔥 Hot Lead
+            </div>
+          </div>
+
+          <div class="p-2 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2">
+            <span class="text-slate-500 font-bold text-[10px] shrink-0 mt-0.5">10:02 AM</span>
+            <div class="text-[11px] text-slate-700">
+              Instant WhatsApp greeting delivered to <strong>+91 98XXXXXX21</strong>
+            </div>
+          </div>
+
+          <div class="p-2 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2">
+            <span class="text-slate-500 font-bold text-[10px] shrink-0 mt-0.5">09:50 AM</span>
+            <div class="text-[11px] text-slate-700">
+              Briefing roadmap delivered to <strong>Marcus Vance</strong> (North America)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Speed & Conversion ROI Benchmark -->
+      <div class="card-luxury p-5 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50/70 border border-indigo-200 shadow-sm flex flex-col justify-between space-y-3">
+        <div>
+          <h4 class="font-bold text-xs text-indigo-950 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span>Speed Benchmark vs Manual</span>
+            <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
+          </h4>
+          
+          <div class="space-y-2 text-xs">
+            <div class="bg-white/90 p-2.5 rounded-xl border border-emerald-200 shadow-xs">
+              <div class="text-[10px] text-emerald-800 font-bold uppercase">Buildicy AI Funnel</div>
+              <div class="text-base font-bold font-heading text-darkNavy mt-0.5">&lt; 30 Seconds Instant</div>
+              <div class="text-[10px] text-slate-500">24/7 night & weekend response</div>
+            </div>
+
+            <div class="bg-white/90 p-2.5 rounded-xl border border-rose-200 shadow-xs">
+              <div class="text-[10px] text-rose-700 font-bold uppercase">Industry Agency Average</div>
+              <div class="text-base font-bold font-heading text-slate-800 mt-0.5">4 to 12 Hours</div>
+              <div class="text-[10px] text-slate-500">Over 40% lead drop-off rate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-indigo-200 flex items-center justify-between text-xs text-indigo-950">
+          <span class="font-semibold"><span class="team-member-noun-cap">Director</span> Productive Hours:</span>
+          <span class="font-bold text-emerald-700 text-sm font-heading">100% High-Intent</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MANDATORY REQUIRED FOOTER SPECIFIED IN BUILD GUIDE -->
+    <div class="card-luxury p-6 rounded-3xl bg-gradient-to-r from-emerald-50 via-white to-blue-50 border border-emerald-200 text-center shadow-sm">
+      <p class="text-base sm:text-lg font-bold text-darkNavy font-heading max-w-3xl mx-auto leading-relaxed">
+        “Every enquiry gets an instant AI response, gets qualified, books a <span class="service-noun-lower">strategy session</span>, and gets followed up automatically.”
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-500 mt-2.5">
+        <span>Prepared by <strong class="text-darkNavy">Buildicy — AI Growth Systems Studio</strong></span>
+        <span>•</span>
+        <span>Interactive AI Funnel Demo</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="shared.js"></script>
+  <script>
+    renderLoomNavbar(6);
+
+    const cfg = window.DEMO_CONFIG || {};
+    const student = getStudentData();
+
+    if (cfg.businessName) {
+      document.title = `Screen 6: AI Funnel Dashboard | ${cfg.businessName} AI Simulation`;
+      document.querySelectorAll('.business-name').forEach(el => el.textContent = cfg.businessName);
+    }
+    if (cfg.serviceNoun) {
+      const sNoun = cfg.serviceNoun;
+      document.querySelectorAll('.service-noun-cap').forEach(el => el.textContent = sNoun);
+      document.querySelectorAll('.service-noun-lower').forEach(el => el.textContent = sNoun.toLowerCase());
+    }
+    if (cfg.customerNoun) {
+      const cNoun = cfg.customerNoun;
+      document.querySelectorAll('.customer-noun-cap').forEach(el => el.textContent = cNoun);
+      document.querySelectorAll('.customer-noun-lower').forEach(el => el.textContent = cNoun.toLowerCase());
+      document.querySelectorAll('.customer-noun-plural').forEach(el => el.textContent = `${cNoun}s`);
+    }
+    if (cfg.teamMemberNoun) {
+      const tNoun = cfg.teamMemberNoun;
+      document.querySelectorAll('.team-member-noun-cap').forEach(el => el.textContent = tNoun);
+      document.querySelectorAll('.team-member-noun-lower').forEach(el => el.textContent = tNoun.toLowerCase());
+    }
+    if (cfg.location) {
+      document.querySelectorAll('.location-name').forEach(el => el.textContent = cfg.location);
+      document.querySelectorAll('.branch-hub-1').forEach(el => el.textContent = `${cfg.location} Hub`);
+    }
+
+    document.querySelectorAll('.student-name').forEach(el => el.textContent = student.name || "Alex Morgan");
+    document.querySelectorAll('.selected-slot-text').forEach(el => el.textContent = student.selectedSlot || "Tomorrow, 3:00 PM");
+  </script>
+</body>
+</html>

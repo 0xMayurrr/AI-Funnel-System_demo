@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 3: AI Qualification Layer | AI Funnel System Demo</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            waGreen: '#25D366',
+            waDarkGreen: '#075E54',
+            waTeal: '#008069',
+            waLightGreen: '#D9FDD3',
+            darkNavy: '#0B1F3A',
+            navySurface: '#102A4E',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Demo Central Configuration -->
+  <script src="config/demoConfig.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body class="ambient-canvas min-h-screen flex flex-col font-sans antialiased text-slate-800">
+
+  <!-- TOP PRESENTER NAVBAR -->
+  <div id="loom-navbar-container"></div>
+
+  <!-- MAIN STAGE -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 sm:py-8 space-y-6">
+    
+    <!-- Header Banner -->
+    <div class="card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 mb-1.5">
+          <span class="w-2 h-2 rounded-full bg-waGreen animate-pulse"></span>
+          <span>Screen 3 • Deep AI Qualification & Scoring Layer</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold font-heading text-darkNavy tracking-tight">
+          AI Qualification &amp; Solution Feasibility Engine
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Dual-View: Watch the client conversational qualification on WhatsApp while the AI Engine evaluates feasibility, budget fit, and readiness criteria in real-time.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="screen4.html" class="px-5 py-3 btn-primary-glow text-darkNavy rounded-2xl font-heading font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md hover:scale-105 transition-transform">
+          <span class="nav-next-service-text">Next: Strategy Session Booking</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Dual Layout: AI Qualification Intelligence Layer (Left 7 Cols) + Interactive WhatsApp (Right 5 Cols) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- LEFT: AI QUALIFICATION INTELLIGENCE LAYER (DEEP PROFILE ENGINE) -->
+      <div class="lg:col-span-7 space-y-5">
+        
+        <!-- Top AI Score Card -->
+        <div class="card-luxury p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm relative overflow-hidden">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+                🔥
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-bold text-lg text-darkNavy font-heading"><span class="student-name">Alex Johnson</span></h3>
+                  <span class="bg-rose-50 text-rose-700 border border-rose-200 text-[10px] font-bold px-2.5 py-0.5 rounded-full lead-badge-text">
+                    HOT LEAD
+                  </span>
+                </div>
+                <p class="text-xs text-slate-500"><span class="student-qual">Professional Background</span> • <span class="location-hub-route">Hub Route</span></p>
+              </div>
+            </div>
+
+            <!-- Qualification Score Gauge -->
+            <div class="text-right">
+              <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">AI Lead Score</div>
+              <div class="text-3xl font-bold font-heading text-emerald-600 flex items-center justify-end gap-1">
+                <span class="ai-score-value">96</span>
+                <span class="text-xs text-slate-400 font-normal">/ 100</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Core Compatibility Metrics -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
+            
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200/80" id="metric0">
+              <div class="text-[10px] text-slate-500 font-semibold uppercase metric-label-0">Profile Match</div>
+              <div class="text-base font-bold font-heading text-darkNavy mt-1 metric-value-0">98% Match</div>
+              <div class="text-[10px] text-emerald-600 font-medium metric-sub-0">Strong fit detected</div>
+            </div>
+
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200/80" id="metric1">
+              <div class="text-[10px] text-slate-500 font-semibold uppercase metric-label-1">Budget Fit</div>
+              <div class="text-base font-bold font-heading text-emerald-600 mt-1 metric-value-1">100% Viable</div>
+              <div class="text-[10px] text-slate-500 metric-sub-1">Within range</div>
+            </div>
+
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200/80" id="metric2">
+              <div class="text-[10px] text-slate-500 font-semibold uppercase metric-label-2">Readiness</div>
+              <div class="text-base font-bold font-heading text-blue-600 mt-1 metric-value-2">High</div>
+              <div class="text-[10px] text-blue-700 font-medium metric-sub-2">Ready to proceed</div>
+            </div>
+
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200/80" id="metric3">
+              <div class="text-[10px] text-slate-500 font-semibold uppercase metric-label-3">Success Rate</div>
+              <div class="text-base font-bold font-heading text-darkNavy mt-1 metric-value-3">98.4% Est.</div>
+              <div class="text-[10px] text-emerald-600 font-medium metric-sub-3">Clear pathway</div>
+            </div>
+
+          </div>
+
+          <!-- Deep AI Assessment Breakdown -->
+          <div class="mt-4 pt-4 border-t border-slate-100 space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-darkNavy flex items-center gap-1.5">
+              <i data-lucide="cpu" class="w-4 h-4 text-emerald-600"></i>
+              <span>AI Evaluation Dossier & Strategic Rationale</span>
+            </h4>
+
+            <div class="space-y-2 text-xs" id="aiDossierPoints">
+              
+              <div class="p-3 bg-emerald-50/60 rounded-xl border border-emerald-200/80 flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="text-emerald-950">Profile Feasibility:</strong>
+                  <p class="text-slate-600 text-[11px] mt-0.5">
+                    Lead's background directly satisfies prerequisites for the top matched options based on qualification and experience profile.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-3 bg-blue-50/60 rounded-xl border border-blue-200/80 flex items-start gap-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="text-blue-950">Budget Alignment:</strong>
+                  <p class="text-slate-600 text-[11px] mt-0.5">
+                    Declared budget is within viable range for the preferred options without requiring additional financing.
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200/80 flex items-start gap-2.5">
+                <i data-lucide="sparkles" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="text-amber-950">Readiness Signal:</strong>
+                  <p class="text-slate-600 text-[11px] mt-0.5">
+                    AI detected high intent and readiness indicators — lead is primed for immediate advisor engagement and fast-track processing.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Matched Solutions & Service Tiers Matrix -->
+          <div class="mt-4 pt-4 border-t border-slate-100">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-darkNavy flex items-center gap-1.5">
+                <i data-lucide="layers" class="w-4 h-4 text-blue-600"></i>
+                <span class="partner-institutions-title">Matched Implementation Architectures</span>
+              </span>
+              <span class="text-[10px] text-slate-500 font-semibold">High-Intent Fit</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs" id="partnerInstitutionsGrid">
+              
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-darkNavy partner-name-0">Enterprise AI Funnel Suite</div>
+                  <div class="text-[11px] text-slate-500 partner-course-0">Multi-Channel Inbound + WhatsApp • $18.5k/yr</div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded partner-badge-0 bg-emerald-100 text-emerald-800">High Fit</span>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-darkNavy partner-name-1">Revenue Accelerator Stack</div>
+                  <div class="text-[11px] text-slate-500 partner-course-1">Automated Qualification & Routing • $22k/yr</div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded partner-badge-1 bg-emerald-100 text-emerald-800">Max ROI</span>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-darkNavy partner-name-2">Turnkey Workflow Engine</div>
+                  <div class="text-[11px] text-slate-500 partner-course-2">CRM Webhook Sync + Alerts • $15k/yr</div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded partner-badge-2 bg-blue-100 text-blue-800">Fast Deploy</span>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-darkNavy partner-name-3">Sprint Pilot Implementation</div>
+                  <div class="text-[11px] text-slate-500 partner-course-3">Core Inbound Bot + Booking • $12.5k/yr</div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded partner-badge-3 bg-emerald-100 text-emerald-800">Quickstart</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Action Bar -->
+          <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+            <div class="text-xs text-slate-500 flex items-center gap-1.5">
+              <i data-lucide="check-check" class="w-4 h-4 text-waGreen"></i>
+              <span>Profile Qualified &amp; Ready for 1-on-1 Senior <span class="team-member-noun-label">Advisor</span> Booking</span>
+            </div>
+            
+            <a href="screen4.html" class="py-2.5 px-5 btn-primary-glow text-darkNavy rounded-xl font-bold font-heading text-xs flex items-center gap-2 shadow-sm hover:scale-105 transition-transform">
+              <span><span class="booking-label-text">Book Strategy Session</span> (Screen 4)</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT: INTERACTIVE IPHONE 16 PRO WHATSAPP CHAT -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="iphone-frame shadow-2xl">
+          
+          <!-- Dynamic Island -->
+          <div class="dynamic-island">
+            <div class="camera-lens"></div>
+          </div>
+
+          <!-- Phone Screen Frame -->
+          <div class="iphone-screen flex flex-col justify-between">
+            
+            <!-- iOS Status Bar -->
+            <div class="bg-[#008069] text-white pt-2.5 px-7 pb-1 text-[11px] font-medium flex items-center justify-between z-20">
+              <span>9:42</span>
+              <div class="flex items-center gap-1.5 text-xs">
+                <i data-lucide="signal" class="w-3 h-3"></i>
+                <i data-lucide="wifi" class="w-3 h-3"></i>
+                <i data-lucide="battery-medium" class="w-3.5 h-3.5"></i>
+              </div>
+            </div>
+
+            <!-- WhatsApp Official Header -->
+            <div class="bg-[#008069] text-white px-3 py-2.5 flex items-center justify-between shadow-md z-20">
+              <div class="flex items-center gap-2.5">
+                <a href="screen2.html" class="p-1 hover:bg-black/10 rounded-full transition">
+                  <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </a>
+                <div class="relative">
+                  <div class="w-9 h-9 rounded-full bg-darkNavy text-white font-bold flex items-center justify-center text-xs border border-white/40 shadow-sm font-heading business-initials">
+                    TO
+                  </div>
+                  <!-- Official Verified Badge -->
+                  <div class="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-emerald-500 rounded-full flex items-center justify-center border-2 border-[#008069]">
+                    <i data-lucide="check" class="w-2.5 h-2.5 text-white stroke-[3]"></i>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center gap-1.5 leading-tight">
+                    <h2 class="font-bold text-sm tracking-tight text-white font-heading business-name">Team Overseas</h2>
+                  </div>
+                  <div class="flex items-center gap-1 text-[10px] text-emerald-100 font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-ping"></span>
+                    <span>AI Qualification Active</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 text-white/90">
+                <i data-lucide="video" class="w-4 h-4"></i>
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                <i data-lucide="more-vertical" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <!-- Chat Conversation Scroll Area -->
+            <div id="chatScrollArea" class="flex-1 p-3.5 space-y-3 overflow-y-auto wa-wallpaper text-xs">
+              
+              <!-- Previous Context Bubble -->
+              <div class="flex flex-col items-end opacity-75">
+                <div class="bg-waLightGreen rounded-2xl rounded-tr-none p-2.5 shadow-xs max-w-[80%] border border-emerald-200/60 text-slate-900 leading-relaxed">
+                  <p class="text-xs student-qual">B.Tech IT, 2026</p>
+                  <div class="text-[9px] text-slate-500 flex items-center justify-end gap-1 mt-0.5 font-medium">
+                    <span>10:02 AM</span>
+                    <span class="text-blue-500 font-bold">✓✓</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============================================== -->
+              <!-- MESSAGE 1: SOLUTION QUESTION                   -->
+              <!-- ============================================== -->
+              <div class="flex flex-col items-start bubble-in">
+                <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[88%] border border-slate-200/70 text-slate-800 leading-relaxed">
+                  <p class="text-xs" id="chatMsgSolutionQuestion">
+                    Great. Which core AI automation solution is your top priority right now?
+                  </p>
+                  <div class="text-[9px] text-slate-400 text-right mt-1 font-medium">10:02 AM</div>
+                </div>
+
+                <!-- Quick-Reply Solution Buttons -->
+                <div id="countryPillsGroup" class="mt-2 flex flex-wrap gap-1.5 max-w-[95%]">
+                  <button onclick="handleSelectCountry('AI Funnel')" class="bg-white hover:bg-emerald-50 text-emerald-950 border-2 border-waGreen px-3 py-1.5 rounded-full font-bold shadow-sm transition flex items-center gap-1.5 text-xs hover:scale-105 active:scale-95">
+                    <span>⚡ AI Funnel</span>
+                    <span class="text-[9px] bg-waGreen text-darkNavy px-1.5 py-0.2 rounded-full font-bold">Select</span>
+                  </button>
+                  <button onclick="handleSelectCountry('Revenue Engine')" class="bg-white hover:bg-emerald-50 text-slate-700 border border-slate-300 px-2.5 py-1.5 rounded-full font-medium transition text-xs">
+                    <span>📈 Revenue Engine</span>
+                  </button>
+                  <button onclick="handleSelectCountry('Workflow AI')" class="bg-white hover:bg-emerald-50 text-slate-700 border border-slate-300 px-2.5 py-1.5 rounded-full font-medium transition text-xs">
+                    <span>🔄 Workflow AI</span>
+                  </button>
+                  <button onclick="handleSelectCountry('Custom Stack')" class="bg-white hover:bg-emerald-50 text-slate-700 border border-slate-300 px-2.5 py-1.5 rounded-full font-medium transition text-xs">
+                    <span>💼 Custom Stack</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- ============================================== -->
+              <!-- MESSAGE 2: CLIENT SOLUTION REPLY               -->
+              <!-- ============================================== -->
+              <div id="bubbleStudentCountry" class="hidden flex flex-col items-end bubble-in">
+                <div class="bg-waLightGreen rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[80%] border border-emerald-200/60 text-slate-900 leading-relaxed">
+                  <p class="text-xs font-bold" id="textStudentCountry">⚡ AI Funnel System</p>
+                  <div class="text-[9px] text-slate-500 flex items-center justify-end gap-1 mt-0.5 font-medium">
+                    <span>10:03 AM</span>
+                    <span class="text-blue-500 font-bold">✓✓</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============================================== -->
+              <!-- MESSAGE 3: BUDGET & TIMELINE QUESTION          -->
+              <!-- ============================================== -->
+              <div id="bubbleAiBudget" class="hidden flex flex-col items-start bubble-in">
+                <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[88%] border border-slate-200/70 text-slate-800 leading-relaxed">
+                  <p class="text-xs" id="chatMsgBudgetQuestion">
+                    What is your approximate implementation budget range, and what is your target launch timeline?
+                  </p>
+                  <div class="text-[9px] text-slate-400 text-right mt-1 font-medium">10:03 AM</div>
+                </div>
+
+                <!-- Suggested Budget Reply Chip -->
+                <div id="chipBudgetReply" class="mt-2">
+                  <button onclick="handleBudgetReply()" class="bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-waGreen px-3 py-1.5 rounded-full font-bold shadow-sm transition flex items-center gap-1.5 text-xs hover:scale-105 active:scale-95">
+                    <i data-lucide="corner-down-right" class="w-3.5 h-3.5 text-waGreen"></i>
+                    <span id="chipBudgetText">Reply: "$10k – $25k, Next 30 Days."</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- ============================================== -->
+              <!-- MESSAGE 4: CLIENT BUDGET REPLY                 -->
+              <!-- ============================================== -->
+              <div id="bubbleStudentBudget" class="hidden flex flex-col items-end bubble-in">
+                <div class="bg-waLightGreen rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[80%] border border-emerald-200/60 text-slate-900 leading-relaxed">
+                  <p class="text-xs font-medium" id="textStudentBudget">$10k – $25k, Next 30 Days.</p>
+                  <div class="text-[9px] text-slate-500 flex items-center justify-end gap-1 mt-0.5 font-medium">
+                    <span>10:03 AM</span>
+                    <span class="text-blue-500 font-bold">✓✓</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============================================== -->
+              <!-- MESSAGE 5: AI RECOMMENDATION                   -->
+              <!-- ============================================== -->
+              <div id="bubbleAiRecommendation" class="hidden flex flex-col items-start bubble-in">
+                <div class="bg-white rounded-2xl rounded-tl-none p-3.5 shadow-sm max-w-[92%] border border-slate-200/70 text-slate-800 leading-relaxed">
+                  <p class="text-xs" id="chatMsgRecommendationText">
+                    Thanks <span class="font-bold student-name text-darkNavy">Alex</span>. Based on your profile, high-fit automation architectures are available with estimated 4.8x ROI. Would you like to schedule a free 1-on-1 <span class="service-noun-label">strategy session</span> with our <strong><span class="location-name-label">Solutions</span> team</strong>?
+                  </p>
+                  <div class="text-[9px] text-slate-400 text-right mt-1 font-medium">10:03 AM</div>
+                </div>
+
+                <!-- Quick Action Buttons -->
+                <div id="btnGroupBookingAction" class="mt-2.5 w-full max-w-[92%] space-y-1.5">
+                  <a href="screen4.html" class="w-full py-2.5 px-3 bg-waGreen hover:bg-emerald-600 text-darkNavy font-bold rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs">
+                    <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i>
+                    <span class="booking-label-text">Book Strategy Session</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <button onclick="handleAskQuestion()" class="w-full py-1.5 px-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl border border-slate-300 transition flex items-center justify-center gap-1.5 text-[11px]">
+                    <i data-lucide="help-circle" class="w-3 h-3 text-slate-500"></i>
+                    <span>Ask a Question</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Typing Indicator -->
+              <div id="typingIndicator" class="hidden flex items-center gap-1.5 p-2 bg-white/80 rounded-2xl w-20 shadow-xs">
+                <span class="w-2 h-2 rounded-full bg-slate-400 animate-bounce"></span>
+                <span class="w-2 h-2 rounded-full bg-slate-400 animate-bounce [animation-delay:0.2s]"></span>
+                <span class="w-2 h-2 rounded-full bg-slate-400 animate-bounce [animation-delay:0.4s]"></span>
+              </div>
+
+            </div>
+
+            <!-- WhatsApp Message Bar -->
+            <div class="p-2.5 bg-[#F0F2F5] border-t border-slate-200 flex items-center gap-2 z-20">
+              <button class="text-slate-500 p-1 hover:text-slate-700">
+                <i data-lucide="smile" class="w-5 h-5"></i>
+              </button>
+              
+              <div class="flex-1 bg-white rounded-full px-3.5 py-1.5 border border-slate-300 flex items-center justify-between text-xs text-slate-400 shadow-inner">
+                <input type="text" id="fakeInputBar" readonly placeholder="Type a message..." class="w-full bg-transparent outline-none text-slate-800 text-xs">
+              </div>
+
+              <button class="w-9 h-9 rounded-full bg-[#008069] text-white flex items-center justify-center shadow-sm">
+                <i data-lucide="mic" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="shared.js"></script>
+  <script>
+    renderLoomNavbar(3);
+
+    const cfg = window.DEMO_CONFIG || {};
+    const student = getStudentData();
+
+    if (cfg.businessName) {
+      document.title = `Screen 3: AI Qualification Layer | ${cfg.businessName} Simulation`;
+      document.querySelectorAll('.business-name').forEach(el => el.textContent = cfg.businessName);
+    }
+    if (cfg.businessInitials) {
+      document.querySelectorAll('.business-initials').forEach(el => el.textContent = cfg.businessInitials);
+    }
+    if (cfg.bookingLabel) {
+      document.querySelectorAll('.booking-label-text').forEach(el => el.textContent = cfg.bookingLabel);
+    }
+    if (cfg.serviceNoun) {
+      document.querySelectorAll('.service-noun-label').forEach(el => el.textContent = cfg.serviceNoun.toLowerCase());
+      document.querySelectorAll('.nav-next-service-text').forEach(el => el.textContent = `Next: ${cfg.serviceNoun} Slot Booking`);
+    }
+    if (cfg.teamMemberNoun) {
+      document.querySelectorAll('.team-member-noun-label').forEach(el => el.textContent = cfg.teamMemberNoun);
+    }
+    if (cfg.location) {
+      document.querySelectorAll('.location-name-label').forEach(el => el.textContent = cfg.location);
+      document.querySelectorAll('.location-hub-route').forEach(el => el.textContent = `${cfg.location} Hub Route`);
+    }
+
+    document.querySelectorAll('.student-name').forEach(el => el.textContent = student.name);
+    document.querySelectorAll('.student-qual').forEach(el => el.textContent = `${student.qualification}, ${student.year}`);
+
+    const scrollArea = document.getElementById('chatScrollArea');
+    const typing = document.getElementById('typingIndicator');
+
+    function handleSelectCountry(country) {
+      playWhatsAppTone();
+      document.getElementById('countryPillsGroup').style.display = 'none';
+      
+      const countryBubble = document.getElementById('bubbleStudentCountry');
+      const label = country === 'AI Funnel' ? '⚡ AI Funnel System' : (country === 'Revenue Engine' ? '📈 Revenue Engine' : (country === 'Workflow AI' ? '🔄 Workflow Automation' : country));
+      document.getElementById('textStudentCountry').textContent = label;
+      countryBubble.classList.remove('hidden');
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+
+      saveStudentData({ country: label });
+
+      setTimeout(() => {
+        typing.classList.remove('hidden');
+        scrollArea.scrollTop = scrollArea.scrollHeight;
+      }, 350);
+
+      setTimeout(() => {
+        typing.classList.add('hidden');
+        document.getElementById('bubbleAiBudget').classList.remove('hidden');
+        scrollArea.scrollTop = scrollArea.scrollHeight;
+        playWhatsAppTone();
+        if (window.lucide) lucide.createIcons();
+      }, 1000);
+    }
+
+    function handleBudgetReply() {
+      playWhatsAppTone();
+      document.getElementById('chipBudgetReply').style.display = 'none';
+
+      const budgetBubble = document.getElementById('bubbleStudentBudget');
+      const bText = (student.budget || "$10k – $25k") + ", " + (student.intake || "Next 30 Days");
+      document.getElementById('textStudentBudget').textContent = bText;
+      budgetBubble.classList.remove('hidden');
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+
+      setTimeout(() => {
+        typing.classList.remove('hidden');
+        scrollArea.scrollTop = scrollArea.scrollHeight;
+      }, 350);
+
+      setTimeout(() => {
+        typing.classList.add('hidden');
+        const recEl = document.getElementById('chatMsgRecommendationText');
+        if (recEl && cfg.chatMessages && cfg.chatMessages.recommendation) {
+          recEl.innerHTML = interpolateConfig(cfg.chatMessages.recommendation, {
+            name: `<span class="font-bold student-name text-darkNavy">${student.name}</span>`,
+            country: student.country || "automation systems",
+            location: cfg.location || "Solutions"
+          });
+        }
+        document.getElementById('bubbleAiRecommendation').classList.remove('hidden');
+        scrollArea.scrollTop = scrollArea.scrollHeight;
+        playWhatsAppTone();
+        if (window.lucide) lucide.createIcons();
+      }, 1100);
+    }
+
+    function handleAskQuestion() {
+      playClickSound();
+      const cNoun = cfg.customerNoun ? cfg.customerNoun.toLowerCase() : "client";
+      const sNoun = cfg.serviceNoun ? cfg.serviceNoun.toLowerCase() : "strategy session";
+      alert(`In live deployment, the AI instantly resolves custom questions regarding tech stack integration, ROI projections, and implementation roadmap before guiding the ${cNoun} back to booking a ${sNoun}.`);
+    }
+  </script>
+</body>
+</html>
