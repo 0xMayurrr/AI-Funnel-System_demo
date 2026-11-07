@@ -15,13 +15,12 @@ def start_server():
     socketserver.TCPServer.allow_reuse_address = True
     try:
         with socketserver.TCPServer(("", PORT), Handler) as httpd:
-            url = f"http://localhost:{PORT}/index.html"
+            url = f"http://localhost:{PORT}/screen1.html"
             print(f"============================================================")
             print(f" Buildicy AI Funnel — Interactive Demo")
             print(f" Prepared by Buildicy — AI Growth Systems Studio")
             print(f"============================================================")
             print(f" Serving live at: {url}")
-            print(f" Opening default browser automatically...")
             print(f" Press Ctrl+C to stop the server.")
             print(f"============================================================")
             webbrowser.open(url)
@@ -31,7 +30,7 @@ def start_server():
             alt_port = 8081
             print(f"Port {PORT} in use, trying {alt_port}...")
             with socketserver.TCPServer(("", alt_port), Handler) as httpd:
-                url = f"http://localhost:{alt_port}/index.html"
+                url = f"http://localhost:{alt_port}/screen1.html"
                 print(f" Serving live at: {url}")
                 webbrowser.open(url)
                 httpd.serve_forever()
