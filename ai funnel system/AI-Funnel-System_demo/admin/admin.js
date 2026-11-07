@@ -2,6 +2,11 @@
 
 const STORAGE_KEY = 'buildicy_admin_config';
 
+function adminLogout() {
+  localStorage.removeItem('buildicy_admin_auth');
+  window.location.replace('login.html');
+}
+
 function getConfig() {
   try {
     const s = localStorage.getItem(STORAGE_KEY);

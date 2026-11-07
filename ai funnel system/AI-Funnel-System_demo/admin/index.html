@@ -43,6 +43,9 @@
         <a id="previewDemoBtn" href="../screen1.html" target="_blank" class="px-4 py-1.5 text-xs font-semibold bg-brand text-navy rounded-lg hover:bg-emerald-400 flex items-center gap-1.5 transition">
           <i data-lucide="play" class="w-3.5 h-3.5"></i> Preview Demo
         </a>
+        <button onclick="adminLogout()" class="px-3 py-1.5 text-xs font-medium text-slate-600 border border-slate-200 rounded-lg hover:bg-red-50 hover:text-red-600 hover:border-red-200 flex items-center gap-1.5 transition">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Logout
+        </button>
       </div>
     </div>
 
@@ -642,5 +645,11 @@
   <script src="../config/demoConfig.js"></script>
   <script src="industries.js"></script>
   <script src="admin.js"></script>
+  <script>
+    // Auth guard
+    if (localStorage.getItem('buildicy_admin_auth') !== 'true') {
+      window.location.replace('login.html');
+    }
+  </script>
 </body>
 </html>

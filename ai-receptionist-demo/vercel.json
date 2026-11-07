@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "name": "buildicy-ai-receptionist",
+  "builds": [{ "src": "**/*", "use": "@vercel/static" }],
+  "routes": [{ "src": "/(.*)", "dest": "/$1" }]
+}
